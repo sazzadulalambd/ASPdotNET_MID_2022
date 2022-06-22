@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Registration2";
+}
+
+<h2>Password Information</h2>
+
+<form action="" method="post">
+
+    <label>Organization's' Name:</label>
+    <input type="text" name="OrgName" value="@(Model!=null? Model.OrgName:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgName")</p>
+
+    <label>Established date:</label>
+    <input type="date" name="OrgEstablished" value="@(Model!=null? Model.OrgEstablished:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgEstablished")</p>
+
+    <label>Organization's' email:</label>
+    <input type="email" name="OrgEmail" value="@(Model!=null? Model.OrgEmail:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgEmail")</p>
+
+    <label>Organization's phone:</label>
+    <input type="tel" name="OrgPhone" value="@(Model!=null? Model.OrgPhone:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgPhone")</p>
+
+    <label>Organization license number:</label>
+    <input type="text" name="OrgLicense" value="@(Model!=null? Model.OrgLicense:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgLicense")</p>
+
+    <label>Tax identification number:</label>
+    <input type="text" name="Tin" value="@(Model!=null? Model.Tin:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("Tin")</p>
+
+    <label>Organization's Site:</label>
+    <input type="text" name="OrgSite" value="@(Model!=null? Model.OrgSite:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("OrgSite")</p>
+
+    <label>Organization Address:</label>
+    <textarea class="form-control" rows="5" name="OrgLocation" placeholder="Enter your full address.." @*value="@(Model!=null? Model.OrgLocation:"")"*@>@(Model!=null? Model.OrgLocation:"")</textarea>
+    <p class="text-danger">@Html.ValidationMessage("OrgLocation")</p>
+
+
+    <input type="button" value="Previous" class="btn btn-warning" onclick="location.href='@Url.Action("Registration","Investor")'" />
+    <input type="Submit" value="Next" class="btn btn-success">
+
+
+</form>
+
+<h3 class="text-success">@ViewBag.Message</h3>

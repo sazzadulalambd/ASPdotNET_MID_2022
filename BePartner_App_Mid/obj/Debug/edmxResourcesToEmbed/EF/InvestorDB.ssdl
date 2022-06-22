@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bePartnerCentralDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="in_Investors">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrgName" Type="varchar" MaxLength="50" />
+    <Property Name="OrgEstablished" Type="date" />
+    <Property Name="OrgLocation" Type="varchar" MaxLength="1000" />
+    <Property Name="OrgEmail" Type="varchar" MaxLength="100" />
+    <Property Name="OrgPhone" Type="varchar" MaxLength="20" />
+    <Property Name="OrgLicense" Type="varchar" MaxLength="20" />
+    <Property Name="Tin" Type="varchar" MaxLength="20" />
+    <Property Name="OrgSite" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+    <Property Name="EmailValidation" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="bePartnerCentralDatabaseModelStoreContainer">
+    <EntitySet Name="in_Investors" EntityType="Self.in_Investors" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

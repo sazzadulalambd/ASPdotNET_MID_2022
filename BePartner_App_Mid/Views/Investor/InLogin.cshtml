@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<h2>kkkkkkkk</h2>
+<center>
+    <div class="loginS">
+        <img src="~/Img/title_logo.png" alt="" height="100" width="100">
+
+
+        <form action="" method="post">
+
+            <table>
+
+                <caption class="text-center"><h2>Login</h2></caption>
+                <tr>
+                    <td>
+                        <p class="logins">Email:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <input type="email" name="Email" class="form-control" value="@(Model!=null? Model.Email:"")">
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <p class="logins">Password:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="passShow" name="Password" class="form-control" value="@(Model!=null? Model.ConfirmPassword:"")"></td>
+                </tr>
+                <tr>
+                    <td class="text-danger">@Html.Raw(ViewBag.Message)</td>
+                </tr>
+                <tr>
+
+                    <td><input type="checkbox" onclick="showPass()" name="pwd"> Show Password</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="remember"> Remember me.
+                    </td>
+                </tr>
+                <tr>
+
+                    <td><input type="submit" value="Login" name="submit" class="buttonInlogin">
+                </tr>
+                <tr>
+
+                    <td><input type="reset" name="Reset" class="buttonInlogin"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</center>
+
+@Scripts.Render("~/Content/InValid.js")

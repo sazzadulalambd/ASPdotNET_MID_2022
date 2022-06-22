@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bePartnerCentralDatabaseModelStoreContainer" CdmEntityContainer="bePartnerCentralDatabaseEntities">
+    <EntitySetMapping Name="in_Investors">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.in_Investors">
+        <MappingFragment StoreEntitySet="in_Investors">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Nid" ColumnName="Nid" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="OrgEstablished" ColumnName="OrgEstablished" />
+          <ScalarProperty Name="OrgLocation" ColumnName="OrgLocation" />
+          <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+          <ScalarProperty Name="OrgPhone" ColumnName="OrgPhone" />
+          <ScalarProperty Name="OrgLicense" ColumnName="OrgLicense" />
+          <ScalarProperty Name="Tin" ColumnName="Tin" />
+          <ScalarProperty Name="OrgSite" ColumnName="OrgSite" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

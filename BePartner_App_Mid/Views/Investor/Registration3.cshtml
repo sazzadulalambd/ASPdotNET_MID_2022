@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Registration3";
+}
+
+<h2>Password </h2>
+
+<form action="" method="post">
+    <label> Password:</label>
+    <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
+    <p class="text-danger">@Html.ValidationMessage("Password")</p>
+
+    <label>Confirm Password:</label>
+    <input type="password" name="ConfirmPassword" value="@(Model!=null? Model.ConfirmPassword:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("ConfirmPassword")</p>
+
+    <input type="button" value="Previous" class="btn btn-warning" onclick="location.href='@Url.Action("Registration2","Investor")'" />
+    <input type="Submit" value="Next" class="btn btn-success">
+</form>
+
