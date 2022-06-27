@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bd072bcd2a964be5b4deb3111e0ba7d9" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Employee" Width="1.5" PointX="5.375" PointY="6" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Entrepreneur" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Admin" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Idea" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Login" Width="1.5" PointX="7.375" PointY="9.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Report" Width="1.5" PointX="6" PointY="2.125" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Task" Width="1.5" PointX="7.625" PointY="6.375" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel.FK_Tasks_Employees" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel.FK_Ideas_Entrepreneurs" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel.FK_Reports_Entrepreneurs" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel.Investor" Width="1.5" PointX="9.375" PointY="10.125" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel.FK_Ideas_in_Investors1" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel.FK_Reports_in_Investors1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

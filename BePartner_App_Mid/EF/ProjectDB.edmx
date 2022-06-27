@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bePartnerCentralDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Ad_Email" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Dob" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Security_key" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Nid" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Ad_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Security_key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Emp_Email" />
+          </Key>
+          <Property Name="Emp_Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Security_key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entrepreneurs">
+          <Key>
+            <PropertyRef Name="En_Email" />
+          </Key>
+          <Property Name="En_Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Bob" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Occupation" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Ideas">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="En_Post_Email" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Post_Time" />
+            <PropertyRef Name="Asking_Amount" />
+            <PropertyRef Name="Asking_Share" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="En_Post_Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="In_Asp_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Post_Time" Type="date" Nullable="false" />
+          <Property Name="Asking_Amount" Type="int" Nullable="false" />
+          <Property Name="Asking_Share" Type="float" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="5000" />
+          <Property Name="Offer_Amount" Type="int" />
+          <Property Name="Offer_Share" Type="float" />
+        </EntityType>
+        <EntityType Name="Investors">
+          <Key>
+            <PropertyRef Name="In_Email" />
+          </Key>
+          <Property Name="In_Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrgName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrgEstablished" Type="date" Nullable="false" />
+          <Property Name="OrgLocation" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="OrgEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrgPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrgLicense" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tin" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrgSite" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EmailValidation" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ReportId" />
+            <PropertyRef Name="Reported_By" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Report_Time" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ReportId" Type="int" Nullable="false" />
+          <Property Name="Reported_By" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Report_Time" Type="date" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+            <PropertyRef Name="Emp_Assigned" />
+            <PropertyRef Name="Task_Description" />
+            <PropertyRef Name="Issue_time" />
+            <PropertyRef Name="Due_time" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_Assigned" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Task_Description" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Issue_time" Type="date" Nullable="false" />
+          <Property Name="Due_time" Type="date" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ideas_Entrepreneurs">
+          <End Role="Entrepreneurs" Type="Self.Entrepreneurs" Multiplicity="1" />
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneurs">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Ideas">
+              <PropertyRef Name="En_Post_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ideas_in_Investors">
+          <End Role="Investors" Type="Self.Investors" Multiplicity="0..1" />
+          <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investors">
+              <PropertyRef Name="In_Email" />
+            </Principal>
+            <Dependent Role="Ideas">
+              <PropertyRef Name="In_Asp_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Entrepreneurs">
+          <End Role="Entrepreneurs" Type="Self.Entrepreneurs" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneurs">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="Reported_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_in_Investors">
+          <End Role="Investors" Type="Self.Investors" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investors">
+              <PropertyRef Name="In_Email" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="Reported_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Emp_Email" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="Emp_Assigned" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bePartnerCentralDatabaseModelStoreContainer">
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entrepreneurs" EntityType="Self.Entrepreneurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Admins].[Ad_Email] AS [Ad_Email], 
+    [Admins].[FirstName] AS [FirstName], 
+    [Admins].[LastName] AS [LastName], 
+    [Admins].[Dob] AS [Dob], 
+    [Admins].[Address] AS [Address], 
+    [Admins].[Phone] AS [Phone], 
+    [Admins].[Security_key] AS [Security_key], 
+    [Admins].[Gender] AS [Gender], 
+    [Admins].[Nid] AS [Nid], 
+    [Admins].[Password] AS [Password]
+    FROM [dbo].[Admins] AS [Admins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Ideas" EntityType="Self.Ideas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Ideas].[PostId] AS [PostId], 
+    [Ideas].[En_Post_Email] AS [En_Post_Email], 
+    [Ideas].[In_Asp_Email] AS [In_Asp_Email], 
+    [Ideas].[Title] AS [Title], 
+    [Ideas].[Description] AS [Description], 
+    [Ideas].[Post_Time] AS [Post_Time], 
+    [Ideas].[Asking_Amount] AS [Asking_Amount], 
+    [Ideas].[Asking_Share] AS [Asking_Share], 
+    [Ideas].[Status] AS [Status], 
+    [Ideas].[Message] AS [Message], 
+    [Ideas].[Offer_Amount] AS [Offer_Amount], 
+    [Ideas].[Offer_Share] AS [Offer_Share]
+    FROM [dbo].[Ideas] AS [Ideas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Login].[Email] AS [Email], 
+    [Login].[Password] AS [Password]
+    FROM [dbo].[Login] AS [Login]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reports" EntityType="Self.Reports" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reports].[ReportId] AS [ReportId], 
+    [Reports].[Reported_By] AS [Reported_By], 
+    [Reports].[Title] AS [Title], 
+    [Reports].[Description] AS [Description], 
+    [Reports].[Report_Time] AS [Report_Time], 
+    [Reports].[Status] AS [Status]
+    FROM [dbo].[Reports] AS [Reports]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tasks].[TaskId] AS [TaskId], 
+    [Tasks].[Emp_Assigned] AS [Emp_Assigned], 
+    [Tasks].[Task_Description] AS [Task_Description], 
+    [Tasks].[Issue_time] AS [Issue_time], 
+    [Tasks].[Due_time] AS [Due_time], 
+    [Tasks].[Status] AS [Status]
+    FROM [dbo].[Tasks] AS [Tasks]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="Self.FK_Ideas_Entrepreneurs">
+            <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
+            <End Role="Ideas" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ideas_in_Investors" Association="Self.FK_Ideas_in_Investors">
+            <End Role="Investors" EntitySet="Investors" />
+            <End Role="Ideas" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Entrepreneurs" Association="Self.FK_Reports_Entrepreneurs">
+            <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_in_Investors" Association="Self.FK_Reports_in_Investors">
+            <End Role="Investors" EntitySet="Investors" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Employees" Association="Self.FK_Tasks_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bePartnerCentralDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bePartnerCentralDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="bePartnerCentralDatabaseModel.Employee" />
+          <EntitySet Name="Entrepreneurs" EntityType="bePartnerCentralDatabaseModel.Entrepreneur" />
+          <EntitySet Name="Admins" EntityType="bePartnerCentralDatabaseModel.Admin" />
+          <EntitySet Name="Ideas" EntityType="bePartnerCentralDatabaseModel.Idea" />
+          <EntitySet Name="Logins" EntityType="bePartnerCentralDatabaseModel.Login" />
+          <EntitySet Name="Reports" EntityType="bePartnerCentralDatabaseModel.Report" />
+          <EntitySet Name="Tasks" EntityType="bePartnerCentralDatabaseModel.Task" />
+          <AssociationSet Name="FK_Tasks_Employees" Association="bePartnerCentralDatabaseModel.FK_Tasks_Employees">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="bePartnerCentralDatabaseModel.FK_Ideas_Entrepreneurs">
+            <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Entrepreneurs" Association="bePartnerCentralDatabaseModel.FK_Reports_Entrepreneurs">
+            <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <EntitySet Name="Investors" EntityType="bePartnerCentralDatabaseModel.Investor" />
+          <AssociationSet Name="FK_Ideas_in_Investors1" Association="bePartnerCentralDatabaseModel.FK_Ideas_in_Investors1">
+            <End Role="Investor" EntitySet="Investors" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_in_Investors1" Association="bePartnerCentralDatabaseModel.FK_Reports_in_Investors1">
+            <End Role="Investor" EntitySet="Investors" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Emp_Email" />
+          </Key>
+          <Property Name="Emp_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Security_key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tasks" Relationship="bePartnerCentralDatabaseModel.FK_Tasks_Employees" FromRole="Employee" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Entrepreneur">
+          <Key>
+            <PropertyRef Name="En_Email" />
+          </Key>
+          <Property Name="En_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Bob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
+          <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel.FK_Reports_Entrepreneurs" FromRole="Entrepreneur" ToRole="Report" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Ad_Email" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Dob" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Security_key" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Nid" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="Ad_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Security_key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="En_Post_Email" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Post_Time" />
+            <PropertyRef Name="Asking_Amount" />
+            <PropertyRef Name="Asking_Share" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="En_Post_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="In_Asp_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Post_Time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Asking_Amount" Type="Int32" Nullable="false" />
+          <Property Name="Asking_Share" Type="Double" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Offer_Amount" Type="Int32" />
+          <Property Name="Offer_Share" Type="Double" />
+          <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel.FK_Ideas_Entrepreneurs" FromRole="Idea" ToRole="Entrepreneur" />
+          <NavigationProperty Name="Investor" Relationship="bePartnerCentralDatabaseModel.FK_Ideas_in_Investors1" FromRole="Idea" ToRole="Investor" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ReportId" />
+            <PropertyRef Name="Reported_By" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Report_Time" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ReportId" Type="Int32" Nullable="false" />
+          <Property Name="Reported_By" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Report_Time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel.FK_Reports_Entrepreneurs" FromRole="Report" ToRole="Entrepreneur" />
+          <NavigationProperty Name="Investor" Relationship="bePartnerCentralDatabaseModel.FK_Reports_in_Investors1" FromRole="Report" ToRole="Investor" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskId" />
+            <PropertyRef Name="Emp_Assigned" />
+            <PropertyRef Name="Task_Description" />
+            <PropertyRef Name="Issue_time" />
+            <PropertyRef Name="Due_time" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Assigned" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Task_Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employee" Relationship="bePartnerCentralDatabaseModel.FK_Tasks_Employees" FromRole="Task" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Tasks_Employees">
+          <End Type="bePartnerCentralDatabaseModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Emp_Email" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="Emp_Assigned" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ideas_Entrepreneurs">
+          <End Type="bePartnerCentralDatabaseModel.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel.Idea" Role="Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneur">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="En_Post_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Entrepreneurs">
+          <End Type="bePartnerCentralDatabaseModel.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneur">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Reported_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Investor">
+          <Key>
+            <PropertyRef Name="In_Email" />
+          </Key>
+          <Property Name="In_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrgName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgEstablished" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OrgLocation" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OrgEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrgPhone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrgLicense" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tin" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OrgSite" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmailValidation" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel.FK_Ideas_in_Investors1" FromRole="Investor" ToRole="Idea" />
+          <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel.FK_Reports_in_Investors1" FromRole="Investor" ToRole="Report" />
+        </EntityType>
+        <Association Name="FK_Ideas_in_Investors1">
+          <End Type="bePartnerCentralDatabaseModel.Investor" Role="Investor" Multiplicity="0..1" />
+          <End Type="bePartnerCentralDatabaseModel.Idea" Role="Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="In_Email" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="In_Asp_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_in_Investors1">
+          <End Type="bePartnerCentralDatabaseModel.Investor" Role="Investor" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="In_Email" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Reported_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bePartnerCentralDatabaseModelStoreContainer" CdmEntityContainer="bePartnerCentralDatabaseEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Security_key" ColumnName="Security_key" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entrepreneurs">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Entrepreneur">
+              <MappingFragment StoreEntitySet="Entrepreneurs">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Bob" ColumnName="Bob" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="En_Email" ColumnName="En_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Security_key" ColumnName="Security_key" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Ad_Email" ColumnName="Ad_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Idea">
+              <MappingFragment StoreEntitySet="Ideas">
+                <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
+                <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
+                <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
+                <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
+                <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Report">
+              <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Report_Time" ColumnName="Report_Time" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Reported_By" ColumnName="Reported_By" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Due_time" ColumnName="Due_time" />
+                <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
+                <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+                <ScalarProperty Name="Emp_Assigned" ColumnName="Emp_Assigned" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Investors">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Investor">
+              <MappingFragment StoreEntitySet="Investors">
+                <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="OrgSite" ColumnName="OrgSite" />
+                <ScalarProperty Name="Tin" ColumnName="Tin" />
+                <ScalarProperty Name="OrgLicense" ColumnName="OrgLicense" />
+                <ScalarProperty Name="OrgPhone" ColumnName="OrgPhone" />
+                <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+                <ScalarProperty Name="OrgLocation" ColumnName="OrgLocation" />
+                <ScalarProperty Name="OrgEstablished" ColumnName="OrgEstablished" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="In_Email" ColumnName="In_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

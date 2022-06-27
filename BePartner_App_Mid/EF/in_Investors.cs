@@ -14,15 +14,21 @@ namespace BePartner_App_Mid.EF
     
     public partial class in_Investors
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public in_Investors()
+        {
+            this.Ideas = new HashSet<Idea>();
+            this.Reports = new HashSet<Report>();
+        }
+    
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public System.DateTime Dob { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }
         public string Nid { get; set; }
         public string OrgName { get; set; }
-        public Nullable<System.DateTime> OrgEstablished { get; set; }
+        public System.DateTime OrgEstablished { get; set; }
         public string OrgLocation { get; set; }
         public string OrgEmail { get; set; }
         public string OrgPhone { get; set; }
@@ -32,5 +38,12 @@ namespace BePartner_App_Mid.EF
         public string Password { get; set; }
         public string Status { get; set; }
         public string EmailValidation { get; set; }
+        public string In_Email { get; set; }
+        public string Gender { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Idea> Ideas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }

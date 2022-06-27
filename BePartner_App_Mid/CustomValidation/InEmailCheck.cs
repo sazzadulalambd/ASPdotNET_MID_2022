@@ -13,12 +13,17 @@ namespace BePartner_App_Mid.CustomValidation
         {
             if(value != null)
             {
+                var email = HttpContext.Current.Session["In_Email"].ToString();
                 string message = value.ToString();
-                var db = new bePartnerCentralDatabaseEntities();
-                var investor = (from I in db.in_Investors where I.Email == message select I).FirstOrDefault();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var investor = (from I in db.Investors where I.In_Email.Equals(email) select I).FirstOrDefault();
                 if(investor != null)
                 {
-                    return new ValidationResult("*Email already exixts");
+                    if (email.Equals(message))
+                    {
+                        return ValidationResult.Success;
+                    }
+                    return new ValidationResult("*Email already exists");
                 }
             }
             return ValidationResult.Success;

@@ -5,7 +5,11 @@
 
 <h2>Password </h2>
 
-<form action="" method="post">
+<form action="" method="post" class="in-registration">
+    <img class="in-reg-img" src="~/Img/title_logo.png" alt="" height="100" width="100">
+    <h2>Almost There</h2>
+    <h2>3/3</h2>
+
     <label> Password:</label>
     <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
     <p class="text-danger">@Html.ValidationMessage("Password")</p>
@@ -14,7 +18,10 @@
     <input type="password" name="ConfirmPassword" value="@(Model!=null? Model.ConfirmPassword:"")" class="form-control">
     <p class="text-danger">@Html.ValidationMessage("ConfirmPassword")</p>
 
-    <input type="button" value="Previous" class="btn btn-warning" onclick="location.href='@Url.Action("Registration2","Investor")'" />
-    <input type="Submit" value="Next" class="btn btn-success">
+    <input type="Submit" value="Next" class="btn btn-success in-reg-button">
+    <input type="button" value="Previous" class="btn btn-warning in-reg-button" onclick="location.href='@Url.Action("Registration2","Investor")'" />
+
 </form>
+
+<h3 class="text-success">@ViewBag.Message</h3>
 

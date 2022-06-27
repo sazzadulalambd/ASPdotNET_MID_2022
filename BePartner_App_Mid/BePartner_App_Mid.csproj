@@ -129,32 +129,59 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InHomeController.cs" />
     <Compile Include="Controllers\InvestorController.cs" />
     <Compile Include="CustomValidation\CustomValid.cs" />
+    <Compile Include="CustomValidation\InCheckPass.cs" />
     <Compile Include="CustomValidation\InEmailCheck.cs" />
     <Compile Include="CustomValidation\OrgEstValid.cs" />
-    <Compile Include="EF\InvestorDB.Context.cs">
+    <Compile Include="EF\Admin.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Employee.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Entrepreneur.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Idea.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Investor.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProjectData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InvestorDB.Context.tt</DependentUpon>
+      <DependentUpon>ProjectData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\InvestorDB.cs">
+    <Compile Include="EF\ProjectData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InvestorDB.tt</DependentUpon>
+      <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\InvestorDB.Designer.cs">
+    <Compile Include="EF\ProjectData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>InvestorDB.edmx</DependentUpon>
+      <DependentUpon>ProjectData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EF\in_Investors.cs">
-      <DependentUpon>InvestorDB.tt</DependentUpon>
+    <Compile Include="EF\Login.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Report.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Task.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\InvestorEntity.cs" />
+    <Compile Include="Models\InvestorEditPass.cs" />
+    <Compile Include="Models\InvestorLogin.cs" />
+    <Compile Include="Models\InvestorPassword.cs" />
+    <Compile Include="Models\InvestorPersonal.cs" />
+    <Compile Include="Models\InvestorProfational.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,31 +189,33 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\InProfileStyle.css" />
     <Content Include="Content\InStyle.css" />
     <Content Include="Content\InValid.js" />
-    <Content Include="EF\InvestorDB.Context.tt">
+    <Content Include="EF\ProjectData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>InvestorDB.Context.cs</LastGenOutput>
-      <DependentUpon>InvestorDB.edmx</DependentUpon>
+      <DependentUpon>ProjectData.edmx</DependentUpon>
+      <LastGenOutput>ProjectData.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\InvestorDB.tt">
+    <Content Include="EF\ProjectData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>InvestorDB.edmx</DependentUpon>
-      <LastGenOutput>InvestorDB.cs</LastGenOutput>
+      <DependentUpon>ProjectData.edmx</DependentUpon>
+      <LastGenOutput>ProjectData.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\11.jpg" />
     <Content Include="Img\title_logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="EF\InvestorDB.edmx">
+    <EntityDeploy Include="EF\ProjectData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>InvestorDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProjectData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="EF\InvestorDB.edmx.diagram">
-      <DependentUpon>InvestorDB.edmx</DependentUpon>
+    <Content Include="EF\ProjectData.edmx.diagram">
+      <DependentUpon>ProjectData.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -218,6 +247,10 @@
     <Content Include="Views\Investor\Index.cshtml" />
     <Content Include="Views\Investor\InLogin.cshtml" />
     <Content Include="Views\Investor\Registration3.cshtml" />
+    <Content Include="Views\InHome\InProfile.cshtml" />
+    <Content Include="Views\InHome\InEditPersonal.cshtml" />
+    <Content Include="Views\InHome\InEditProfessional.cshtml" />
+    <Content Include="Views\InHome\InEditPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

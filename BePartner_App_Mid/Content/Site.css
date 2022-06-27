@@ -1,13 +1,14 @@
 ﻿body {
-    padding-top: 50px;
+    margin:15px;
+    padding-top: 00px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -17,14 +18,162 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
     background-color: #777;
     border-color: #fff
 }
+
+
+
+
+/*############## ############# ######### INVESTORS CSS STARTS ############## ############ ###############*/
+/*****************registration*/
+.in-registration {
+    padding-top:20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-left: 45px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    padding-bottom: 30px;
+}
+
+.in-reg-img{
+    margin-left:120px;
+    margin-bottom:20px;
+}
+
+.in-reg-button {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    min-width: 350px;
+}
+
+.in-registration h2{
+
+    text-align:center;
+    margin-right:35px;
+}
+
+.in-registration input{
+    max-width: 350px;
+}
+
+.in-registration textarea {
+    max-width: 350px;
+}
+
+.in-registration button{
+    min-width:350px;
+}
+
+/*****************login*/
+
+.loginbody {
+    margin-top: 5%;
+    
+}
+
+.loginbody input[type="email"]{
+    min-width:300px;
+}
+
+.loginbody .in-login-button{
+    min-width:300px;
+    margin-bottom:10px;
+}
+    .loginbody form {
+        margin-left: 35%;
+        margin-right: 35%;
+        padding-top: 2%;
+        padding-bottom: 3%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        background-color: rgb(240, 240, 240);
+    }
+
+.logins {
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+.inLogin input{
+    max-width: 300px;
+}
+
+
+
+/******************Profile*/
+
+/*body {
+    background: #f9f9f9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}*/
+
+.pofile-body {
+    display: inline-block;
+}
+
+.Inprofile-container {
+    /*display:inline-block;*/
+    margin-top: 20px;
+    margin-left:-16%;
+
+}
+
+input[type = "text"] {
+    font-size: medium;
+}
+
+
+
+
+
+
+.shadow {
+    
+    width: 114%;
+    box-shadow: 0 2px 10px #f9f9f9 !important;
+    background-color: rgb(240, 240, 240);
+}
+
+.profile-tab-nav {
+    min-width: 250px;
+}
+
+.tab-content {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.nav-pills a.nav-link {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    color: #333;
+}
+
+    .nav-pills a.nav-link i {
+        width: 20px;
+    }
+
+.img-circle img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 5px solid #fff;
+}
+
+
+
+
+/*############## ############# ######### INVESTORS CSS ENDS ############## ############ ###############*/

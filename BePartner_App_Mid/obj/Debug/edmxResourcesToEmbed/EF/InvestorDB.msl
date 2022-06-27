@@ -4,12 +4,13 @@
     <EntitySetMapping Name="in_Investors">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.in_Investors">
         <MappingFragment StoreEntitySet="in_Investors">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="In_Email" ColumnName="In_Email" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Dob" ColumnName="Dob" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Nid" ColumnName="Nid" />
           <ScalarProperty Name="OrgName" ColumnName="OrgName" />
           <ScalarProperty Name="OrgEstablished" ColumnName="OrgEstablished" />
@@ -22,6 +23,104 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="EmailValidation" ColumnName="EmailValidation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Nid" ColumnName="Nid" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Security_key" ColumnName="Security_key" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrepreneurs">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Entrepreneur">
+        <MappingFragment StoreEntitySet="Entrepreneurs">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Nid" ColumnName="Nid" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bob" ColumnName="Bob" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="En_Email" ColumnName="En_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Nid" ColumnName="Nid" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Security_key" ColumnName="Security_key" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Ad_Email" ColumnName="Ad_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ideas">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Idea">
+        <MappingFragment StoreEntitySet="Ideas">
+          <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
+          <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
+          <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
+          <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
+          <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Report_Time" ColumnName="Report_Time" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Reported_By" ColumnName="Reported_By" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Due_time" ColumnName="Due_time" />
+          <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
+          <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+          <ScalarProperty Name="Emp_Assigned" ColumnName="Emp_Assigned" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

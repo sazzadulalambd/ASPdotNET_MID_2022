@@ -3,45 +3,54 @@
     ViewBag.Title = "Registration";
 }
 
-<h2>Registration 1</h2>
 
-<form action="" method="post">
 
-    <div id="name" >
+<form action="" method="post" class="in-registration">
+    <img class="in-reg-img" src="~/Img/title_logo.png" alt="" height="100" width="100">
+    <h2>Registration</h2>
+    <h2>1/3</h2>
+
     <label>First Name:</label>
     <input type="text" name="FirstName" value="@(Model!=null? Model.FirstName:"")" class="form-control">
     <p class="text-danger">@Html.ValidationMessage("FirstName")</p>
-
-    </div>
 
     <label>Last Name:</label>
     <input type="text" name="LastName" value="@(Model!=null? Model.LastName:"")" class="form-control">
     <p class="text-danger">@Html.ValidationMessage("LastName")</p>
 
+    <label>Gender:</label><br>
+    <input type="radio" name="Gender" value="Male" class="form-check-input" />
+    <label>Male</label>
+    <input type="radio" name="Gender" value="Female" class="form-check-input" />
+    <label>Female</label>
+    <input type="radio" name="Gender" value="Other" class="form-check-input" />
+    <label>Other</label><br>
+    <p class="text-danger">@Html.ValidationMessage("Gender")</p>
+
     <label>Date of birth:</label>
     <input type="date" name="Dob" value="@(Model!=null? Model.Dob.Date:"")" class="form-control">
-    <p class="text-danger">@Html.ValidationMessage("Dob")</p>
+    <p class="text-danger ">@Html.ValidationMessage("Dob")</p>
 
     <label>Phone:</label>
     <input type="tel" name="Phone" value="@(Model!=null? Model.Phone:"")" class="form-control">
     <p class="text-danger">@Html.ValidationMessage("Phone")</p>
 
     <label>Email:</label>
-    <input type="email" name="Email" value="@(Model!=null? Model.Email:"")" class="form-control">
-    <p class="text-danger">@Html.ValidationMessage("Email")</p>
+    <input type="email" name="In_Email" value="@(Model!=null? Model.In_Email:"")" class="form-control">
+    <p class="text-danger">@Html.ValidationMessage("In_Email")</p>
 
     <label>NID number:</label>
     <input type="text" name="Nid" value="@(Model!=null? Model.Nid:"")" class="form-control">
     <p class="text-danger">@Html.ValidationMessage("Nid")</p>
 
-    <label>Parmanent Address:</label>
+    <label>Permanent Address:</label>
     <textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." @*value="@(Model!=null? Model.Address:"")"*@>@(Model!=null? Model.Address:"")</textarea>
     <p class="text-danger">@Html.ValidationMessage("Address")</p>
 
 
 
 
-    <input type="Submit" value="Next" onclick="myFunction" class="btn btn-success">
+    <input type="Submit" value="Next" onclick="myFunction" class="btn btn-success in-reg-button">
 
 </form>
 

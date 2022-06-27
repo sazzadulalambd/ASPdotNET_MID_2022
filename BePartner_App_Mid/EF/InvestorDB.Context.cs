@@ -26,5 +26,12 @@ namespace BePartner_App_Mid.EF
         }
     
         public virtual DbSet<in_Investors> in_Investors { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Entrepreneur> Entrepreneurs { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Idea> Ideas { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
     }
 }

@@ -5,13 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BePartner_App_Mid.Controllers
 {
     public class InvestorController : Controller
     {
-
-        //InvestorEntity InRegData = new InvestorEntity();
 
         public ActionResult Index()
         {
@@ -24,18 +23,17 @@ namespace BePartner_App_Mid.Controllers
         {
             if (Session["FirstName"] is string)
             {
-                var In = new InvestorEntity();
+                var In = new InvestorPersonal();
                 In.FirstName = Session["FirstName"].ToString();
                 In.LastName = Session["LastName"].ToString();
                 In.Dob = DateTime.Parse(Session["Dob"].ToString());
                 In.Address = Session["Address"].ToString();
                 In.Phone = Session["Phone"].ToString();
-                In.Email = Session["Email"].ToString();
+                In.In_Email = Session["Email"].ToString();
                 In.Nid = Session["Nid"].ToString();
+                In.Gender = Session["Gender"].ToString();
                 ViewBag.Message = "data";
-                return View(In);
-
-                
+                return View(In); 
             }
             else
             {
@@ -47,7 +45,7 @@ namespace BePartner_App_Mid.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registration(InvestorEntity In)
+        public ActionResult Registration(InvestorPersonal In)
         {
             //TempData["Investor"] = In;
             if (ModelState.IsValid)
@@ -57,17 +55,10 @@ namespace BePartner_App_Mid.Controllers
                 Session["Dob"] = In.Dob;
                 Session["Address"] = In.Address;
                 Session["Phone"] = In.Phone;
-                Session["Email"] = In.Email;
+                Session["Email"] = In.In_Email;
                 Session["Nid"] = In.Nid;
-                //ViewBag.Message = "Data Inserted!!";
-                //if (this.RegistrationCreate(In))
-                //{
-                //    ViewBag.Message = "Data Inserted!!";
-                //}
-                //else
-                //{
-                //    ViewBag.Message = "Something went wrong!!";
-                //}
+                Session["Gender"] = In.Gender;
+                
                 return RedirectToAction("Registration2");
 
             }
@@ -77,6 +68,7 @@ namespace BePartner_App_Mid.Controllers
                 
             }
 
+            ViewBag.Message = In.Gender;
             return View(In);
            
             //return RedirectToAction("Registration2");
@@ -92,7 +84,7 @@ namespace BePartner_App_Mid.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registration2(InvestorEntity In)
+        public ActionResult Registration2(InvestorProfational In)
         {
             //ViewBag.Message = Session["FirstName"].ToString();
             if (ModelState.IsValid)
@@ -123,30 +115,32 @@ namespace BePartner_App_Mid.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registration3(InvestorEntity In)
+        public ActionResult Registration3(InvestorPassword Pass)
         {
             if (ModelState.IsValid)
             {
-                In.FirstName = Session["FirstName"].ToString();
-                In.LastName = Session["LastName"].ToString();
-                In.Dob = DateTime.Parse(Session["Dob"].ToString());
-                In.Address = Session["Address"].ToString();
-                In.Phone = Session["Phone"].ToString();
-                In.Email = Session["Email"].ToString();
-                In.Nid = Session["Nid"].ToString();
+                var Par = new InvestorPersonal();
+                Par.FirstName = Session["FirstName"].ToString();
+                Par.LastName = Session["LastName"].ToString();
+                Par.Dob = DateTime.Parse(Session["Dob"].ToString());
+                Par.Address = Session["Address"].ToString();
+                Par.Phone = Session["Phone"].ToString();
+                Par.In_Email = Session["Email"].ToString();
+                Par.Nid = Session["Nid"].ToString();
+                Par.Gender = Session["Gender"].ToString();
 
-                
-                In.OrgName = Session["OrgName"].ToString();
-                In.OrgEstablished = DateTime.Parse(Session["OrgEstablished"].ToString());
-                In.OrgLocation = Session["OrgLocation"].ToString();
-                In.OrgEmail = Session["OrgEmail"].ToString();
-                In.OrgPhone = Session["OrgPhone"].ToString();
-                In.OrgLicense = Session["OrgLicense"].ToString();
-                In.Tin = Session["Tin"].ToString();
-                In.OrgSite = Session["OrgSite"].ToString();
+                var Pro = new InvestorProfational(); 
+                Pro.OrgName = Session["OrgName"].ToString();
+                Pro.OrgEstablished = DateTime.Parse(Session["OrgEstablished"].ToString());
+                Pro.OrgLocation = Session["OrgLocation"].ToString();
+                Pro.OrgEmail = Session["OrgEmail"].ToString();
+                Pro.OrgPhone = Session["OrgPhone"].ToString();
+                Pro.OrgLicense = Session["OrgLicense"].ToString();
+                Pro.Tin = Session["Tin"].ToString();
+                Pro.OrgSite = Session["OrgSite"].ToString();
 
 
-                if (this.RegistrationCreate(In))
+                if (this.RegistrationCreate(Par, Pro, Pass))
                 {
                     ViewBag.Message = "Data Inserted!!";
                 }
@@ -158,31 +152,38 @@ namespace BePartner_App_Mid.Controllers
             return View();
         }
 
-        public bool RegistrationCreate(InvestorEntity In)
+        public bool RegistrationCreate(InvestorPersonal Par, InvestorProfational Pro, InvestorPassword Paa)
         {
-            var investor = new in_Investors()
+            
+            var investor = new Investor()
             {
-                FirstName = In.FirstName,
-                LastName = In.LastName,
-                Dob = In.Dob,
-                Address = In.Address,
-                Phone = In.Phone,
-                Email = In.Email,
-                Nid = In.Nid,
+                FirstName = Par.FirstName,
+                LastName = Par.LastName,
+                Dob = Par.Dob,
+                Address = Par.Address,
+                Phone = Par.Phone,
+                In_Email = Par.In_Email,
+                Nid = Par.Nid,
+                Gender = Par.Gender,
 
-                OrgName = In.OrgName,
-                OrgEstablished = In.OrgEstablished,
-                OrgLocation = In.OrgLocation,
-                OrgEmail = In.OrgEmail,
-                OrgPhone = In.OrgPhone,
-                OrgLicense = In.OrgLicense,
-                Tin = In.Tin,
-                OrgSite = In.OrgSite,
+                OrgName = Pro.OrgName,
+                OrgEstablished = Pro.OrgEstablished,
+                OrgLocation = Pro.OrgLocation,
+                OrgEmail = Pro.OrgEmail,
+                OrgPhone = Pro.OrgPhone,
+                OrgLicense = Pro.OrgLicense,
+                Tin = Pro.Tin,
+                OrgSite = Pro.OrgSite,
+                
+                Password = Paa.Password,
 
-                Password = In.Password
+                Img = null,
+                EmailValidation = "No",
+                Status = "Invalid"
+                
             };
-            var db = new bePartnerCentralDatabaseEntities();
-            db.in_Investors.Add(investor);
+            var db = new bePartnerCentralDatabaseEntities2();
+            db.Investors.Add(investor);
             try
             {
                 db.SaveChanges();
@@ -204,15 +205,25 @@ namespace BePartner_App_Mid.Controllers
         }
 
         [HttpPost]
-        public ActionResult InLogin(InvestorEntity In)
+        public ActionResult InLogin(InvestorLogin In, string ReturnUrl)
         {
-            var db = new bePartnerCentralDatabaseEntities();
-            var investor = (from I in db.in_Investors where I.Email == In.Email select I).FirstOrDefault();
+            var db = new bePartnerCentralDatabaseEntities2();
+            var investor = (from Id in db.Investors where Id.In_Email.Equals(In.In_Email) select Id).FirstOrDefault();
             if(investor != null)
             {
-                if (investor.Password == In.Password)
+                if (investor.Password.Equals(In.Password))
                 {
-                    ViewBag.Message = "All Correct";
+                    FormsAuthentication.SetAuthCookie(In.In_Email, true);
+                    Session.RemoveAll();
+                    Session["In_Email"] = In.In_Email;
+                    if (ReturnUrl != null)
+                    {
+                        string[] arr = ReturnUrl.Split('/');
+                        ViewBag.Message = arr[0].ToString();
+                        //return View(In);
+                        return RedirectToAction(arr[2].ToString(), arr[1].ToString());
+                    }
+                    return RedirectToAction("InProfile","InHome");
                 }
                 ViewBag.Message = "Incorrect Password. Not "+investor.FirstName+"?<br>Re-enter Email";
             }
@@ -220,7 +231,10 @@ namespace BePartner_App_Mid.Controllers
             {
                 ViewBag.Message = "Incorrect Email";
             }
-            return View();
+            return View(In);
         }
+
+        
+
     }
 }

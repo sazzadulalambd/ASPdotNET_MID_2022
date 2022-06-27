@@ -1,17 +1,17 @@
-﻿@{
-    ViewBag.Title = "Login";
-}
-<h2>kkkkkkkk</h2>
+﻿
+
 <center>
-    <div class="loginS">
-        <img src="~/Img/title_logo.png" alt="" height="100" width="100">
+    <div class="loginbody">
+        
 
 
         <form action="" method="post">
+            <img src="~/Img/title_logo.png" alt="" height="100" width="100">
+            <h2 class="text-center">Login</h2>
+            <table class="inLogin">
 
-            <table>
 
-                <caption class="text-center"><h2>Login</h2></caption>
+
                 <tr>
                     <td>
                         <p class="logins">Email:</p>
@@ -20,7 +20,7 @@
                 <tr>
                     <td>
 
-                        <input type="email" name="Email" class="form-control" value="@(Model!=null? Model.Email:"")">
+                        <input type="email" name="In_Email" class="form-control" value="@(Model!=null? Model.In_Email:"")">
 
                     </td>
                 </tr>
@@ -48,15 +48,17 @@
                 </tr>
                 <tr>
 
-                    <td><input type="submit" value="Login" name="submit" class="buttonInlogin">
+                    <td><input type="submit" value="Login" name="submit" class="btn btn-success in-login-button">
                 </tr>
                 <tr>
 
-                    <td><input type="reset" name="Reset" class="buttonInlogin"></td>
+                    <td><input type="reset" value="Reset" name="Reset" class="btn btn-warning in-login-button"></td>
                 </tr>
             </table>
         </form>
     </div>
 </center>
+
+
 
 @Scripts.Render("~/Content/InValid.js")

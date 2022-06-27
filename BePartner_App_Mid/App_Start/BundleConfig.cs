@@ -23,9 +23,9 @@ namespace BePartner_App_Mid
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/InStyle.css"));
+                      
+                      "~/Content/Site.css"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/desktop").Include(
                 "~/Content/InValid.js"));

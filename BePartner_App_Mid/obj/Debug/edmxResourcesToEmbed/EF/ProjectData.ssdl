@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bePartnerCentralDatabaseModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="Ad_Email" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Dob" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Security_key" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="Nid" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Ad_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Security_key" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Emp_Email" />
+    </Key>
+    <Property Name="Emp_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Security_key" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Entrepreneurs">
+    <Key>
+      <PropertyRef Name="En_Email" />
+    </Key>
+    <Property Name="En_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Bob" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Occupation" Type="varbinary" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Ideas">
+    <Key>
+      <PropertyRef Name="PostId" />
+      <PropertyRef Name="En_Post_Email" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Post_Time" />
+      <PropertyRef Name="Asking_Amount" />
+      <PropertyRef Name="Asking_Share" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="En_Post_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="In_Asp_Email" Type="varchar" MaxLength="100" />
+    <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Post_Time" Type="date" Nullable="false" />
+    <Property Name="Asking_Amount" Type="int" Nullable="false" />
+    <Property Name="Asking_Share" Type="float" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="5000" />
+    <Property Name="Offer_Amount" Type="int" />
+    <Property Name="Offer_Share" Type="float" />
+    <Property Name="Img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Investors">
+    <Key>
+      <PropertyRef Name="In_Email" />
+    </Key>
+    <Property Name="In_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrgName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrgEstablished" Type="date" Nullable="false" />
+    <Property Name="OrgLocation" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="OrgEmail" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrgPhone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrgLicense" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tin" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OrgSite" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EmailValidation" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="ReportId" />
+      <PropertyRef Name="Reported_By" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Report_Time" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="ReportId" Type="int" Nullable="false" />
+    <Property Name="Reported_By" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Report_Time" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+      <PropertyRef Name="Emp_Assigned" />
+      <PropertyRef Name="Task_Description" />
+      <PropertyRef Name="Issue_time" />
+      <PropertyRef Name="Due_time" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_Assigned" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Task_Description" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="Issue_time" Type="date" Nullable="false" />
+    <Property Name="Due_time" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ideas_Entrepreneurs">
+    <End Role="Entrepreneurs" Type="Self.Entrepreneurs" Multiplicity="1" />
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entrepreneurs">
+        <PropertyRef Name="En_Email" />
+      </Principal>
+      <Dependent Role="Ideas">
+        <PropertyRef Name="En_Post_Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ideas_in_Investors">
+    <End Role="Investors" Type="Self.Investors" Multiplicity="0..1" />
+    <End Role="Ideas" Type="Self.Ideas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Investors">
+        <PropertyRef Name="In_Email" />
+      </Principal>
+      <Dependent Role="Ideas">
+        <PropertyRef Name="In_Asp_Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Entrepreneurs">
+    <End Role="Entrepreneurs" Type="Self.Entrepreneurs" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entrepreneurs">
+        <PropertyRef Name="En_Email" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="Reported_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_in_Investors">
+    <End Role="Investors" Type="Self.Investors" Multiplicity="1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Investors">
+        <PropertyRef Name="In_Email" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="Reported_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tasks_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Emp_Email" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="Emp_Assigned" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bePartnerCentralDatabaseModel1StoreContainer">
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entrepreneurs" EntityType="Self.Entrepreneurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admins" EntityType="Self.Admins" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Admins].[Ad_Email] AS [Ad_Email], 
+    [Admins].[FirstName] AS [FirstName], 
+    [Admins].[LastName] AS [LastName], 
+    [Admins].[Dob] AS [Dob], 
+    [Admins].[Address] AS [Address], 
+    [Admins].[Phone] AS [Phone], 
+    [Admins].[Security_key] AS [Security_key], 
+    [Admins].[Gender] AS [Gender], 
+    [Admins].[Nid] AS [Nid], 
+    [Admins].[Password] AS [Password], 
+    [Admins].[Img] AS [Img]
+    FROM [dbo].[Admins] AS [Admins]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Ideas" EntityType="Self.Ideas" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Ideas].[PostId] AS [PostId], 
+    [Ideas].[En_Post_Email] AS [En_Post_Email], 
+    [Ideas].[In_Asp_Email] AS [In_Asp_Email], 
+    [Ideas].[Title] AS [Title], 
+    [Ideas].[Description] AS [Description], 
+    [Ideas].[Post_Time] AS [Post_Time], 
+    [Ideas].[Asking_Amount] AS [Asking_Amount], 
+    [Ideas].[Asking_Share] AS [Asking_Share], 
+    [Ideas].[Status] AS [Status], 
+    [Ideas].[Message] AS [Message], 
+    [Ideas].[Offer_Amount] AS [Offer_Amount], 
+    [Ideas].[Offer_Share] AS [Offer_Share], 
+    [Ideas].[Img] AS [Img]
+    FROM [dbo].[Ideas] AS [Ideas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Login].[Email] AS [Email], 
+    [Login].[Password] AS [Password]
+    FROM [dbo].[Login] AS [Login]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Reports" EntityType="Self.Reports" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Reports].[ReportId] AS [ReportId], 
+    [Reports].[Reported_By] AS [Reported_By], 
+    [Reports].[Title] AS [Title], 
+    [Reports].[Description] AS [Description], 
+    [Reports].[Report_Time] AS [Report_Time], 
+    [Reports].[Status] AS [Status]
+    FROM [dbo].[Reports] AS [Reports]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tasks].[TaskId] AS [TaskId], 
+    [Tasks].[Emp_Assigned] AS [Emp_Assigned], 
+    [Tasks].[Task_Description] AS [Task_Description], 
+    [Tasks].[Issue_time] AS [Issue_time], 
+    [Tasks].[Due_time] AS [Due_time], 
+    [Tasks].[Status] AS [Status]
+    FROM [dbo].[Tasks] AS [Tasks]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="Self.FK_Ideas_Entrepreneurs">
+      <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
+      <End Role="Ideas" EntitySet="Ideas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ideas_in_Investors" Association="Self.FK_Ideas_in_Investors">
+      <End Role="Investors" EntitySet="Investors" />
+      <End Role="Ideas" EntitySet="Ideas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Entrepreneurs" Association="Self.FK_Reports_Entrepreneurs">
+      <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_in_Investors" Association="Self.FK_Reports_in_Investors">
+      <End Role="Investors" EntitySet="Investors" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tasks_Employees" Association="Self.FK_Tasks_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
