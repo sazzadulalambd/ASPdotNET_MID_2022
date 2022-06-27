@@ -29,7 +29,7 @@ namespace BePartner_App_Mid.EF
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Nid { get; set; }
-        public byte[] Occupation { get; set; }
+        public string Occupation { get; set; }
         public string Password { get; set; }
         public string Img { get; set; }
     

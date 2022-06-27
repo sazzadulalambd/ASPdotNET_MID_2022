@@ -216,6 +216,10 @@ namespace BePartner_App_Mid.Controllers
                     FormsAuthentication.SetAuthCookie(In.In_Email, true);
                     Session.RemoveAll();
                     Session["In_Email"] = In.In_Email;
+                    HttpCookie c1 = new HttpCookie("InInfo");
+                    c1.Value = investor.In_Email.ToString();
+                    c1.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(c1);
                     if (ReturnUrl != null)
                     {
                         string[] arr = ReturnUrl.Split('/');

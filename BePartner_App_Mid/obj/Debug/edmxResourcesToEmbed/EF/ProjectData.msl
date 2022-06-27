@@ -18,23 +18,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Entrepreneurs">
-      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
-        <MappingFragment StoreEntitySet="Entrepreneurs">
-          <ScalarProperty Name="Img" ColumnName="Img" />
-          <ScalarProperty Name="En_Email" ColumnName="En_Email" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="Bob" ColumnName="Bob" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Nid" ColumnName="Nid" />
-          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Investors">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Investor">
         <MappingFragment StoreEntitySet="Investors">
@@ -78,25 +61,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ideas">
-      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Idea">
-        <MappingFragment StoreEntitySet="Ideas">
-          <ScalarProperty Name="Img" ColumnName="Img" />
-          <ScalarProperty Name="PostId" ColumnName="PostId" />
-          <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
-          <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
-          <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
-          <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
-          <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Logins">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Login">
         <MappingFragment StoreEntitySet="Login">
@@ -126,6 +90,56 @@
           <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
           <ScalarProperty Name="Due_time" ColumnName="Due_time" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ideas">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Idea">
+        <MappingFragment StoreEntitySet="Ideas">
+          <ScalarProperty Name="Feature4_Des" ColumnName="Feature4_Des" />
+          <ScalarProperty Name="Feature4_Title" ColumnName="Feature4_Title" />
+          <ScalarProperty Name="Feature3_Des" ColumnName="Feature3_Des" />
+          <ScalarProperty Name="Feature3_Title" ColumnName="Feature3_Title" />
+          <ScalarProperty Name="Feature2_Des" ColumnName="Feature2_Des" />
+          <ScalarProperty Name="Feature2_Title" ColumnName="Feature2_Title" />
+          <ScalarProperty Name="Feature1_Des" ColumnName="Feature1_Des" />
+          <ScalarProperty Name="Feature1_Title" ColumnName="Feature1_Title" />
+          <ScalarProperty Name="Valuation" ColumnName="Valuation" />
+          <ScalarProperty Name="Last_Year_Profit" ColumnName="Last_Year_Profit" />
+          <ScalarProperty Name="Last_Month_profit" ColumnName="Last_Month_profit" />
+          <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
+          <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
+          <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
+          <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Moto" ColumnName="Moto" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
+          <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrepreneurs">
+      <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
+        <MappingFragment StoreEntitySet="Entrepreneurs">
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Nid" ColumnName="Nid" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bob" ColumnName="Bob" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="En_Email" ColumnName="En_Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

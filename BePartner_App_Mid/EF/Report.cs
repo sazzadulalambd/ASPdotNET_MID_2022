@@ -21,7 +21,7 @@ namespace BePartner_App_Mid.EF
         public System.DateTime Report_Time { get; set; }
         public string Status { get; set; }
     
-        public virtual Entrepreneur Entrepreneur { get; set; }
         public virtual Investor Investor { get; set; }
+        public virtual Entrepreneur Entrepreneur { get; set; }
     }
 }

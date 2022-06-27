@@ -60,7 +60,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
           <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Occupation" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Occupation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Img" Type="varchar" MaxLength="500" />
         </EntityType>
@@ -70,26 +70,46 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have 
           <Key>
             <PropertyRef Name="PostId" />
             <PropertyRef Name="En_Post_Email" />
-            <PropertyRef Name="Title" />
+            <PropertyRef Name="Company_Name" />
+            <PropertyRef Name="Moto" />
             <PropertyRef Name="Description" />
             <PropertyRef Name="Post_Time" />
             <PropertyRef Name="Asking_Amount" />
             <PropertyRef Name="Asking_Share" />
             <PropertyRef Name="Status" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Total_Profit" />
+            <PropertyRef Name="Last_Month_profit" />
+            <PropertyRef Name="Last_Year_Profit" />
+            <PropertyRef Name="Valuation" />
           </Key>
           <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="En_Post_Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="In_Asp_Email" Type="varchar" MaxLength="100" />
-          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Moto" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
           <Property Name="Post_Time" Type="date" Nullable="false" />
-          <Property Name="Asking_Amount" Type="int" Nullable="false" />
-          <Property Name="Asking_Share" Type="float" Nullable="false" />
+          <Property Name="Asking_Amount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Asking_Share" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Message" Type="varchar" MaxLength="5000" />
-          <Property Name="Offer_Amount" Type="int" />
-          <Property Name="Offer_Share" Type="float" />
+          <Property Name="Offer_Amount" Type="varchar" MaxLength="50" />
+          <Property Name="Offer_Share" Type="varchar" MaxLength="50" />
           <Property Name="Img" Type="varchar" MaxLength="500" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total_Profit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Month_profit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Last_Year_Profit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valuation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Feature1_Title" Type="varchar" MaxLength="500" />
+          <Property Name="Feature1_Des" Type="varchar" MaxLength="5000" />
+          <Property Name="Feature2_Title" Type="varchar" MaxLength="500" />
+          <Property Name="Feature2_Des" Type="varchar" MaxLength="5000" />
+          <Property Name="Feature3_Title" Type="varchar" MaxLength="500" />
+          <Property Name="Feature3_Des" Type="varchar" MaxLength="5000" />
+          <Property Name="Feature4_Title" Type="varchar" MaxLength="500" />
+          <Property Name="Feature4_Des" Type="varchar" MaxLength="5000" />
         </EntityType>
         <EntityType Name="Investors">
           <Key>
@@ -245,7 +265,8 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     [Ideas].[PostId] AS [PostId], 
     [Ideas].[En_Post_Email] AS [En_Post_Email], 
     [Ideas].[In_Asp_Email] AS [In_Asp_Email], 
-    [Ideas].[Title] AS [Title], 
+    [Ideas].[Company_Name] AS [Company_Name], 
+    [Ideas].[Moto] AS [Moto], 
     [Ideas].[Description] AS [Description], 
     [Ideas].[Post_Time] AS [Post_Time], 
     [Ideas].[Asking_Amount] AS [Asking_Amount], 
@@ -254,7 +275,20 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     [Ideas].[Message] AS [Message], 
     [Ideas].[Offer_Amount] AS [Offer_Amount], 
     [Ideas].[Offer_Share] AS [Offer_Share], 
-    [Ideas].[Img] AS [Img]
+    [Ideas].[Img] AS [Img], 
+    [Ideas].[Category] AS [Category], 
+    [Ideas].[Total_Profit] AS [Total_Profit], 
+    [Ideas].[Last_Month_profit] AS [Last_Month_profit], 
+    [Ideas].[Last_Year_Profit] AS [Last_Year_Profit], 
+    [Ideas].[Valuation] AS [Valuation], 
+    [Ideas].[Feature1_Title] AS [Feature1_Title], 
+    [Ideas].[Feature1_Des] AS [Feature1_Des], 
+    [Ideas].[Feature2_Title] AS [Feature2_Title], 
+    [Ideas].[Feature2_Des] AS [Feature2_Des], 
+    [Ideas].[Feature3_Title] AS [Feature3_Title], 
+    [Ideas].[Feature3_Des] AS [Feature3_Des], 
+    [Ideas].[Feature4_Title] AS [Feature4_Title], 
+    [Ideas].[Feature4_Des] AS [Feature4_Des]
     FROM [dbo].[Ideas] AS [Ideas]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
@@ -325,24 +359,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Employees" FromRole="Employees" ToRole="Tasks" />
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Entrepreneur">
-          <Key>
-            <PropertyRef Name="En_Email" />
-          </Key>
-          <Property Name="En_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Bob" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Address" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Occupation" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Ideas" Relationship="Self.FK_Ideas_Entrepreneurs" FromRole="Entrepreneurs" ToRole="Ideas" />
-          <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Entrepreneurs" FromRole="Entrepreneurs" ToRole="Reports" />
-          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Investor">
           <Key>
             <PropertyRef Name="In_Email" />
@@ -366,9 +382,9 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmailValidation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Ideas" Relationship="Self.FK_Ideas_in_Investors" FromRole="Investors" ToRole="Ideas" />
           <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_in_Investors" FromRole="Investors" ToRole="Reports" />
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" FromRole="Investor" ToRole="Idea" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -395,33 +411,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Idea">
-          <Key>
-            <PropertyRef Name="PostId" />
-            <PropertyRef Name="En_Post_Email" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="Post_Time" />
-            <PropertyRef Name="Asking_Amount" />
-            <PropertyRef Name="Asking_Share" />
-            <PropertyRef Name="Status" />
-          </Key>
-          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="En_Post_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="In_Asp_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Post_Time" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Asking_Amount" Type="Int32" Nullable="false" />
-          <Property Name="Asking_Share" Type="Double" Nullable="false" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Name="Offer_Amount" Type="Int32" />
-          <Property Name="Offer_Share" Type="Double" />
-          <NavigationProperty Name="Entrepreneur" Relationship="Self.FK_Ideas_Entrepreneurs" FromRole="Ideas" ToRole="Entrepreneurs" />
-          <NavigationProperty Name="Investor" Relationship="Self.FK_Ideas_in_Investors" FromRole="Ideas" ToRole="Investors" />
-          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="Email" />
@@ -444,8 +433,8 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Report_Time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Entrepreneur" Relationship="Self.FK_Reports_Entrepreneurs" FromRole="Reports" ToRole="Entrepreneurs" />
           <NavigationProperty Name="Investor" Relationship="Self.FK_Reports_in_Investors" FromRole="Reports" ToRole="Investors" />
+          <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Report" ToRole="Entrepreneur" />
         </EntityType>
         <EntityType Name="Task">
           <Key>
@@ -476,42 +465,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ideas_Entrepreneurs">
-          <End Role="Entrepreneurs" Type="Self.Entrepreneur" Multiplicity="1" />
-          <End Role="Ideas" Type="Self.Idea" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Entrepreneurs">
-              <PropertyRef Name="En_Email" />
-            </Principal>
-            <Dependent Role="Ideas">
-              <PropertyRef Name="En_Post_Email" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reports_Entrepreneurs">
-          <End Role="Entrepreneurs" Type="Self.Entrepreneur" Multiplicity="1" />
-          <End Role="Reports" Type="Self.Report" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Entrepreneurs">
-              <PropertyRef Name="En_Email" />
-            </Principal>
-            <Dependent Role="Reports">
-              <PropertyRef Name="Reported_By" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ideas_in_Investors">
-          <End Role="Investors" Type="Self.Investor" Multiplicity="0..1" />
-          <End Role="Ideas" Type="Self.Idea" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Investors">
-              <PropertyRef Name="In_Email" />
-            </Principal>
-            <Dependent Role="Ideas">
-              <PropertyRef Name="In_Asp_Email" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Reports_in_Investors">
           <End Role="Investors" Type="Self.Investor" Multiplicity="1" />
           <End Role="Reports" Type="Self.Report" Multiplicity="*" />
@@ -526,10 +479,8 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
         </Association>
         <EntityContainer Name="bePartnerCentralDatabaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employee" />
-          <EntitySet Name="Entrepreneurs" EntityType="Self.Entrepreneur" />
           <EntitySet Name="Investors" EntityType="Self.Investor" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
-          <EntitySet Name="Ideas" EntityType="Self.Idea" />
           <EntitySet Name="Logins" EntityType="Self.Login" />
           <EntitySet Name="Reports" EntityType="Self.Report" />
           <EntitySet Name="Tasks" EntityType="Self.Task" />
@@ -537,23 +488,126 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
             <End Role="Employees" EntitySet="Employees" />
             <End Role="Tasks" EntitySet="Tasks" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="Self.FK_Ideas_Entrepreneurs">
-            <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
-            <End Role="Ideas" EntitySet="Ideas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reports_Entrepreneurs" Association="Self.FK_Reports_Entrepreneurs">
-            <End Role="Entrepreneurs" EntitySet="Entrepreneurs" />
-            <End Role="Reports" EntitySet="Reports" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ideas_in_Investors" Association="Self.FK_Ideas_in_Investors">
-            <End Role="Investors" EntitySet="Investors" />
-            <End Role="Ideas" EntitySet="Ideas" />
-          </AssociationSet>
           <AssociationSet Name="FK_Reports_in_Investors" Association="Self.FK_Reports_in_Investors">
             <End Role="Investors" EntitySet="Investors" />
             <End Role="Reports" EntitySet="Reports" />
           </AssociationSet>
+          <EntitySet Name="Ideas" EntityType="bePartnerCentralDatabaseModel1.Idea" />
+          <AssociationSet Name="FK_Ideas_in_Investors" Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors">
+            <End Role="Investor" EntitySet="Investors" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <EntitySet Name="Entrepreneurs" EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" />
+          <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs">
+            <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
+            <End Role="Idea" EntitySet="Ideas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Entrepreneurs" Association="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs">
+            <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="En_Post_Email" />
+            <PropertyRef Name="Company_Name" />
+            <PropertyRef Name="Moto" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Post_Time" />
+            <PropertyRef Name="Asking_Amount" />
+            <PropertyRef Name="Asking_Share" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Total_Profit" />
+            <PropertyRef Name="Last_Month_profit" />
+            <PropertyRef Name="Last_Year_Profit" />
+            <PropertyRef Name="Valuation" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="En_Post_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="In_Asp_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Moto" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Post_Time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Asking_Amount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Asking_Share" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Offer_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Offer_Share" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Profit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Month_profit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Year_Profit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Valuation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Feature1_Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Feature1_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Feature2_Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Feature2_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Feature3_Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Feature3_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Feature4_Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Feature4_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Investor" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" FromRole="Idea" ToRole="Investor" />
+          <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Idea" ToRole="Entrepreneur" />
+        </EntityType>
+        <Association Name="FK_Ideas_in_Investors">
+          <End Type="bePartnerCentralDatabaseModel1.Investor" Role="Investor" Multiplicity="0..1" />
+          <End Type="bePartnerCentralDatabaseModel1.Idea" Role="Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investor">
+              <PropertyRef Name="In_Email" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="In_Asp_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Entrepreneur">
+          <Key>
+            <PropertyRef Name="En_Email" />
+          </Key>
+          <Property Name="En_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Bob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
+          <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Entrepreneur" ToRole="Report" />
+        </EntityType>
+        <Association Name="FK_Ideas_Entrepreneurs">
+          <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel1.Idea" Role="Idea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneur">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Idea">
+              <PropertyRef Name="En_Post_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Entrepreneurs">
+          <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
+          <End Type="bePartnerCentralDatabaseModel1.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entrepreneur">
+              <PropertyRef Name="En_Email" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="Reported_By" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -573,23 +627,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
                 <ScalarProperty Name="Security_key" ColumnName="Security_key" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Nid" ColumnName="Nid" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Entrepreneurs">
-            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
-              <MappingFragment StoreEntitySet="Entrepreneurs">
-                <ScalarProperty Name="Img" ColumnName="Img" />
-                <ScalarProperty Name="En_Email" ColumnName="En_Email" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Bob" ColumnName="Bob" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Nid" ColumnName="Nid" />
-                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -637,25 +674,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ideas">
-            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Idea">
-              <MappingFragment StoreEntitySet="Ideas">
-                <ScalarProperty Name="Img" ColumnName="Img" />
-                <ScalarProperty Name="PostId" ColumnName="PostId" />
-                <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
-                <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
-                <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
-                <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
-                <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Login">
               <MappingFragment StoreEntitySet="Login">
@@ -685,6 +703,56 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
                 <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
                 <ScalarProperty Name="Due_time" ColumnName="Due_time" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Idea">
+              <MappingFragment StoreEntitySet="Ideas">
+                <ScalarProperty Name="Feature4_Des" ColumnName="Feature4_Des" />
+                <ScalarProperty Name="Feature4_Title" ColumnName="Feature4_Title" />
+                <ScalarProperty Name="Feature3_Des" ColumnName="Feature3_Des" />
+                <ScalarProperty Name="Feature3_Title" ColumnName="Feature3_Title" />
+                <ScalarProperty Name="Feature2_Des" ColumnName="Feature2_Des" />
+                <ScalarProperty Name="Feature2_Title" ColumnName="Feature2_Title" />
+                <ScalarProperty Name="Feature1_Des" ColumnName="Feature1_Des" />
+                <ScalarProperty Name="Feature1_Title" ColumnName="Feature1_Title" />
+                <ScalarProperty Name="Valuation" ColumnName="Valuation" />
+                <ScalarProperty Name="Last_Year_Profit" ColumnName="Last_Year_Profit" />
+                <ScalarProperty Name="Last_Month_profit" ColumnName="Last_Month_profit" />
+                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Offer_Share" ColumnName="Offer_Share" />
+                <ScalarProperty Name="Offer_Amount" ColumnName="Offer_Amount" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Asking_Share" ColumnName="Asking_Share" />
+                <ScalarProperty Name="Asking_Amount" ColumnName="Asking_Amount" />
+                <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Moto" ColumnName="Moto" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="In_Asp_Email" ColumnName="In_Asp_Email" />
+                <ScalarProperty Name="En_Post_Email" ColumnName="En_Post_Email" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entrepreneurs">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
+              <MappingFragment StoreEntitySet="Entrepreneurs">
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Bob" ColumnName="Bob" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="En_Email" ColumnName="En_Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

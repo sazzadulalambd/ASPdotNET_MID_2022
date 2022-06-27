@@ -251,6 +251,7 @@
     <Content Include="Views\InHome\InEditPersonal.cshtml" />
     <Content Include="Views\InHome\InEditProfessional.cshtml" />
     <Content Include="Views\InHome\InEditPass.cshtml" />
+    <Content Include="Views\InHome\InStartups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

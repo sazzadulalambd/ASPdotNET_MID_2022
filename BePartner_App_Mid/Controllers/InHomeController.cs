@@ -13,12 +13,26 @@ namespace BePartner_App_Mid.Controllers
     {
         public ActionResult InProfile()
         {
-            var email = Session["In_Email"].ToString();
-            var db = new bePartnerCentralDatabaseEntities2();
-            var In = (from I in db.Investors where I.In_Email.Equals(email) select I).FirstOrDefault();
-
-            return View(In);
+            if (Session["In_Email"] != null)
+            {
+                var email = Session["In_Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var In = (from I in db.Investors where I.In_Email.Equals(email) select I).FirstOrDefault();
+                ViewBag.Message = email;
+                return View(In);
+            }
+            return RedirectToAction("InLogin", "Investor");
         }
+
+
+        public ActionResult InStartups()
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var data = db.Ideas.ToList();
+            return View(data);
+        }
+
+
 
         [HttpGet]
         public ActionResult InEditPersonal()
@@ -116,7 +130,7 @@ namespace BePartner_App_Mid.Controllers
             {
                 db.SaveChanges();
                 //Session.RemoveAll();
-                //Session["In_Email"] = In.In_Email;
+                Session["In_Email"] = In.In_Email;
                 return true;
             }
             catch

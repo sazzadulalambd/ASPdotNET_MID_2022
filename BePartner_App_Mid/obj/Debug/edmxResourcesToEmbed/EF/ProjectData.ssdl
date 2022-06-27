@@ -55,7 +55,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
     <Property Name="Address" Type="varchar" MaxLength="5000" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Occupation" Type="varbinary" MaxLength="50" Nullable="false" />
+    <Property Name="Occupation" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Img" Type="varchar" MaxLength="500" />
   </EntityType>
@@ -65,26 +65,46 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have 
     <Key>
       <PropertyRef Name="PostId" />
       <PropertyRef Name="En_Post_Email" />
-      <PropertyRef Name="Title" />
+      <PropertyRef Name="Company_Name" />
+      <PropertyRef Name="Moto" />
       <PropertyRef Name="Description" />
       <PropertyRef Name="Post_Time" />
       <PropertyRef Name="Asking_Amount" />
       <PropertyRef Name="Asking_Share" />
       <PropertyRef Name="Status" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Total_Profit" />
+      <PropertyRef Name="Last_Month_profit" />
+      <PropertyRef Name="Last_Year_Profit" />
+      <PropertyRef Name="Valuation" />
     </Key>
     <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="En_Post_Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="In_Asp_Email" Type="varchar" MaxLength="100" />
-    <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Company_Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Moto" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
     <Property Name="Post_Time" Type="date" Nullable="false" />
-    <Property Name="Asking_Amount" Type="int" Nullable="false" />
-    <Property Name="Asking_Share" Type="float" Nullable="false" />
+    <Property Name="Asking_Amount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Asking_Share" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Message" Type="varchar" MaxLength="5000" />
-    <Property Name="Offer_Amount" Type="int" />
-    <Property Name="Offer_Share" Type="float" />
+    <Property Name="Offer_Amount" Type="varchar" MaxLength="50" />
+    <Property Name="Offer_Share" Type="varchar" MaxLength="50" />
     <Property Name="Img" Type="varchar" MaxLength="500" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Total_Profit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Month_profit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Year_Profit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Valuation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Feature1_Title" Type="varchar" MaxLength="500" />
+    <Property Name="Feature1_Des" Type="varchar" MaxLength="5000" />
+    <Property Name="Feature2_Title" Type="varchar" MaxLength="500" />
+    <Property Name="Feature2_Des" Type="varchar" MaxLength="5000" />
+    <Property Name="Feature3_Title" Type="varchar" MaxLength="500" />
+    <Property Name="Feature3_Des" Type="varchar" MaxLength="5000" />
+    <Property Name="Feature4_Title" Type="varchar" MaxLength="500" />
+    <Property Name="Feature4_Des" Type="varchar" MaxLength="5000" />
   </EntityType>
   <EntityType Name="Investors">
     <Key>
@@ -240,7 +260,8 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     [Ideas].[PostId] AS [PostId], 
     [Ideas].[En_Post_Email] AS [En_Post_Email], 
     [Ideas].[In_Asp_Email] AS [In_Asp_Email], 
-    [Ideas].[Title] AS [Title], 
+    [Ideas].[Company_Name] AS [Company_Name], 
+    [Ideas].[Moto] AS [Moto], 
     [Ideas].[Description] AS [Description], 
     [Ideas].[Post_Time] AS [Post_Time], 
     [Ideas].[Asking_Amount] AS [Asking_Amount], 
@@ -249,7 +270,20 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     [Ideas].[Message] AS [Message], 
     [Ideas].[Offer_Amount] AS [Offer_Amount], 
     [Ideas].[Offer_Share] AS [Offer_Share], 
-    [Ideas].[Img] AS [Img]
+    [Ideas].[Img] AS [Img], 
+    [Ideas].[Category] AS [Category], 
+    [Ideas].[Total_Profit] AS [Total_Profit], 
+    [Ideas].[Last_Month_profit] AS [Last_Month_profit], 
+    [Ideas].[Last_Year_Profit] AS [Last_Year_Profit], 
+    [Ideas].[Valuation] AS [Valuation], 
+    [Ideas].[Feature1_Title] AS [Feature1_Title], 
+    [Ideas].[Feature1_Des] AS [Feature1_Des], 
+    [Ideas].[Feature2_Title] AS [Feature2_Title], 
+    [Ideas].[Feature2_Des] AS [Feature2_Des], 
+    [Ideas].[Feature3_Title] AS [Feature3_Title], 
+    [Ideas].[Feature3_Des] AS [Feature3_Des], 
+    [Ideas].[Feature4_Title] AS [Feature4_Title], 
+    [Ideas].[Feature4_Des] AS [Feature4_Des]
     FROM [dbo].[Ideas] AS [Ideas]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
