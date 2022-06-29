@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "login_S";
+}
+
+<style>
+    body {
+        /*background-color: tan;*/
+    }
+</style>
+
+<html>
+<body>
+
+    <div class="container ad-continer taransparent">
+        <center>
+            <img class="img-fluid" src="~/Img/title_logo.png" style="height: 150px; width: 160px; padding: 20px;">
+            <h2> Admin Login</h2>
+        </center>
+        <form action="" method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <!-- <label class="form-label"> Email: </label>-->
+        <input type="email" name="Email" placeholder="example@bepartner.com" id="form2Example1" class="form-control taransparent radious" />
+
+    </div>
+    <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <!--<label class="form-label"> Password: </label>-->
+                    <input type="password" name="Password" placeholder="Password" id="form2Example2" class="form-control taransparent radious" />
+
+                </div>
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
+                            <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- Simple link -->
+                        <a href="#!"> Forgot password?</a>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <button type="button" class="btn btn-outline-success btn-block mb-4 radious"> Login</button>
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p> Not a member? <a href="@Url.Action("Regstration_S1","S_Admin")"> Register </a> </p>
+
+                </div>
+</form>
+    </div>
+</body>
+</html>

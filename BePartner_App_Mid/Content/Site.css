@@ -224,3 +224,33 @@ h5 {
 
 
 /*############## ############# ######### INVESTORS CSS ENDS ############## ############ ###############*/
+/*sazzad*/
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.ad-reg-button {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    min-width: 210px;
+}
+
+.ad-continer{
+    width:30%;
+    background-color:transparent;
+}
+.taransparent{
+    background-color:transparent;
+}
+.radious{
+     border-radius:50px;
+     border-color:black;
+     
+}

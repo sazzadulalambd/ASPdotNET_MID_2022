@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Regstration_S2";
+}
+
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center sa_align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+
+                        <div class="col-xl-6">
+                            <center>
+                                <img class="img-fluid" src="~/Img/title_logo.png" style="height: 150px; width: 160px; padding: 20px;">
+                                <h2> Admin Registration 2/2</h2>
+                            </center>
+
+                            <div class="card-body p-md-5 text-black">
+                                <form action="" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="form3Example1m">DOB:</label>
+                                                <input type="date" name="DOB" placeholder="Date of brith" id="form3Example1m" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="form3Example1n">Security key:</label>
+                                                <input type="text" name="Security_key" placeholder="Security key" id="form3Example1n" class="form-control " />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example8">Password:</label>
+                                        <input type="text" name="Password" placeholder="Password" id="form3Example8" class="form-control" />
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example8">Confirm Password:</label>
+                                        <input type="text" name="ConfirmPassword" placeholder="Confirm Password" id="form3Example8" class="form-control" />
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label for="formFileMultiple" class="form-label">Profile Picture :</label><br />
+                                        <input type="file">
+                                    </div>
+
+                                    <input type="checkbox" value="" id="registerCheck" /> I have read and agree to the terms
+
+
+                                    <table>
+                                        <tr>
+                                            <th>
+                                                <input type="Submit" value="Previous" class="btn btn-outline-warning ad-reg-button ">
+                                            </th>
+                                            <th>
+                                                <input type="Submit" value="Join" class="btn btn-success ad-reg-button ">
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </form>
+
+                                <p class="text-center text-muted mt-5 mb-0">
+                                    Have already an account? <a href="@Url.Action("login_S","S_Admin")"><u>Login here</u></a>
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="~/Img/page_B/img_01.png"
+                                 alt="Sample photo" class="img-fluid"
+                                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;height: 100%;padding:20px;" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
