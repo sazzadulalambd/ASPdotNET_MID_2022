@@ -1,24 +1,26 @@
-﻿
+﻿@{
+    Layout = "~/Views/Shared/_In_Layout.cshtml";
+}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!--<meta charset="UTF-8">
     <title>Account Settings UI Design</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
     <!--<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~Content/InProfileStyle.css")">*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->-->
+    <!--@*<link rel="stylesheet" type="text/css" href="@Url.Content("~Content/InProfileStyle.css")">*@
     @*@Styles.Render("~Content/InProfileStyle.css")*@
-
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css">-->
 </head>
 <body>
     <section class="profile-body">
         <div class="Inprofile-container">
             @*<h1 class="mb-5">My Account</h1>*@
-            <div class=" shadow rounded-lg d-block d-sm-flex">
+            <div class=" investor-shadow rounded-lg d-block d-sm-flex">
                 <div class="profile-tab-nav border-right">
                     <div class="p-4">
                         <div class="img-circle text-center mb-3">
-                            <img src="~/Img/11.jpg" alt="Image" class="shadow">
+                            <img src="~/Img/11.jpg" alt="Image" class="investor-shadow">
 
                         </div>
                         <h2 class="text-center">@(Model!=null? Model.FirstName:"") @(Model!=null? Model.LastName:"")</h2>
@@ -50,70 +52,70 @@
                 </div>
                 <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
                     <div class="active tab-pane fade show" id="application" role="tabpanel" aria-labelledby="application-tab">
-                       <form action="" method="post">
-                        <h3 class="mb-4">Professional Information</h3>
-                        <div class="row">
+                        <form action="" method="post">
+                            <h3 class="mb-4">Professional Information</h3>
+                            <div class="row">
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization Name</label>
-                                    <input type="text" class="form-control" name="OrgName" value="@(Model!=null? Model.OrgName:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organization Name</label>
+                                        <input type="text" class="form-control" name="OrgName" value="@(Model!=null? Model.OrgName:"")">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization's Established date: </label>
-                                    <input type="text" class="form-control" name="OrgEstablished" value="@(Model!=null? Model.OrgEstablished:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organization's Established date: </label>
+                                        <input type="text" class="form-control" name="OrgEstablished" value="@(Model!=null? Model.OrgEstablished:"")">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization's Email: </label>
-                                    <input type="text" class="form-control" name="OrgEmail" value="@(Model!=null? Model.OrgEmail:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organization's Email: </label>
+                                        <input type="text" class="form-control" name="OrgEmail" value="@(Model!=null? Model.OrgEmail:"")">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization's Phone: </label>
-                                    <input type="text" class="form-control" name="OrgPhone" value="@(Model!=null? Model.OrgPhone:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organization's Phone: </label>
+                                        <input type="text" class="form-control" name="OrgPhone" value="@(Model!=null? Model.OrgPhone:"")">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Organization's License: </label>
-                                    <input type="text" class="form-control" name="OrgLicense" value="@(Model!=null? Model.OrgLicense:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Organization's License: </label>
+                                        <input type="text" class="form-control" name="OrgLicense" value="@(Model!=null? Model.OrgLicense:"")">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tax Identification Number: </label>
-                                    <input type="text" class="form-control" name="Tin" value="@(Model!=null? Model.Tin:"")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Tax Identification Number: </label>
+                                        <input type="text" class="form-control" name="Tin" value="@(Model!=null? Model.Tin:"")">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Organization's Website: </label>
-                                    <input type="text" class="form-control" name="OrgSite" value="@(Model!=null? Model.OrgSite:"")">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Organization's Website: </label>
+                                        <input type="text" class="form-control" name="OrgSite" value="@(Model!=null? Model.OrgSite:"")">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Organization's Address: </label>
+                                        <textarea class="form-control" name="OrgLocation" rows="4">@(Model!=null? Model.OrgLocation:"")</textarea>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Organization's Address: </label>
-                                    <textarea class="form-control" name="OrgLocation" rows="4">@(Model!=null? Model.OrgLocation:"")</textarea>
-                                </div>
+                            <div>
+                                @*<a href="">Edit information</a>*@
+                                <input type="submit" class="btn btn-primary" name="">
+                                <button class="btn btn-light">Cancel</button>
                             </div>
-                        </div>
-                        <div>
-                            @*<a href="">Edit information</a>*@
-                             <input type="submit" class="btn btn-primary" name="">
-                            <button class="btn btn-light">Cancel</button> 
-                        </div>
-                           </form>
+                        </form>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

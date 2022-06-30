@@ -1875,6 +1875,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\InMessageStyle.css" />
     <Content Include="Content\InProfileStyle.css" />
     <Content Include="Content\InStyle.css" />
     <Content Include="Content\InValid.js" />
@@ -2134,6 +2135,8 @@
     <Content Include="Views\AD_Home\All_Employee.cshtml" />
     <Content Include="Views\AD_Home\AD_Settings.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Shared\_In_Layout.cshtml" />
+    <Content Include="Views\InHome\InMessenger.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

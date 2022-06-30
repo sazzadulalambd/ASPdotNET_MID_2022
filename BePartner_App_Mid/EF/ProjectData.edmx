@@ -47,6 +47,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
           <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Img" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Entrepreneurs">
           <Key>
@@ -63,6 +64,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
           <Property Name="Occupation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Img" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -358,6 +360,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Employees" FromRole="Employees" ToRole="Tasks" />
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Investor">
           <Key>
@@ -583,6 +586,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
           <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Entrepreneur" ToRole="Report" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Ideas_Entrepreneurs">
           <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
@@ -617,6 +621,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Img" ColumnName="Img" />
                 <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -742,6 +747,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <EntitySetMapping Name="Entrepreneurs">
             <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
               <MappingFragment StoreEntitySet="Entrepreneurs">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Img" ColumnName="Img" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Occupation" ColumnName="Occupation" />

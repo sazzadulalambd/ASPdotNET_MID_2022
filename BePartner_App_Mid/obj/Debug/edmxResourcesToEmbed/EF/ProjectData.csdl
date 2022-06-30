@@ -16,6 +16,7 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Employees" FromRole="Employees" ToRole="Tasks" />
     <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Investor">
     <Key>
@@ -241,6 +242,7 @@
     <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
     <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Entrepreneur" ToRole="Report" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Ideas_Entrepreneurs">
     <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />

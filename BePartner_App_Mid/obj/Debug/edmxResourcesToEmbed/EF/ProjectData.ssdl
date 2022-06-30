@@ -42,6 +42,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
     <Property Name="Nid" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Img" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Entrepreneurs">
     <Key>
@@ -58,6 +59,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Admins' does not have
     <Property Name="Occupation" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Img" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Ideas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

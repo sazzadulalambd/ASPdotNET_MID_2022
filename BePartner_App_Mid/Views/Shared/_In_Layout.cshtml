@@ -9,11 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>BePartner</title>
-    @*@Styles.Render("~/Content/Site.css")*@
+
+    @*FROM RIFAT*@
+    @Styles.Render("~/Content/Site.css")
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    @*FROM RIFAT*@
 
     <link href="~/admin_s_d/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <script src="~/admin_s_d/js/sb-admin-2.min.js"></script>
     <link href="~/admin_s_d/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <!-- Content Wrapper -->
@@ -23,7 +31,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow " style="background-color:black;">
+            <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow sticky-top" style="background-color:black;">
 
                 <!-- Sidebar Toggle (Topbar) -->
 
@@ -43,9 +51,16 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("About","Home")">
+                        <a class="nav-link" href="@Url.Action("InStartups","InHome")">
+                            <i class="fas fa-fw fas fa-users"></i>
+                            <span>Startups</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("InProfile","InHome")">
                             <i class="fas fa-fw fas fa fa-user"></i>
-                            <span>About</span>
+                            <span>My Account</span>
                         </a>
                     </li>
 
@@ -57,32 +72,19 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Contact","Home")">
-                            <i class="fas fa-fw fas fa-phone"></i>
-                            <span>Contact</span>
+                        <a class="nav-link" href="@Url.Action("InMessenger","InHome")">
+                            <i class="fa fa-comments"></i>
+                            <span> Massages</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("#","#")">
-                            <i class="fas fa-fw fas fa-users"></i>
-                            <span>Become a Enterpreneur</span>
+
+                        <a class="nav-link" href="@Url.Action("AD_Notification","AD_Home")">
+                            <i class="fas fa-fw fas fa-bell"></i>
+                            <span> </span>
                         </a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("InLogin","Investor")">
-                            <span>Log In</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Registration","Investor")">
-                            <input type="Submit" value="Join" class="btn btn-outline-success ad-reg-button-log">
-                        </a>
-                    </li>
-
-
                 </ul>
 
             </nav>

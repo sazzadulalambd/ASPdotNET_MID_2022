@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Employee">
         <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Img" ColumnName="Img" />
           <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -129,6 +130,7 @@
     <EntitySetMapping Name="Entrepreneurs">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Entrepreneur">
         <MappingFragment StoreEntitySet="Entrepreneurs">
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Img" ColumnName="Img" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Occupation" ColumnName="Occupation" />

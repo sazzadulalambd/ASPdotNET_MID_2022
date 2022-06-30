@@ -3,6 +3,10 @@
     ViewBag.Title = "Index";
 }
 
+@{ 
+    Layout = "~/Views/Shared/_In_Layout.cshtml"; 
+}
+
 <h2>Index</h2>
 
 <input type="button" value="Registration" class="btn btn-success" onclick="location.href='@Url.Action("Registration", "Investor")'" />

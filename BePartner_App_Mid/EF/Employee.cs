@@ -31,6 +31,7 @@ namespace BePartner_App_Mid.EF
         public string Nid { get; set; }
         public string Password { get; set; }
         public string Img { get; set; }
+        public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Tasks { get; set; }

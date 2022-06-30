@@ -111,6 +111,11 @@ namespace BePartner_App_Mid.Controllers
             return View();
         }
 
+        public ActionResult InMessenger()
+        {
+            return View();
+        }
+
 
         public bool InUpdatePer(InvestorPersonal In)
         {
