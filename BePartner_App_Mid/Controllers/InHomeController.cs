@@ -28,7 +28,7 @@ namespace BePartner_App_Mid.Controllers
         public ActionResult InStartups()
         {
             var db = new bePartnerCentralDatabaseEntities2();
-            var data = db.Ideas.ToList();
+            var data = (from I in db.Ideas where I.Status.Equals("Posted") select I).ToList();
             return View(data);
         }
 
@@ -113,7 +113,59 @@ namespace BePartner_App_Mid.Controllers
 
         public ActionResult InMessenger()
         {
-            return View();
+            var email = Session["In_Email"].ToString();
+            var db = new bePartnerCentralDatabaseEntities2();
+            var msgs = (from I in db.Messages where I.Sender.Equals(email) || I.Receiver.Equals(email) select I).ToList();
+
+            List<InvestorMessage> listmsg = new List<InvestorMessage>();
+            
+
+            foreach(var m in msgs)
+            {
+                var msg = new InvestorMessage();
+                msg.MsgId = m.MsgId;
+                msg.Sender = m.Sender;
+                msg.Receiver = m.Receiver;
+                msg.Message = m.Message1;
+                msg.Status = m.Status;
+                msg.Ttime = m.Time;
+
+                if (m.Sender.Equals(email))
+                {
+                    var en = (from I in db.Entrepreneurs where I.En_Email.Equals(m.Receiver) select I).FirstOrDefault();
+                    msg.ReceiverName = en.FirstName + " " + en.LastName;
+                    msg.ReceiverOccupation = en.Occupation;
+                    msg.ReceiverImg = en.Img;
+                    msg.ReceiverPhone = en.Phone;
+
+                    var com = (from I in db.Ideas where I.En_Post_Email.Equals(m.Receiver) select I).FirstOrDefault();
+                    msg.ReceiverCompany = com.Company_Name;
+
+                    msg.SenderName = null;
+                    msg.SenderOccupation = null;
+                    msg.SenderImg = null;
+                    msg.SenderCompany = null;
+                }
+                else
+                {
+                    var en = (from I in db.Entrepreneurs where I.En_Email.Equals(m.Sender) select I).FirstOrDefault();
+                    msg.SenderName = en.FirstName + " " + en.LastName;
+                    msg.SenderOccupation = en.Occupation;
+                    msg.SenderImg = en.Img;
+                    msg.SenderPhone = en.Phone;
+
+                    var com = (from I in db.Ideas where I.En_Post_Email.Equals(m.Sender) select I).FirstOrDefault();
+                    msg.SenderCompany = com.Company_Name;
+
+                    msg.ReceiverName = null;
+                    msg.ReceiverOccupation = null;
+                    msg.ReceiverImg = null;
+                    msg.ReceiverCompany = null;
+                }
+                listmsg.Add(msg);
+            }
+
+            return View(listmsg);
         }
 
 

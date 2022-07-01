@@ -165,6 +165,7 @@
       <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
       <End Role="Report" EntitySet="Reports" />
     </AssociationSet>
+    <EntitySet Name="Messages" EntityType="bePartnerCentralDatabaseModel1.Message" />
   </EntityContainer>
   <EntityType Name="Idea">
     <Key>
@@ -268,4 +269,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MsgId" />
+    </Key>
+    <Property Name="MsgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Receiver" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message1" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

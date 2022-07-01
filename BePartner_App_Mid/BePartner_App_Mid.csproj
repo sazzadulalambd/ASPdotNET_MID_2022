@@ -153,6 +153,9 @@
     <Compile Include="EF\Investor.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Message.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\ProjectData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +185,7 @@
     </Compile>
     <Compile Include="Models\InvestorEditPass.cs" />
     <Compile Include="Models\InvestorLogin.cs" />
+    <Compile Include="Models\InvestorMessage.cs" />
     <Compile Include="Models\InvestorPassword.cs" />
     <Compile Include="Models\InvestorPersonal.cs" />
     <Compile Include="Models\InvestorProfational.cs" />

@@ -147,6 +147,17 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MsgId" />
+          </Key>
+          <Property Name="MsgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Receiver" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Time" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Reports">
@@ -247,6 +258,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entrepreneurs" EntityType="Self.Entrepreneurs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Admins].[Ad_Email] AS [Ad_Email], 
@@ -509,6 +521,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
             <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
             <End Role="Report" EntitySet="Reports" />
           </AssociationSet>
+          <EntitySet Name="Messages" EntityType="bePartnerCentralDatabaseModel1.Message" />
         </EntityContainer>
         <EntityType Name="Idea">
           <Key>
@@ -612,6 +625,17 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MsgId" />
+          </Key>
+          <Property Name="MsgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message1" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -759,6 +783,18 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="En_Email" ColumnName="En_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="MsgId" ColumnName="MsgId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
