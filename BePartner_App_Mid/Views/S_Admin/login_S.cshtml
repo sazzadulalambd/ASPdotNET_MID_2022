@@ -21,38 +21,45 @@
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <!-- <label class="form-label"> Email: </label>-->
-        <input type="email" name="Email" placeholder="example@bepartner.com" id="form2Example1" class="form-control taransparent radious" />
+                <span class="text-danger">@Html.ValidationMessage("Email")</span>
+                <input type="email" name="Email" value="@(Model!=null? Model.Email:"")" placeholder="example@bepartner.com" id="form2Example1" class="form-control taransparent radious" />
 
-    </div>
-    <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <!--<label class="form-label"> Password: </label>-->
-                    <input type="password" name="Password" placeholder="Password" id="form2Example2" class="form-control taransparent radious" />
+            </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <!--<label class="form-label"> Password: </label>-->
+                <span class="text-danger">@Html.ValidationMessage("Password")</span>
 
-                </div>
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" />
-                            <label class="form-check-label" for="form2Example31"> Remember me </label>
-                        </div>
-                    </div>
+                <input type="password" name="Password" value="@(Model!=null? Model.Password:"")" placeholder="Password" id="form2Example2" class="form-control taransparent radious" />
 
-                    <div class="col">
-                        <!-- Simple link -->
-                        <a href="#!"> Forgot password?</a>
+            </div>
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                        <input class="form-check-input" name="remember" type="checkbox" value="" id="form2Example31" />
+                        <label class="form-check-label" for="form2Example31"> Remember me </label>
                     </div>
                 </div>
-                <!-- Submit button -->
-                <button type="button" class="btn btn-outline-success btn-block mb-4 radious"> Login</button>
-                <!-- Register buttons -->
-                <div class="text-center">
-                    <p> Not a member? <a href="@Url.Action("Regstration_S1","S_Admin")"> Register </a> </p>
 
+                <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!"> Forgot password?</a>
                 </div>
-</form>
+            </div>
+            <!-- Submit button -->
+            <input type="submit" value="Login" class="btn btn-outline-success btn-block mb-4 radious">
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p> Not a member? <a href="@Url.Action("Regstration_S1","S_Admin")"> Register </a> </p>
+
+            </div>
+        </form>
+
     </div>
+    <center><h5 class="text-success">@ViewBag.Message</h5></center>
+    
+
 </body>
 </html>

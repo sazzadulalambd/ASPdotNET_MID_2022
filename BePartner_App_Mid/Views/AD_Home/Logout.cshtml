@@ -3,7 +3,7 @@
     ViewBag.Title = "Logout";
 }
 @{
-    Layout = "~/Views/Shared/_AD_Layout.cshtml";
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
 }
 
 <!-- Logout Modal-->
@@ -20,7 +20,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary"  href="@Url.Action("login_S","S_Admin")">Logout</a>
+                <a class="btn btn-primary" href="@Url.Action("login_S","S_Admin")">Logout</a>
             </div>
         </div>
     </div>

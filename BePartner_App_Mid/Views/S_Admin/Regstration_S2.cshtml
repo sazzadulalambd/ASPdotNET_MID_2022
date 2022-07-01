@@ -3,6 +3,8 @@
     ViewBag.Title = "Regstration_S2";
 }
 
+
+
 <section class="h-100 bg-dark">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center sa_align-items-center h-100">
@@ -17,36 +19,40 @@
                             </center>
 
                             <div class="card-body p-md-5 text-black">
-                                <form action="" method="post">
+                                <form action="" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="form3Example1m">DOB:</label>
-                                                <input type="date" name="DOB" placeholder="Date of brith" id="form3Example1m" class="form-control" />
+                                                <span class="text-danger">@Html.ValidationMessage("DOB")</span>
+                                                <input type="date" name="DOB" value="@(Model!=null? Model.DOB.Date:"")" placeholder="Date of brith" id="form3Example1m" class="form-control" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="form3Example1n">Security key:</label>
-                                                <input type="text" name="Security_key" placeholder="Security key" id="form3Example1n" class="form-control " />
+                                                <span class="text-danger">@Html.ValidationMessage("Security_key")</span>
+                                                <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example8">Password:</label>
-                                        <input type="text" name="Password" placeholder="Password" id="form3Example8" class="form-control" />
+                                        <span class="text-danger">@Html.ValidationMessage("Password")</span>
+                                        <input type="text" name="Password" value="@(Model!=null? Model.Password:"")" placeholder="Password" id="form3Example8" class="form-control" />
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example8">Confirm Password:</label>
-                                        <input type="text" name="ConfirmPassword" placeholder="Confirm Password" id="form3Example8" class="form-control" />
+                                        <span class="text-danger">@Html.ValidationMessage("ConfirmPassword")</span>
+                                        <input type="text" name="ConfirmPassword" value="@(Model!=null? Model.ConfirmPassword:"")" placeholder="Confirm Password" id="form3Example8" class="form-control" />
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <label for="formFileMultiple" class="form-label">Profile Picture :</label><br />
-                                        <input type="file">
+                                        <input type="file" name="IMG_file">
                                     </div>
 
                                     <input type="checkbox" value="" id="registerCheck" /> I have read and agree to the terms
@@ -55,10 +61,12 @@
                                     <table>
                                         <tr>
                                             <th>
-                                                <input type="Submit" value="Previous" class="btn btn-outline-warning ad-reg-button ">
-                                            </th>
+                                                <form action="~/Views/S_Admin/Regstration_S1.cshtml">
+                                                    <input type="Submit" value="Previous" class="btn btn-outline-warning ad-reg-button " onclick="href='@Url.Action("Regstration_S1", "S_Admin")'">
+                                                </form>
+</th>
                                             <th>
-                                                <input type="Submit" value="Join" class="btn btn-success ad-reg-button ">
+                                                <input type="Submit" name="join" value="Join" class="btn btn-success ad-reg-button ">
                                             </th>
                                         </tr>
                                     </table>

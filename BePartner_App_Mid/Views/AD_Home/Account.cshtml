@@ -3,7 +3,7 @@
     ViewBag.Title = "Account";
 }
 @{
-    Layout = "~/Views/Shared/_AD_Layout.cshtml";
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
 }
 
 <div class="container-fluid">
@@ -13,7 +13,7 @@
         <h1 class="h3 mb-0 text-gray-800">Account</h1>
     </div>
     <center>
-        <img class="rounded-circle" src="~/admin_s_d/img/undraw_profile.svg" height="200px;" width="200px;">
+        <img class="rounded-circle" src="@Url.Content(Model!=null? Model.Img:"")" height="200px" width="200px">
     </center>
     <div class="card-body p-md-5 text-black">
 
@@ -22,75 +22,64 @@
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1m">First name:</label>
-                        <input type="text" name="FirstName" placeholder="First name" id="form3Example1m" class="form-control" />
+                        <input type="text" name="FirstName" value="@(Model!=null? Model.FirstName:"")" placeholder="First name" id="form3Example1m" class="form-control" />
                     </div>
                 </div>
 
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1n">Last name:</label>
-                        <input type="text" name="LastName" placeholder="Last name" id="form3Example1n" class="form-control" />
+                        <input type="text" name="LastName" value="@(Model!=null? Model.LastName:"")" placeholder="Last name" id="form3Example1n" class="form-control" />
                     </div>
                 </div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">Email:</label>
-                <input type="text" name="Email" placeholder="example@bepartner.com" id="form3Example8" class="form-control" />
+                <input type="text" name="Email" value="@(Model!=null? Model.Ad_Email:"")" placeholder="example@bepartner.com" id="form3Example8" class="form-control" disabled />
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">Phone:</label>
-                <input type="text" name="Phone" placeholder="01772994093" id="form3Example8" class="form-control" />
+                <input type="text" name="Phone" value="@(Model!=null? Model.Phone:"")" placeholder="01772994093" id="form3Example8" class="form-control" />
             </div>
 
             <div class="d-md-flex justify-content-start sa_align-items-center mb-4 py-2">
 
-                <label class="form-check-label">Gender:&ensp;  </label>
+                <label class="form-check-label">Gender:&ensp; @(Model!=null? Model.Gender: "") &ensp; </label>
 
                 <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                           value="option1" />
-                    <label class="form-check-label" for="femaleGender">Female</label>
+                    <select name="Gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
-
-                <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                           value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
-                </div>
-
-                <div class="form-check form-check-inline mb-0">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                           value="option3" />
-                    <label class="form-check-label" for="otherGender">Other</label>
-                </div>
-
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">NID:</label>
-                <input type="text" name="NID" placeholder="3333 111 222" id="form3Example8" class="form-control" />
+                <input type="text" name="NID" value="@(Model!=null? Model.Nid:"")" placeholder="3333 111 222" id="form3Example8" class="form-control" />
             </div>
 
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">Address:</label>
-                <input type="text" name="Address" placeholder="Address" id="form3Example8" class="form-control" />
+                <input type="text" name="Address" value="@(Model!=null? Model.Address:"")" placeholder="Address" id="form3Example8" class="form-control" />
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1m">DOB:</label>
-                        <input type="date" name="DOB" placeholder="Date of brith" id="form3Example1m" class="form-control" />
+                        <input type="date" name="DOB" value="@(Model!=null? Model.Dob:"")" id="form3Example1m" class="form-control" />
                     </div>
                 </div>
 
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1n">Security key:</label>
-                        <input type="text" name="Security_key" placeholder="Security key" id="form3Example1n" class="form-control " />
+                        <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
                     </div>
                 </div>
             </div>

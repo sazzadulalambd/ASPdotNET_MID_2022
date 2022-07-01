@@ -4,7 +4,7 @@
 }
 
 @{
-    Layout = "~/Views/Shared/_AD_Layout.cshtml";
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
 }
 <div class="d-sm-flex sa_align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Employee</h1>
@@ -38,24 +38,31 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>NID</th>
+                        <th>Security key</th>
+                        <th>Gender</th>
+                        <th>Address</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                    </tr>
+                    @foreach (var AD in Model)
+                    {
+                        <tr>
+                            <td>@AD.FirstName</td>
+                            <td>@AD.LastName</td>
+                            <td>@AD.Emp_Email</td>
+                            <td>@AD.Phone</td>
+                            <td>@AD.Nid</td>
+                            <td>@AD.Security_key</td>
+                            <td>@AD.Gender</td>
+                            <td>@AD.Address</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
