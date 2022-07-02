@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_In_Layout.cshtml";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- All CSS -->
+    <link rel="stylesheet" href="~/Incss/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Incss/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Incss/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Incss/css/style.css">
+
+    <title>Hey, world!</title>
+</head>
+<body>
+
+    <!-- Banner section start -->
+    <section class="banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 order-1 order-md-0">
+                    <div class="content-box">
+                        <span class="tagline">@Model.Company_Name</span>
+                        @Model.Category
+                        <h2>@Model.Moto</h2>
+                        <p>@Model.Description</p>
+                        <a href="#" class="btn btn-default">Visit Us</a>
+                    </div>
+                </div>
+                <div class="col-md-6 order-0 order-md-1">
+                    <figure class="ban-img">
+                        <img src="~/Incss/images/ban-1.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner section end -->
+    <!-- About section start -->
+    <section class="about">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <div class="col-lg-12">
+                    <div class="content-box-fluid">
+                        <span class="tagline">About @Model.Company_Name</span>
+                        <h3>Valuation: @Model.Valuation$</h3>
+                        <h5>Asking: @Model.Asking_Amount$ For @Model.Asking_Share% Of The Company.</h5>
+
+                        <h4>Total Profit: @Model.Total_Profit$</h4>
+                        <h6>Last Month Profit: @Model.Last_Month_profit$</h6>
+                        <h6>Last Year Profit: @Model.Last_Year_Profit$</h6>
+                        <a href="#" class="btn btn-success">Confirm Deal</a>
+                        <a href="#" class="btn btn-danger">Make An Offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section end -->
+    <!-- Features section start -->
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 m-auto text-center">
+                    <div class="sec-heading">
+                        <span class="tagline">Special Features</span>
+                        <h3 class="sec-title">Why You Should Invest On @Model.Company_Name</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="iconBox">
+                        <span class="icon" style="background-color: #ffeee2;">
+                            <i class="ti-pencil-alt"></i>
+                        </span>
+                        <a href="#">@Model.Feature1_Title</a>
+                        <p>@Model.Feature1_Des</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="iconBox">
+                        <span class="icon" style="background-color: #ebe3ff;">
+                            <i class="ti-pencil-alt"></i>
+                        </span>
+                        <a href="#">@Model.Feature2_Title</a>
+                        <p>@Model.Feature2_Des</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="iconBox">
+                        <span class="icon" style="background-color: #d5f8ff;">
+                            <i class="ti-pencil-alt"></i>
+                        </span>
+                        <a href="#">@Model.Feature3_Title</a>
+                        <p>@Model.Feature3_Des</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="iconBox">
+                        <span class="icon" style="background-color: #ffedf5;">
+                            <i class="ti-pencil-alt"></i>
+                        </span>
+                        <a href="#">@Model.Feature4_Title</a>
+                        <p>@Model.Feature4_Des</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h3>@ViewBag.Message</h3>
+</body>
+</html>

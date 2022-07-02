@@ -254,7 +254,18 @@ namespace BePartner_App_Mid.Controllers
             return View(listmsg);
         }
 
+        public ActionResult InBusinessDetails(string Id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Ideas where I.Company_Name.Equals(Id) select I).FirstOrDefault();
+            if(Ed != null)
+            {
+                return View(Ed);
+            }
+            return RedirectToAction("InStartups");
+        }
 
+        //**************************************** DATABASE STARTS ****************************************
 
         public bool InUpdatePer(InvestorPersonal In)
         {

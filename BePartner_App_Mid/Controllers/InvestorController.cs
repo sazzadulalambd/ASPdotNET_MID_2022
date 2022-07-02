@@ -211,8 +211,8 @@ namespace BePartner_App_Mid.Controllers
             var investor = (from Id in db.Investors where Id.In_Email.Equals(In.In_Email) select Id).FirstOrDefault();
             if(investor != null)
             {
-                if (investor.Password.Equals(In.Password))
-                {
+                //if (investor.Password.Equals(In.Password))
+                //{
                     FormsAuthentication.SetAuthCookie(In.In_Email, true);
                     Session.RemoveAll();
                     Session["In_Email"] = In.In_Email;
@@ -228,8 +228,8 @@ namespace BePartner_App_Mid.Controllers
                         return RedirectToAction(arr[2].ToString(), arr[1].ToString());
                     }
                     return RedirectToAction("InProfile","InHome");
-                }
-                ViewBag.Message = "Incorrect Password. Not "+investor.FirstName+"?<br>Re-enter Email";
+                //}
+                //ViewBag.Message = "Incorrect Password. Not "+investor.FirstName+"?<br>Re-enter Email";
             }
             else
             {

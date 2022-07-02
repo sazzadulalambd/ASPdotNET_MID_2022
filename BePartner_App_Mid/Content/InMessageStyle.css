@@ -687,9 +687,13 @@ body {
     }
 
 .chat-footer {
+    border-top:solid;
     position: relative;
     width: 100%;
     padding: 0 80px;
+    padding-top: 10px;
+    padding-bottom:10px;
+
 }
 
     .chat-footer .send-message-text {
@@ -907,4 +911,7 @@ body {
 .chat-body{
 
     max-height:330px;
+}
+.panel{
+    height:110%;
 }
