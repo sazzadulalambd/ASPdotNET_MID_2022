@@ -193,6 +193,7 @@
     <Compile Include="Models\InvestorPassword.cs" />
     <Compile Include="Models\InvestorPersonal.cs" />
     <Compile Include="Models\InvestorProfational.cs" />
+    <Compile Include="Models\InvestorSend.cs" />
     <Compile Include="Models\S_Admin_model_login.cs" />
     <Compile Include="Models\S_Admin_Model_Reg01.cs" />
     <Compile Include="Models\S_Admin_Model_Reg02.cs" />

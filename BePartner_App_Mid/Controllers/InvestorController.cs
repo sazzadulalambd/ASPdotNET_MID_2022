@@ -52,7 +52,7 @@ namespace BePartner_App_Mid.Controllers
             {
                 Session["FirstName"] = In.FirstName;
                 Session["LastName"] = In.LastName;
-                Session["Dob"] = In.Dob;
+                Session["Dob"] = In.Dob.Date;
                 Session["Address"] = In.Address;
                 Session["Phone"] = In.Phone;
                 Session["Email"] = In.In_Email;

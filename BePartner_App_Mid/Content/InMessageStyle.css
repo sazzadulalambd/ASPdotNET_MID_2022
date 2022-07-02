@@ -903,3 +903,8 @@ body {
 .contacts-add{
     margin-right:40px;
 }
+
+.chat-body{
+
+    max-height:330px;
+}
