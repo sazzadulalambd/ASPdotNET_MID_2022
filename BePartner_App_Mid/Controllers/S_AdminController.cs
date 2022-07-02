@@ -146,16 +146,17 @@ namespace BePartner_App_Mid.Controllers
         {
 
             var db = new bePartnerCentralDatabaseEntities2();
-            var admin = (from Id in db.Admins where Id.Ad_Email.Equals(SAML.Email) select Id).FirstOrDefault();
-            if (admin != null)
+            var ad = (from Id in db.Admins where Id.Ad_Email.Equals(SAML.Email) select Id).FirstOrDefault();
+            
+            if (ad != null)
             {
-                if (admin.Password.Equals(SAML.Password ))
+                if (ad.Password.Equals(SAML.Password))
                 {
                     FormsAuthentication.SetAuthCookie(SAML.Email, true);
                     Session.RemoveAll();
                     Session["Email"] = SAML.Email;
                     HttpCookie c1 = new HttpCookie("ADInfo");
-                    c1.Value = admin.Ad_Email.ToString();
+                    c1.Value = ad.Ad_Email.ToString();
                     c1.Expires = DateTime.Now.AddDays(1);
                     Response.Cookies.Add(c1);
                     if (ReturnUrl != null)

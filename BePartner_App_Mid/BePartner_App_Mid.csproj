@@ -134,6 +134,7 @@
     <Compile Include="Controllers\InHomeController.cs" />
     <Compile Include="Controllers\InvestorController.cs" />
     <Compile Include="Controllers\S_AdminController.cs" />
+    <Compile Include="CustomValidation\Admin_EV.cs" />
     <Compile Include="CustomValidation\CustomValid.cs" />
     <Compile Include="CustomValidation\InCheckPass.cs" />
     <Compile Include="CustomValidation\InEmailCheck.cs" />
@@ -177,6 +178,9 @@
     <Compile Include="EF\Report.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Task.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
@@ -189,6 +193,9 @@
     <Compile Include="Models\InvestorPassword.cs" />
     <Compile Include="Models\InvestorPersonal.cs" />
     <Compile Include="Models\InvestorProfational.cs" />
+    <Compile Include="Models\S_Admin_model_login.cs" />
+    <Compile Include="Models\S_Admin_Model_Reg01.cs" />
+    <Compile Include="Models\S_Admin_Model_Reg02.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1898,6 +1905,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Img\11.jpg" />
+    <Content Include="Img\ADMIN\_MG_4195.JPG" />
     <Content Include="Img\ALM.jpg" />
     <Content Include="Img\Facebook.png" />
     <Content Include="Img\JF.jpg" />
@@ -1909,8 +1917,6 @@
     <Content Include="Img\Reset_password.png" />
     <Content Include="Img\SUAS.png" />
     <Content Include="Img\title_logo.png" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="EF\ProjectData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProjectData.Designer.cs</LastGenOutput>
@@ -2090,7 +2096,17 @@
     <Content Include="admin_s_d\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="admin_s_d\vendor\jquery\jquery.min.map" />
     <Content Include="admin_s_d\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -2141,19 +2157,12 @@
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Shared\_In_Layout.cshtml" />
     <Content Include="Views\InHome\InMessenger.cshtml" />
+    <Content Include="Views\AD_Home\_AD_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

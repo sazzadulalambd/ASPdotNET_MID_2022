@@ -142,16 +142,18 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Password" Type="nchar" MaxLength="10" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Messages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Messages">
     <Key>
       <PropertyRef Name="MsgId" />
     </Key>
     <Property Name="MsgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Sender" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Receiver" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Message" Type="varchar" MaxLength="5000" Nullable="false" />
-    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Time" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Sender" Type="varchar" MaxLength="100" />
+    <Property Name="Receiver" Type="varchar" MaxLength="100" />
+    <Property Name="Message" Type="varchar" MaxLength="5000" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Time" Type="varchar" MaxLength="100" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -170,6 +172,16 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Reports' does not hav
     <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
     <Property Name="Report_Time" Type="date" Nullable="false" />
     <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -253,7 +265,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entrepreneurs" EntityType="Self.Entrepreneurs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admins" EntityType="Self.Admins" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Admins].[Ad_Email] AS [Ad_Email], 
@@ -305,6 +317,16 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Tasks' does not have 
     [Login].[Email] AS [Email], 
     [Login].[Password] AS [Password]
     FROM [dbo].[Login] AS [Login]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Messages" EntityType="Self.Messages" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Messages].[MsgId] AS [MsgId], 
+    [Messages].[Sender] AS [Sender], 
+    [Messages].[Receiver] AS [Receiver], 
+    [Messages].[Message] AS [Message], 
+    [Messages].[Status] AS [Status], 
+    [Messages].[Time] AS [Time]
+    FROM [dbo].[Messages] AS [Messages]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Reports" EntityType="Self.Reports" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
