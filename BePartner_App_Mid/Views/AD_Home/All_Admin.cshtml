@@ -26,9 +26,12 @@
 
         <h6 class="m-0 font-weight-bold text-primary">Admin list</h6>
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Download
-        </a>
+        <form action="/AD_Home/Export_all_Active_admin" method="post">
+
+            <input type="submit" value="Download" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+            </i>
+        </form>
+
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -45,7 +48,7 @@
                         <th>Address</th>
                     </tr>
                 </thead>
-               
+
                 <tbody>
                     @foreach (var AD in Model)
                     {

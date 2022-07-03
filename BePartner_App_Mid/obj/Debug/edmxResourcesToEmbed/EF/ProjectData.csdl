@@ -28,7 +28,6 @@
   </EntityType>
   <EntityContainer Name="bePartnerCentralDatabaseEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Investors" EntityType="Self.Investor" />
-    <EntitySet Name="sysdiagrams" EntityType="bePartnerCentralDatabaseModel1.sysdiagram" />
     <EntitySet Name="Admins" EntityType="bePartnerCentralDatabaseModel1.Admin" />
     <EntitySet Name="Employees" EntityType="bePartnerCentralDatabaseModel1.Employee" />
     <EntitySet Name="Entrepreneurs" EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" />
@@ -50,16 +49,6 @@
       <End Role="Task" EntitySet="Tasks" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Admin">
     <Key>
       <PropertyRef Name="Ad_Email" />

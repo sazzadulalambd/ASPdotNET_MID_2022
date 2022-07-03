@@ -46,11 +46,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.96.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.96.0\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -119,6 +128,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -135,6 +145,7 @@
     <Compile Include="Controllers\InvestorController.cs" />
     <Compile Include="Controllers\S_AdminController.cs" />
     <Compile Include="CustomValidation\Admin_EV.cs" />
+    <Compile Include="CustomValidation\Admin_PE.cs" />
     <Compile Include="CustomValidation\CustomValid.cs" />
     <Compile Include="CustomValidation\InCheckPass.cs" />
     <Compile Include="CustomValidation\InEmailCheck.cs" />
@@ -178,15 +189,13 @@
     <Compile Include="EF\Report.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\sysdiagram.cs">
-      <DependentUpon>ProjectData.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\Task.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin_PasswordEdit.cs" />
     <Compile Include="Models\InvestorEditPass.cs" />
     <Compile Include="Models\InvestorLogin.cs" />
     <Compile Include="Models\InvestorMessage.cs" />
@@ -2204,6 +2213,8 @@
     <Content Include="Views\InHome\InMessenger.cshtml" />
     <Content Include="Views\AD_Home\_AD_Layout.cshtml" />
     <Content Include="Views\InHome\InBusinessDetails.cshtml" />
+    <Content Include="Views\AD_Home\AD_Chart.cshtml" />
+    <Content Include="Views\AD_Home\AD_Messege.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

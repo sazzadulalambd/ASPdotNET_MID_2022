@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="051708f502184aa296962c03cfa3c36c" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Investor" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Admin" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Employee" Width="1.5" PointX="5.75" PointY="1" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" Width="1.5" PointX="3.75" PointY="4.375" />

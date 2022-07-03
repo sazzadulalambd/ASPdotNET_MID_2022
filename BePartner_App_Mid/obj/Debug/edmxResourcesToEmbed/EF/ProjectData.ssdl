@@ -138,16 +138,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <Property Name="Report_Time" Type="date" Nullable="false" />
     <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Tasks">
     <Key>
       <PropertyRef Name="TaskId" />
@@ -203,7 +193,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

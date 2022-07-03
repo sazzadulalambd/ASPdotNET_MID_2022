@@ -26,7 +26,6 @@ namespace BePartner_App_Mid.EF
         }
     
         public virtual DbSet<Investor> Investors { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Entrepreneur> Entrepreneurs { get; set; }

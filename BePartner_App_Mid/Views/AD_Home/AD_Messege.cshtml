@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AD_Messege";
+}
+@{
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
+}
+
+<center>
+    <div class="chat-popup" id="message">
+        <form action="" class="form-container" method="post">
+            <h1>Task</h1>
+            <input type="text" name="searchdata" placeholder="employee@mail.com" id="searchdata" onkeyup="hello()">
+            <br>
+            <br>
+            <input type="text" name="msgtitel" placeholder="Subject">
+            <br>
+            <br>
+            <textarea placeholder="Type message.." class="textbox" name="msg" required></textarea>
+            <br>
+            <br>
+            <button type="submit" name="Send" class="search_buttons">Send</button>
+        </form>
+    </div>
+</center>

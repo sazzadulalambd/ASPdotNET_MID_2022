@@ -11,10 +11,10 @@ namespace BePartner_App_Mid.CustomValidation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if(value != null)
+            if (value != null)
             {
-                
-                if(HttpContext.Current.Session["Ad_Email"] != null)
+
+                if (HttpContext.Current.Session["Email"] != null)
                 {
                     return ValidationResult.Success;
                 }
@@ -29,7 +29,7 @@ namespace BePartner_App_Mid.CustomValidation
                     }
                     return ValidationResult.Success;
                 }
-                
+
             }
             return new ValidationResult("*Something went wrong");
         }
