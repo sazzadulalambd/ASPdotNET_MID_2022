@@ -42,7 +42,7 @@ namespace BePartner_App_Mid.EF
         public string Feature4_Title { get; set; }
         public string Feature4_Des { get; set; }
     
-        public virtual Investor Investor { get; set; }
         public virtual Entrepreneur Entrepreneur { get; set; }
+        public virtual Investor Investor { get; set; }
     }
 }

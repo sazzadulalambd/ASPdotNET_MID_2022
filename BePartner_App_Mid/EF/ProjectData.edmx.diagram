@@ -5,21 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="051708f502184aa296962c03cfa3c36c" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Employee" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Investor" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Admin" Width="1.5" PointX="8.375" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Login" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Report" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Task" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" ManuallyRouted="false" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Reports_in_Investors" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Idea" Width="1.5" PointX="3" PointY="4.875" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" Width="1.5" PointX="0.75" PointY="3.625" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" />
-        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Message" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Admin" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Employee" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" Width="1.5" PointX="3.75" PointY="4.375" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Idea" Width="1.5" PointX="9" PointY="5.625" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Message" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Login" Width="1.5" PointX="11.75" PointY="3.75" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Report" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Task" Width="1.5" PointX="8" PointY="1.625" />
+        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

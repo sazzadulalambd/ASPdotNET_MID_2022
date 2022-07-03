@@ -17,7 +17,6 @@ namespace BePartner_App_Mid.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Investor()
         {
-            this.Reports = new HashSet<Report>();
             this.Ideas = new HashSet<Idea>();
         }
     
@@ -42,8 +41,6 @@ namespace BePartner_App_Mid.EF
         public string EmailValidation { get; set; }
         public string Img { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Report> Reports { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Idea> Ideas { get; set; }
     }

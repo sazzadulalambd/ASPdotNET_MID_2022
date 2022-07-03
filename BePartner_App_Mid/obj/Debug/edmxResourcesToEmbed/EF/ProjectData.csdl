@@ -1,23 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="bePartnerCentralDatabaseModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Employee">
-    <Key>
-      <PropertyRef Name="Emp_Email" />
-    </Key>
-    <Property Name="Emp_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Address" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Security_key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Nid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Employees" FromRole="Employees" ToRole="Tasks" />
-    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="Investor">
     <Key>
       <PropertyRef Name="In_Email" />
@@ -41,149 +23,98 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EmailValidation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_in_Investors" FromRole="Investors" ToRole="Reports" />
     <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" FromRole="Investor" ToRole="Idea" />
   </EntityType>
-  <EntityType Name="Admin">
-    <Key>
-      <PropertyRef Name="Ad_Email" />
-      <PropertyRef Name="FirstName" />
-      <PropertyRef Name="LastName" />
-      <PropertyRef Name="Dob" />
-      <PropertyRef Name="Address" />
-      <PropertyRef Name="Phone" />
-      <PropertyRef Name="Security_key" />
-      <PropertyRef Name="Gender" />
-      <PropertyRef Name="Nid" />
-      <PropertyRef Name="Password" />
-    </Key>
-    <Property Name="Ad_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Address" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Security_key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Nid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Login">
-    <Key>
-      <PropertyRef Name="Email" />
-    </Key>
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Report">
-    <Key>
-      <PropertyRef Name="ReportId" />
-      <PropertyRef Name="Reported_By" />
-      <PropertyRef Name="Title" />
-      <PropertyRef Name="Description" />
-      <PropertyRef Name="Report_Time" />
-      <PropertyRef Name="Status" />
-    </Key>
-    <Property Name="ReportId" Type="Int32" Nullable="false" />
-    <Property Name="Reported_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Report_Time" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Investor" Relationship="Self.FK_Reports_in_Investors" FromRole="Reports" ToRole="Investors" />
-    <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Report" ToRole="Entrepreneur" />
-  </EntityType>
-  <EntityType Name="Task">
-    <Key>
-      <PropertyRef Name="TaskId" />
-      <PropertyRef Name="Emp_Assigned" />
-      <PropertyRef Name="Task_Description" />
-      <PropertyRef Name="Issue_time" />
-      <PropertyRef Name="Due_time" />
-      <PropertyRef Name="Status" />
-    </Key>
-    <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Emp_Assigned" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Task_Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK_Tasks_Employees" FromRole="Tasks" ToRole="Employees" />
-  </EntityType>
-  <Association Name="FK_Tasks_Employees">
-    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
-    <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employees">
-        <PropertyRef Name="Emp_Email" />
-      </Principal>
-      <Dependent Role="Tasks">
-        <PropertyRef Name="Emp_Assigned" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Reports_in_Investors">
-    <End Role="Investors" Type="Self.Investor" Multiplicity="1" />
-    <End Role="Reports" Type="Self.Report" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Investors">
-        <PropertyRef Name="In_Email" />
-      </Principal>
-      <Dependent Role="Reports">
-        <PropertyRef Name="Reported_By" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="bePartnerCentralDatabaseEntities2" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="Investors" EntityType="Self.Investor" />
-    <EntitySet Name="Admins" EntityType="Self.Admin" />
-    <EntitySet Name="Logins" EntityType="Self.Login" />
-    <EntitySet Name="Reports" EntityType="Self.Report" />
-    <EntitySet Name="Tasks" EntityType="Self.Task" />
-    <AssociationSet Name="FK_Tasks_Employees" Association="Self.FK_Tasks_Employees">
-      <End Role="Employees" EntitySet="Employees" />
-      <End Role="Tasks" EntitySet="Tasks" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Reports_in_Investors" Association="Self.FK_Reports_in_Investors">
-      <End Role="Investors" EntitySet="Investors" />
-      <End Role="Reports" EntitySet="Reports" />
-    </AssociationSet>
-    <EntitySet Name="Ideas" EntityType="bePartnerCentralDatabaseModel1.Idea" />
-    <AssociationSet Name="FK_Ideas_in_Investors" Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors">
-      <End Role="Investor" EntitySet="Investors" />
-      <End Role="Idea" EntitySet="Ideas" />
-    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="bePartnerCentralDatabaseModel1.sysdiagram" />
+    <EntitySet Name="Admins" EntityType="bePartnerCentralDatabaseModel1.Admin" />
+    <EntitySet Name="Employees" EntityType="bePartnerCentralDatabaseModel1.Employee" />
     <EntitySet Name="Entrepreneurs" EntityType="bePartnerCentralDatabaseModel1.Entrepreneur" />
+    <EntitySet Name="Ideas" EntityType="bePartnerCentralDatabaseModel1.Idea" />
+    <EntitySet Name="Messages" EntityType="bePartnerCentralDatabaseModel1.Message" />
+    <EntitySet Name="Logins" EntityType="bePartnerCentralDatabaseModel1.Login" />
     <AssociationSet Name="FK_Ideas_Entrepreneurs" Association="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs">
       <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
       <End Role="Idea" EntitySet="Ideas" />
     </AssociationSet>
-    <AssociationSet Name="FK_Reports_Entrepreneurs" Association="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs">
-      <End Role="Entrepreneur" EntitySet="Entrepreneurs" />
-      <End Role="Report" EntitySet="Reports" />
+    <AssociationSet Name="FK_Ideas_in_Investors" Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors">
+      <End Role="Investor" EntitySet="Investors" />
+      <End Role="Idea" EntitySet="Ideas" />
     </AssociationSet>
-    <EntitySet Name="Messages" EntityType="bePartnerCentralDatabaseModel1.Message" />
-    <EntitySet Name="sysdiagrams" EntityType="bePartnerCentralDatabaseModel1.sysdiagram" />
+    <EntitySet Name="Reports" EntityType="bePartnerCentralDatabaseModel1.Report" />
+    <EntitySet Name="Tasks" EntityType="bePartnerCentralDatabaseModel1.Task" />
+    <AssociationSet Name="FK_Tasks_Employees" Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Ad_Email" />
+    </Key>
+    <Property Name="Ad_Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Security_key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_Email" />
+    </Key>
+    <Property Name="Emp_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Security_key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tasks" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Employee" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Entrepreneur">
+    <Key>
+      <PropertyRef Name="En_Email" />
+    </Key>
+    <Property Name="En_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Bob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Occupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
+  </EntityType>
   <EntityType Name="Idea">
     <Key>
       <PropertyRef Name="PostId" />
-      <PropertyRef Name="En_Post_Email" />
-      <PropertyRef Name="Company_Name" />
-      <PropertyRef Name="Moto" />
-      <PropertyRef Name="Description" />
-      <PropertyRef Name="Post_Time" />
-      <PropertyRef Name="Asking_Amount" />
-      <PropertyRef Name="Asking_Share" />
-      <PropertyRef Name="Status" />
-      <PropertyRef Name="Category" />
-      <PropertyRef Name="Total_Profit" />
-      <PropertyRef Name="Last_Month_profit" />
-      <PropertyRef Name="Last_Year_Profit" />
-      <PropertyRef Name="Valuation" />
     </Key>
     <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="En_Post_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -212,39 +143,26 @@
     <Property Name="Feature3_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
     <Property Name="Feature4_Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Feature4_Des" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Investor" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" FromRole="Idea" ToRole="Investor" />
     <NavigationProperty Name="Entrepreneur" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Idea" ToRole="Entrepreneur" />
+    <NavigationProperty Name="Investor" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" FromRole="Idea" ToRole="Investor" />
   </EntityType>
-  <Association Name="FK_Ideas_in_Investors">
-    <End Type="bePartnerCentralDatabaseModel1.Investor" Role="Investor" Multiplicity="0..1" />
-    <End Type="bePartnerCentralDatabaseModel1.Idea" Role="Idea" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Investor">
-        <PropertyRef Name="In_Email" />
-      </Principal>
-      <Dependent Role="Idea">
-        <PropertyRef Name="In_Asp_Email" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Entrepreneur">
+  <EntityType Name="Message">
     <Key>
-      <PropertyRef Name="En_Email" />
+      <PropertyRef Name="MsgId" />
     </Key>
-    <Property Name="En_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Bob" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Nid" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Occupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Ideas" Relationship="bePartnerCentralDatabaseModel1.FK_Ideas_Entrepreneurs" FromRole="Entrepreneur" ToRole="Idea" />
-    <NavigationProperty Name="Reports" Relationship="bePartnerCentralDatabaseModel1.FK_Reports_Entrepreneurs" FromRole="Entrepreneur" ToRole="Report" />
-    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MsgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Receiver" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message1" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_Ideas_Entrepreneurs">
     <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
@@ -258,37 +176,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Reports_Entrepreneurs">
-    <End Type="bePartnerCentralDatabaseModel1.Entrepreneur" Role="Entrepreneur" Multiplicity="1" />
-    <End Type="bePartnerCentralDatabaseModel1.Report" Role="Report" Multiplicity="*" />
+  <Association Name="FK_Ideas_in_Investors">
+    <End Type="bePartnerCentralDatabaseModel1.Investor" Role="Investor" Multiplicity="0..1" />
+    <End Type="bePartnerCentralDatabaseModel1.Idea" Role="Idea" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Entrepreneur">
-        <PropertyRef Name="En_Email" />
+      <Principal Role="Investor">
+        <PropertyRef Name="In_Email" />
       </Principal>
-      <Dependent Role="Report">
-        <PropertyRef Name="Reported_By" />
+      <Dependent Role="Idea">
+        <PropertyRef Name="In_Asp_Email" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Message">
+  <EntityType Name="Report">
     <Key>
-      <PropertyRef Name="MsgId" />
+      <PropertyRef Name="ReportId" />
     </Key>
-    <Property Name="MsgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Sender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Receiver" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Message1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Reported_By" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Report_Time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="sysdiagram">
+  <EntityType Name="Task">
     <Key>
-      <PropertyRef Name="diagram_id" />
+      <PropertyRef Name="TaskId" />
     </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_Assigned" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Task_Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employee" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Task" ToRole="Employee" />
   </EntityType>
+  <Association Name="FK_Tasks_Employees">
+    <End Type="bePartnerCentralDatabaseModel1.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="bePartnerCentralDatabaseModel1.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Emp_Email" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Emp_Assigned" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

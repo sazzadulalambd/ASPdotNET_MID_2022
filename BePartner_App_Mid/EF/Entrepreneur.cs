@@ -18,7 +18,6 @@ namespace BePartner_App_Mid.EF
         public Entrepreneur()
         {
             this.Ideas = new HashSet<Idea>();
-            this.Reports = new HashSet<Report>();
         }
     
         public string En_Email { get; set; }
@@ -36,7 +35,5 @@ namespace BePartner_App_Mid.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Idea> Ideas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Report> Reports { get; set; }
     }
 }
