@@ -175,8 +175,9 @@ namespace BePartner_App_Mid.Controllers
                 //var ins = db.Investors.ToList();
                 return View(ins);
 
-                //var ens = db.Entrepreneurs.ToList();
-                // return View(ens);
+                var ens = (from I in db.Entrepreneurs where I.Status.Equals("Invalid") select I).ToList();
+                ViewBag.M_ENS=ens;
+
 
             }
 

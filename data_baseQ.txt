@@ -1,0 +1,329 @@
+***********************************************************************************************************************************************************************
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Employees]    Script Date: 7/3/2022 10:06:37 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Employees](
+	[Emp_Email] [varchar](100) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[Dob] [date] NOT NULL,
+	[Address] [varchar](5000) NOT NULL,
+	[Phone] [varchar](20) NOT NULL,
+	[Security_key] [varchar](50) NOT NULL,
+	[Gender] [varchar](10) NOT NULL,
+	[Nid] [varchar](20) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Img] [varchar](500) NULL,
+	[Status] [varchar](10) NULL,
+ CONSTRAINT [PK_Employees] PRIMARY KEY CLUSTERED 
+(
+	[Emp_Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+***********************************************************************************************************************************************************************
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Admins]    Script Date: 7/3/2022 10:12:15 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Admins](
+	[Ad_Email] [varchar](50) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[Dob] [date] NOT NULL,
+	[Address] [varchar](5000) NOT NULL,
+	[Phone] [varchar](20) NOT NULL,
+	[Security_key] [varchar](50) NOT NULL,
+	[Gender] [varchar](10) NOT NULL,
+	[Nid] [varchar](20) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Img] [varchar](500) NULL,
+ CONSTRAINT [PK_Admins] PRIMARY KEY CLUSTERED 
+(
+	[Ad_Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+***********************************************************************************************************************************************************************
+
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Entrepreneurs]    Script Date: 7/3/2022 10:13:42 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Entrepreneurs](
+	[En_Email] [varchar](100) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[Gender] [varchar](10) NOT NULL,
+	[Bob] [date] NOT NULL,
+	[Address] [varchar](5000) NOT NULL,
+	[Phone] [varchar](20) NOT NULL,
+	[Nid] [varchar](20) NOT NULL,
+	[Occupation] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Img] [varchar](500) NULL,
+	[Status] [varchar](10) NULL,
+ CONSTRAINT [PK_Entrepreneurs] PRIMARY KEY CLUSTERED 
+(
+	[En_Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+***********************************************************************************************************************************************************************
+
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Ideas]    Script Date: 7/3/2022 10:14:22 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Ideas](
+	[PostId] [int] IDENTITY(1,1) NOT NULL,
+	[En_Post_Email] [varchar](100) NOT NULL,
+	[In_Asp_Email] [varchar](100) NULL,
+	[Company_Name] [varchar](200) NOT NULL,
+	[Moto] [varchar](500) NOT NULL,
+	[Description] [varchar](5000) NOT NULL,
+	[Post_Time] [date] NOT NULL,
+	[Asking_Amount] [varchar](50) NOT NULL,
+	[Asking_Share] [varchar](50) NOT NULL,
+	[Status] [varchar](50) NOT NULL,
+	[Message] [varchar](5000) NULL,
+	[Offer_Amount] [varchar](50) NULL,
+	[Offer_Share] [varchar](50) NULL,
+	[Img] [varchar](500) NULL,
+	[Category] [varchar](50) NOT NULL,
+	[Total_Profit] [varchar](50) NOT NULL,
+	[Last_Month_profit] [varchar](50) NOT NULL,
+	[Last_Year_Profit] [varchar](50) NOT NULL,
+	[Valuation] [varchar](50) NOT NULL,
+	[Feature1_Title] [varchar](500) NULL,
+	[Feature1_Des] [varchar](5000) NULL,
+	[Feature2_Title] [varchar](500) NULL,
+	[Feature2_Des] [varchar](5000) NULL,
+	[Feature3_Title] [varchar](500) NULL,
+	[Feature3_Des] [varchar](5000) NULL,
+	[Feature4_Title] [varchar](500) NULL,
+	[Feature4_Des] [varchar](5000) NULL,
+ CONSTRAINT [PK_Ideas] PRIMARY KEY CLUSTERED 
+(
+	[PostId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Ideas] ADD  CONSTRAINT [DF_Ideas_Status]  DEFAULT ('Posted') FOR [Status]
+GO
+
+ALTER TABLE [dbo].[Ideas]  WITH CHECK ADD  CONSTRAINT [FK_Ideas_Entrepreneurs] FOREIGN KEY([En_Post_Email])
+REFERENCES [dbo].[Entrepreneurs] ([En_Email])
+GO
+
+ALTER TABLE [dbo].[Ideas] CHECK CONSTRAINT [FK_Ideas_Entrepreneurs]
+GO
+
+ALTER TABLE [dbo].[Ideas]  WITH CHECK ADD  CONSTRAINT [FK_Ideas_in_Investors] FOREIGN KEY([In_Asp_Email])
+REFERENCES [dbo].[Investors] ([In_Email])
+GO
+
+ALTER TABLE [dbo].[Ideas] CHECK CONSTRAINT [FK_Ideas_in_Investors]
+GO
+
+
+
+
+***********************************************************************************************************************************************************************
+
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Investors]    Script Date: 7/3/2022 10:14:46 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Investors](
+	[In_Email] [varchar](100) NOT NULL,
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[Dob] [date] NOT NULL,
+	[Gender] [varchar](10) NOT NULL,
+	[Address] [varchar](1000) NOT NULL,
+	[Phone] [varchar](20) NOT NULL,
+	[Nid] [varchar](20) NOT NULL,
+	[OrgName] [varchar](50) NOT NULL,
+	[OrgEstablished] [date] NOT NULL,
+	[OrgLocation] [varchar](1000) NOT NULL,
+	[OrgEmail] [varchar](100) NOT NULL,
+	[OrgPhone] [varchar](20) NOT NULL,
+	[OrgLicense] [varchar](20) NOT NULL,
+	[Tin] [varchar](20) NOT NULL,
+	[OrgSite] [varchar](100) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Status] [varchar](10) NOT NULL,
+	[EmailValidation] [varchar](10) NOT NULL,
+	[Img] [varchar](500) NULL,
+ CONSTRAINT [PK_in_Investors] PRIMARY KEY CLUSTERED 
+(
+	[In_Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+***********************************************************************************************************************************************************************
+
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Login]    Script Date: 7/3/2022 10:15:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Login](
+	[Email] [varchar](100) NOT NULL,
+	[Password] [nchar](10) NULL
+) ON [PRIMARY]
+GO
+
+
+
+
+***********************************************************************************************************************************************************************
+
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Messages]    Script Date: 7/3/2022 10:15:38 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Messages](
+	[MsgId] [int] IDENTITY(1,1) NOT NULL,
+	[Sender] [varchar](100) NOT NULL,
+	[Receiver] [varchar](100) NOT NULL,
+	[Message] [varchar](5000) NOT NULL,
+	[Status] [varchar](50) NOT NULL,
+	[Time] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_InEnMessage] PRIMARY KEY CLUSTERED 
+(
+	[MsgId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+***********************************************************************************************************************************************************************
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Reports]    Script Date: 7/3/2022 10:15:52 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Reports](
+	[ReportId] [int] IDENTITY(1,1) NOT NULL,
+	[Reported_By] [varchar](100) NOT NULL,
+	[Title] [varchar](500) NOT NULL,
+	[Description] [varchar](5000) NOT NULL,
+	[Report_Time] [date] NOT NULL,
+	[Status] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Reports] PRIMARY KEY CLUSTERED 
+(
+	[ReportId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+***********************************************************************************************************************************************************************
+
+USE [bePartnerCentralDatabase]
+GO
+
+/****** Object:  Table [dbo].[Tasks]    Script Date: 7/3/2022 10:16:13 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Tasks](
+	[TaskId] [int] IDENTITY(100,1) NOT NULL,
+	[Emp_Assigned] [varchar](100) NOT NULL,
+	[Task_Description] [varchar](5000) NOT NULL,
+	[Issue_time] [date] NOT NULL,
+	[Due_time] [date] NOT NULL,
+	[Status] [varchar](500) NOT NULL,
+ CONSTRAINT [PK_Tasks] PRIMARY KEY CLUSTERED 
+(
+	[TaskId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Tasks]  WITH CHECK ADD  CONSTRAINT [FK_Tasks_Employees] FOREIGN KEY([Emp_Assigned])
+REFERENCES [dbo].[Employees] ([Emp_Email])
+GO
+
+ALTER TABLE [dbo].[Tasks] CHECK CONSTRAINT [FK_Tasks_Employees]
+GO
+
+
+

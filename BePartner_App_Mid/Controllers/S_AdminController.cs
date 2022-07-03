@@ -74,8 +74,12 @@ namespace BePartner_App_Mid.Controllers
                     string path = Server.MapPath("~/Img/ADMIN");
                     string fileName = Path.GetFileName(SAMR2.IMG_file.FileName);
                     string fullpath = Path.Combine(path, fileName);
+                    SAMR2.IMG_file.SaveAs(fullpath);  //save into img folder
 
-                    Session["IMG_file"] = fullpath;
+
+                    // for data base
+                    string databaseImgpath = "~/Img/ADMIN/" + fileName; 
+                    Session["IMG_file"] = databaseImgpath;
 
                 }
 
