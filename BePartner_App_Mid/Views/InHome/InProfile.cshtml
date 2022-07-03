@@ -124,7 +124,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" id="passShow" name="Password" disabled value="@(Model!=null? Model.Password:"")" class="form-control">
+                                    <input type="password" id="passShow" name="Password" readonly value="@(Model!=null? Model.Password:"")" class="form-control">
                                     <input type="checkbox" onclick="showPass()" name="pwd"> Show Password
                                 </div>
                             </div>
@@ -150,34 +150,116 @@
                     </div>
                     <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
                         <h3 class="mb-4">My Investment</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Login</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Two-factor auth</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="recovery">
-                                        <label class="form-check-label" for="recovery">
-                                            Recovery
-                                        </label>
+                        <div class="list-body">
+                        <div class="Instartups-container mt-5 mb-5">
+                            <div class="d-flex justify-content-center row">
+                                <div class="col-md-12">
+
+                                    <div class="row p-2 bg-white border In-StartupShadow rounded">
+                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                                        <div class="col-md-6 mt-1 in-list-width">
+                                            <h3 class="text-success">ckkcj</h3>
+                                            <div class="d-flex flex-row">
+                                                @*<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>*@
+                                            </div>
+                                            <div class="mt-1 mb-1 spec-1"><span>dddddddd</span><span class="dot"></span><span>ddddddd</span><span class="dot"></span><span>kjjh<br></span></div>
+                                            <div class="mt-1 mb-1 spec-1"><span>ddddddddddddd</span><span class="dot"></span><span>ddddddd</span>@*<span class="dot"></span><span>Casual<br></span>*@</div>
+                                            <p class="text-justify para mb-0">dddddddddddddd<br><br></p>
+                                        </div>
+                                        <div class="sa_align-items-center align-content-center col-md-3 border-left mt-1">
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="mr-1">$ddddddddd</h4><span class="text-danger">(valuation)</span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h6 class="mr-1">Asking Amount:dddddd$</h6><span class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h7 class="mr-1">For ddddddd% of the company.</h7><span class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h6 class="text-success mr-1">Total Profit: dddddddd$</h6>
+                                            </div>
+
+                                            <div class="d-flex flex-column mt-4">
+                                                <a class="btn btn-primary btn-sm" @*href="@Url.Action("InBusinessDetails","InHome",new {Id = i.Company_Name})"*@>Details</a>
+                                                <button class="btn btn-outline-primary btn-sm mt-2" type="button">Send Offer</button>
+                                            </div>
+                                        </div>
                                     </div>
+
+
+
                                 </div>
                             </div>
+                        </div>
+                        <div class="Instartups-container mt-5 mb-5">
+                            <div class="d-flex justify-content-center row">
+                                <div class="col-md-12">
+
+                                    <div class="row p-2 bg-white border In-StartupShadow rounded">
+                                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                                        <div class="col-md-6 mt-1 in-list-width">
+                                            <h3 class="text-success">ckkcj</h3>
+                                            <div class="d-flex flex-row">
+                                                @*<div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>*@
+                                            </div>
+                                            <div class="mt-1 mb-1 spec-1"><span>dddddddd</span><span class="dot"></span><span>ddddddd</span><span class="dot"></span><span>kjjh<br></span></div>
+                                            <div class="mt-1 mb-1 spec-1"><span>ddddddddddddd</span><span class="dot"></span><span>ddddddd</span>@*<span class="dot"></span><span>Casual<br></span>*@</div>
+                                            <p class="text-justify para mb-0">dddddddddddddd<br><br></p>
+                                        </div>
+                                        <div class="sa_align-items-center align-content-center col-md-3 border-left mt-1">
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h4 class="mr-1">$ddddddddd</h4><span class="text-danger">(valuation)</span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h6 class="mr-1">Asking Amount:dddddd$</h6><span class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h7 class="mr-1">For ddddddd% of the company.</h7><span class="strike-text"></span>
+                                            </div>
+                                            <div class="d-flex flex-row sa_align-items-center">
+                                                <h6 class="text-success mr-1">Total Profit: dddddddd$</h6>
+                                            </div>
+
+                                            <div class="d-flex flex-column mt-4">
+                                                <a class="btn btn-primary btn-sm" @*href="@Url.Action("InBusinessDetails","InHome",new {Id = i.Company_Name})"*@>Details</a>
+                                                <button class="btn btn-outline-primary btn-sm mt-2" type="button">Send Offer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-6">
+            <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Two-factor auth</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="recovery">
+                    <label class="form-check-label" for="recovery">
+                        Recovery
+                    </label>
+                </div>
+            </div>
+        </div>*@
                         </div>
                         <div>
                             <a href="">Edit information</a>
                             <!-- <button class="btn btn-primary">Update</button>
-                            <button class="btn btn-light">Cancel</button> -->
+        <button class="btn btn-light">Cancel</button> -->
                         </div>
                     </div>
                     <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">

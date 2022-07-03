@@ -30,6 +30,7 @@
                         <h2>@Model.Moto</h2>
                         <p>@Model.Description</p>
                         <a href="#" class="btn btn-default">Visit Us</a>
+                        <a href="#" class="btn btn-default">Send Message</a>
                     </div>
                 </div>
                 <div class="col-md-6 order-0 order-md-1">
@@ -55,7 +56,7 @@
                         <h4>Total Profit: @Model.Total_Profit$</h4>
                         <h6>Last Month Profit: @Model.Last_Month_profit$</h6>
                         <h6>Last Year Profit: @Model.Last_Year_Profit$</h6>
-                        <a href="#" class="btn btn-success">Confirm Deal</a>
+                        <a href="@Url.Action("InConfirmDeal","InHome",new {Id = Model.Company_Name})" class="btn btn-success">Confirm Deal</a>
                         <a href="#" class="btn btn-danger">Make An Offer</a>
                     </div>
                 </div>

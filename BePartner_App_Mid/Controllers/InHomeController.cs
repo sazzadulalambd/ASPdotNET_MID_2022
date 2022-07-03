@@ -265,6 +265,29 @@ namespace BePartner_App_Mid.Controllers
             return RedirectToAction("InStartups");
         }
 
+        public ActionResult InConfirmDeal(String Id)
+        {
+
+            var db = new bePartnerCentralDatabaseEntities2();
+            var email = Session["In_Email"].ToString();
+            var Ed = (from I in db.Ideas where I.Company_Name.Equals(Id) select I).FirstOrDefault();
+
+            Ed.In_Asp_Email = email;
+            Ed.Status = "Confirmed";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("InProfile");
+            }
+            catch
+            {
+                return RedirectToAction("InStartups");
+            }
+            
+        }
+
+
         //**************************************** DATABASE STARTS ****************************************
 
         public bool InUpdatePer(InvestorPersonal In)

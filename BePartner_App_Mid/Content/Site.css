@@ -138,6 +138,8 @@ input[type = "text"] {
 
 .investor-shadow {
     width: 116%;
+    height:50%;
+    overflow-y:auto;
     box-shadow: 0 2px 10px #f9f9f9 !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     
@@ -150,6 +152,8 @@ input[type = "text"] {
 
 .tab-content {
     flex: 1;
+    height:50%;
+    overflow-y:auto;
 }
 
 .form-group {
@@ -172,6 +176,11 @@ input[type = "text"] {
     width: 100px;
     border-radius: 100%;
     border: 5px solid #fff;
+}
+
+.list-body{
+    height:500px;
+    overflow-y:scroll;
 }
 
 /********************************Product LIst*/

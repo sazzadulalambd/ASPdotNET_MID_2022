@@ -118,7 +118,8 @@ namespace BePartner_App_Mid.Controllers
                 Gender=Session["Gender"].ToString(),
                 Nid=Session["NID"].ToString(),
                 Password=Session["Password"].ToString(),
-                Img=Session["IMG_file"].ToString()
+                Img=Session["IMG_file"].ToString(),
+                Dob = DateTime.Parse(Session["DOB"].ToString())
 
             };
             var db = new bePartnerCentralDatabaseEntities2();
