@@ -1,0 +1,93 @@
+﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Employee/EM_layout.cshtml";
+}
+
+<div class="row">
+    <!--Left side-->
+    <div class="column1">
+
+
+
+        <a class="nav-link" href="@Url.Action("Index","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Dashboard</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Account Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Employee Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Investor Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Enterprenrur Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Task Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Report</span>
+        </a>
+        <br />
+
+    </div>
+
+    <!--rigth side-->
+    <div class="column2">
+        <h2>Report</h2>
+        <form action="" method="POST">
+            <input type="text" name="searchdata">
+            <input type="submit" class="search_buttons" name="search" value="Search">
+            <h4>Report to Admin</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            <input type="submit" class="search_buttons" name="search" value="Subject">
+                            <br />
+                            <input type="submit" class="search_buttons" name="type Message" value="Type Message">
+                            <br />
+                            <center>
+                                <input type="submit" class="search_buttons" name="search" value="Done">
+                            </center>
+                        </th>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+

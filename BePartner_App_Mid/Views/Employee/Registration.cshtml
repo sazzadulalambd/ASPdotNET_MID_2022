@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>SignUp</h2>
+<h2>Welcome back!</h2>
+<form action="" method="post">
+
+    <label>First Name:</label>
+    <input type="text" name="FirstName" placeholder="Enter your frist name.." value="@(Model!=null? Model.FirstName:"")" class="form-control">
+    @Html.ValidationMessage("FirstName")
+    <br />
+
+    <label>Last Name:</label>
+    <input type="text" name="LastName" placeholder="Enter your last name.." value="@(Model!=null? Model.LastName:"")" class="form-control">
+    @Html.ValidationMessage("LastName")
+    <br />
+
+    <label>Date of birth:</label>
+    <input type="date" name="Dob" value="@(Model!=null? Model.Dob:"")" class="form-control">
+    @Html.ValidationMessage("Dob")
+    <br />
+
+    <label>Phone:</label>
+    <input type="tel" name="Phone" placeholder="Enter your phone number.." value="@(Model!=null? Model.Phone:"")" class="form-control">
+    @Html.ValidationMessage("Phone")
+    <br />
+
+    <label>Email:</label>
+    <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Email:"")" class="form-control">
+    @Html.ValidationMessage("Email")
+    <br />
+
+    <label>NID number:</label>
+    <input type="text" name="Nid" placeholder="Enter your nid number.." value="@(Model!=null? Model.Nid:"")" class="form-control">
+    @Html.ValidationMessage("Nid")
+    <br />
+
+    <label>Parmanent Address:</label>
+<textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." value="@(Model!=null? Model.Address:"")"></textarea>
+    @Html.ValidationMessage("Address")
+    <br />
+
+    <lebel> Password:</lebel>
+    <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
+    @Html.ValidationMessage("Password")
+    <br />
+    <lebel>Confrim Password:</lebel>
+    <input type="password" name="ConfrimPassword" value="@(Model!=null? Model.ConfrimPassword:"")" class="form-control">
+    @Html.ValidationMessage("ConfrimPassword")
+    <br />
+    <input type="Submit" class="btn btn-success">
+    <p class="text-center text-muted mt-5 mb-0">
+        Have already an account? <a href="@Url.Action("SignIn","Employee")"><u>SignIn here</u></a>
+    </p>
+
+</form>
+
+
+
+

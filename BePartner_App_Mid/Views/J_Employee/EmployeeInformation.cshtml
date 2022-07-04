@@ -1,0 +1,110 @@
+﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Employee/EM_layout.cshtml";
+}
+
+<div class="row">
+    <!--Left side-->
+    <div class="column1">
+
+
+
+        <a class="nav-link" href="@Url.Action("Index","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Dashboard</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Account Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Employee Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Investor Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Enterprenrur Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Task Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Report</span>
+        </a>
+        <br />
+
+    </div>
+
+    <!--rigth side-->
+    <div class="column2">
+        <h2>Employee Information</h2>
+        <form action="" method="POST">
+            <input type="text" name="searchdata">
+            <input type="submit" class="search_buttons" name="search" value="Search">
+            <br />
+            <br />
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
+
+                <thead>
+                    <tr>
+                        <th>FristName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>NID</th>
+                        <th>Gender</th>
+                        <th>Designation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Kakon</th>
+                        <th>Akter</th>
+                        <th>kakon@gmail.com</th>
+                        <th>1234569876</th>
+                        <th>Female</th>
+                        <th>Manager</th>
+                    </tr>
+                    <tr>
+                        <th>Sbbir</th>
+                        <th>Ahmed</th>
+                        <th>sabbir@gmail.com</th>
+                        <th>2345678912</th>
+                        <th>Male</th>
+                        <th>Assistant Officer</th>
+                    </tr>
+                </tbody>
+                <a href="~/Views/J_Employee/EmployeeInformation.cshtml">~/Views/J_Employee/EmployeeInformation.cshtml</a>
+            </table>
+
+
+        </form>
+    </div>
+</div>
+
+
+

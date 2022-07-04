@@ -140,9 +140,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AD_HomeController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InHomeController.cs" />
     <Compile Include="Controllers\InvestorController.cs" />
+    <Compile Include="Controllers\J_EmployeeController.cs" />
     <Compile Include="Controllers\S_AdminController.cs" />
     <Compile Include="CustomValidation\Admin_EV.cs" />
     <Compile Include="CustomValidation\Admin_PE.cs" />
@@ -196,6 +198,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin_PasswordEdit.cs" />
+    <Compile Include="Models\EmployeeRegistration.cs" />
+    <Compile Include="Models\EmployeeSignIn.cs" />
     <Compile Include="Models\InvestorEditPass.cs" />
     <Compile Include="Models\InvestorLogin.cs" />
     <Compile Include="Models\InvestorMessage.cs" />
@@ -1896,6 +1900,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\em_style.css" />
     <Content Include="Content\InMessageStyle.css" />
     <Content Include="Content\InProfileStyle.css" />
     <Content Include="Content\InStyle.css" />
@@ -2215,6 +2220,17 @@
     <Content Include="Views\InHome\InBusinessDetails.cshtml" />
     <Content Include="Views\AD_Home\AD_Chart.cshtml" />
     <Content Include="Views\AD_Home\AD_Messege.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\SignIn.cshtml" />
+    <Content Include="Views\Employee\Registration.cshtml" />
+    <Content Include="Views\Employee\EM_layout.cshtml" />
+    <Content Include="Views\J_Employee\Index.cshtml" />
+    <Content Include="Views\J_Employee\AccountInformation.cshtml" />
+    <Content Include="Views\J_Employee\EmployeeInformation.cshtml" />
+    <Content Include="Views\J_Employee\InvestorInformation.cshtml" />
+    <Content Include="Views\J_Employee\EnterprenurInformation.cshtml" />
+    <Content Include="Views\J_Employee\TaskInformation.cshtml" />
+    <Content Include="Views\J_Employee\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

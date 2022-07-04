@@ -1,0 +1,272 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+.column1 {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 100%;
+    background: #F2D7D9;
+    border: 0px;
+    align-content: center;
+    color: white;
+}
+
+.column2 {
+    float: left;
+    width: 80%;
+    padding: 10px;
+    border-left: 3px solid #c5c5c5;
+    height: 100%;
+    background-color: #fce0e6;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman';
+}
+
+.container_task {
+    border: 2px solid #000000;
+    width: 95%;
+    padding: 15px;
+    background-color: white;
+    margin: 2%;
+}
+
+.container_report {
+    border: 2px solid #000000;
+    width: fit-content;
+    padding: 15px;
+    background-color: white;
+    margin: 2%;
+}
+
+.textbox {
+    width: 175px;
+    height: 50px;
+}
+
+h2 {
+    margin-top: 0px;
+    padding: top 0px;
+    border-top: 0pt;
+}
+
+.img {
+    border-radius: 50%;
+}
+
+.nameBold {
+    font-family: 'Times New Roman';
+    font-style: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
+
+.buttonAD {
+    border-radius: 20px;
+    width: 90%;
+    height: 5%;
+    margin-top: 2px;
+    margin-bottom: 2x;
+    background-color: #cbe54e;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+    .buttonAD:hover {
+        background-color: #ffffff;
+    }
+
+.buttonNav {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: darkblue;
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+    .buttonNav:hover {
+        background-color: #cbe54e;
+    }
+
+
+.buttons {
+    width: 170px;
+    background-color: #cbe54e;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: 0.8s;
+}
+
+.delete_buttons {
+    width: 150px;
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: 0.8s;
+}
+
+.delete_buttons_AI {
+    width: 80px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    transition: 0.8s;
+}
+
+.buttons_deactivite {
+    width: 80px;
+    background-color: #ffae00;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    transition: 0.8s;
+}
+
+.search_buttons {
+    width: 80px;
+    background-color: #78db85;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    transition: 0.8s;
+}
+
+.search_buttons_Two {
+    width: 80px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    transition: 0.8s;
+}
+
+.navaline {
+    float: right;
+}
+
+.navimg {
+    float: left;
+}
+
+.table, th {
+    border: 1px solid black;
+}
+
+.center0 {
+    text-align: center;
+}
+
+.outer {
+    width: 200px;
+    height: 40px;
+    float: left;
+}
+
+.inner_color1 {
+    border: 2px solid #000;
+    background-color: #94b447;
+    margin: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.inner_color2 {
+    border: 2px solid #000;
+    background-color: #5baba0;
+    margin: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.inner_color3 {
+    background-color: #f0b20a;
+    border: 2px solid #000;
+    margin: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.inner_color4 {
+    border: 2px solid #000;
+    background-color: #7286df;
+    margin: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.inner_color5 {
+    border: 2px solid #000;
+    background-color: #e67a3b;
+    margin: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.static {
+    position: absolute;
+}
+
+.t_boder {
+    border: 2px solid #000;
+    width: fit-content;
+}
+
+.red {
+    color: red;
+}
+
+.buttonEM {
+    border-radius: 20px;
+    width: 100px;
+    height: 5%;
+    margin-top: 2px;
+    margin-bottom: 2x;
+    background-color: #cbe54e;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    text-anchor: start;
+}
+
+    .buttonEM:hover {
+        background-color: #ffffff;
+    }

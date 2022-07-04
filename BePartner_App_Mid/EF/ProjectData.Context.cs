@@ -34,5 +34,6 @@ namespace BePartner_App_Mid.EF
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
+        public object Employee { get; internal set; }
     }
 }

@@ -1,0 +1,37 @@
+﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+<div class="sticky">
+    <table>
+        <tr>
+
+            <td><a href="@Url.Action("Index","J_Employee")"><img src="~/Img/page logo (2).png" widtd="200" height="45"></a></td>
+            <td> </td>
+            <td><a href="@Url.Action("Index","J_Employee")"><button class="buttonNav"> Home </button></a></td>
+            <td> </td>
+            <td><a href="about_em.php"><button class="buttonNav"> About </button></a></td>
+            <td> </td>
+            <td><a href="blog_em.php"><button class="buttonNav"> Blog</button> </a></td>
+            <td> </td>
+            <td><a href="contact_em.php"><button class="buttonNav"> Contact </button></a></td>
+            <td> </td>
+            <td><a href="J_Employee_profile.php"><button id="hover" class="buttonNav"> Jannaatul ferdus </button></a></td>
+            <td> </td>
+            <td><a href="../Control/em_logout.php"><button id="hover" class="buttonNav"> Logout </button></a></td>
+            <td> </td>
+
+        </tr>
+
+    </table>
+</div>
+@RenderBody()
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; @DateTime.Now.Year BePartner</span>
+        </div>
+    </div>
+</footer>
+<hr>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

@@ -1,0 +1,100 @@
+﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Employee/EM_layout.cshtml";
+}
+
+<div class="row">
+    <!--Left side-->
+    <div class="column1">
+
+
+
+        <a class="nav-link" href="@Url.Action("Index","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Dashboard</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Account Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Employee Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Investor Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Enterprenrur Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Task Information</span>
+        </a>
+        <br />
+        <br />
+
+        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
+            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
+            <span class="buttonAD">Report</span>
+        </a>
+        <br />
+
+    </div>
+
+    <!--rigth side-->
+    <div class="column2">
+        <h2>Enterprenur Information</h2>
+        <form action="" method="POST">
+            <input type="text" name="searchdata">
+            <input type="submit" class="search_buttons" name="search" value="Search">
+            <input type="submit" class="search_buttons" name="search" value="Deactive">
+            <br />
+            <br />
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
+
+                <thead>
+                    <tr>
+                        <th>FristName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>NID</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Kakon</th>
+                        <th>Akter</th>
+                        <th>kakon@gmail.com</th>
+                        <th>01768958082</th>
+                        <th>1236576893</th>
+                        <th>Female</th>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+
