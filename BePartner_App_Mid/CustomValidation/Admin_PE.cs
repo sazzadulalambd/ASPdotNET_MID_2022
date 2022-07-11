@@ -1,4 +1,4 @@
-﻿using BePartner_App_Mid.EF;
+using BePartner_App_Mid.EF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
