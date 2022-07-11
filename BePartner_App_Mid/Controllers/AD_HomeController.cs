@@ -1,4 +1,4 @@
-﻿using BePartner_App_Mid.EF;
+using BePartner_App_Mid.EF;
 using BePartner_App_Mid.Models;
 using ClosedXML.Excel;
 using System;
@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace BePartner_App_Mid.Controllers
 {
@@ -25,9 +26,148 @@ namespace BePartner_App_Mid.Controllers
             return RedirectToAction("login_S", "S_Admin");
         }
 
+        [HttpPost]
+        public ActionResult Delete_Account()
+        {
+            var email = Session["Email"].ToString();
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Admins where I.Ad_Email.Equals(email) select I).FirstOrDefault();
+           
+            db.Admins.Remove(Ed);
+            Session.Contents.RemoveAll();
+            ViewBag.dltMessage = "Account deleted";
+            db.SaveChanges();
+            return RedirectToAction("login_S", "S_Admin");
+            
+        }
+
+        // make Employees valid 
+        public ActionResult EmployeesValid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Employees where I.Nid.Equals(id) select I).FirstOrDefault();
+
+            Ed.Status ="Valid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Employee");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
 
 
+        // make Employees INvalid 
+        public ActionResult EmployeesInvalid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Employees where I.Nid.Equals(id) select I).FirstOrDefault();
 
+            Ed.Status = "Invalid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Employee");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+
+        // make invastor valid 
+        public ActionResult InvestorsValid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Investors where I.Nid.Equals(id) select I).FirstOrDefault();
+
+            Ed.Status = "Valid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Investor");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+
+        // make invastor INvalid 
+        public ActionResult InvestorsInvalid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Investors where I.Nid.Equals(id) select I).FirstOrDefault();
+
+            Ed.Status = "Invalid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Investor");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+
+        // make Entrepreneur valid 
+        public ActionResult EntrepreneursValid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Entrepreneurs where I.Nid.Equals(id) select I).FirstOrDefault();
+
+            Ed.Status = "Valid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Entrepreneur");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+
+        // make Entrepreneur INvalid 
+        public ActionResult EntrepreneursInvalid(String id)
+        {
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Entrepreneurs where I.Nid.Equals(id) select I).FirstOrDefault();
+
+            Ed.Status = "Invalid";
+
+            try
+            {
+                db.SaveChanges();
+                return RedirectToAction("All_Entrepreneur");
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
+
+        [HttpGet]
         public ActionResult Account()
         {
             if (Session["Email"] != null)
@@ -35,9 +175,8 @@ namespace BePartner_App_Mid.Controllers
                 var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
                 var AD = (from I in db.Admins where I.Ad_Email.Equals(email) select I).FirstOrDefault();
-                Session["Admin_img"] = AD.Img;
-
-                ViewBag.AD_Img = Session["Admin_img"].ToString();
+                
+                //ViewBag.AD_Img = Session["Admin_img"].ToString();
                 ViewBag.AD_Email = email;
                 return View(AD);
 
@@ -47,8 +186,69 @@ namespace BePartner_App_Mid.Controllers
 
             //return View();
         }
+        [HttpPost]
+        public ActionResult Account(Admin_AccountEdit AAE)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Admin_Account_Edit(AAE))
+                {
+                    ViewBag.Message = "Data Updated";
+                    return RedirectToAction("Account");
+                }
+
+            }
+            ViewBag.Message = "Data Update Failed";
+            return View();
+        }
 
 
+        public bool Admin_Account_Edit(Admin_AccountEdit AAE)
+        {
+            var email = Session["Email"].ToString();
+            var db = new bePartnerCentralDatabaseEntities2();
+            var Ed = (from I in db.Admins where I.Ad_Email.Equals(email) select I).FirstOrDefault();
+            Ed.FirstName = AAE.FirstName;
+            Ed.LastName = AAE.LastName;
+            Ed.Gender = AAE.Gender;
+            Ed.Dob = AAE.Dob;
+            Ed.Phone = AAE.Phone;
+            Ed.Nid = AAE.Nid;
+            Ed.Ad_Email= email;
+            Ed.Address = AAE.Address;
+
+          
+            if (AAE.Img != null)
+            {
+                string path = Server.MapPath("~/Img/ADMIN");
+                string fileName = Path.GetFileName(AAE.Img.FileName);
+                string fullpath = Path.Combine(path, fileName);
+                AAE.Img.SaveAs(fullpath);  //save into img folder
+
+
+                // for data base
+                string databaseImgpath = "~/Img/ADMIN/" + fileName;
+                Ed.Img = databaseImgpath;
+
+            }
+            else
+            {
+                Ed.Img = Ed.Img;
+            }
+            
+
+            try
+            {
+                db.SaveChanges();
+                
+                Session["Email"] = AAE.Ad_Email;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public ActionResult Logout()
         {
@@ -72,7 +272,7 @@ namespace BePartner_App_Mid.Controllers
             return RedirectToAction("login_S", "S_Admin");
         }
 
-
+        // Export All admin
         [HttpPost]
         public FileResult Export_all_Active_admin()
         {
@@ -114,6 +314,277 @@ namespace BePartner_App_Mid.Controllers
             }
 
 
+
+        }
+
+
+        // Export valid Investor
+        [HttpPost]
+        public FileResult Export_all_valid_Investors()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[9]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Organization"),
+               new DataColumn("TIN"),
+               new DataColumn("Website"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Investors where I.Status.Equals("Valid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.In_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.OrgName,
+                    EAA.Tin,
+                    EAA.OrgSite,
+                    EAA.OrgLocation);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Active Investors.xlsx");
+                }
+            }
+
+        }
+
+
+        // Export new Investors
+        [HttpPost]
+        public FileResult Export_all_New_Investors()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[9]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Organization"),
+               new DataColumn("TIN"),
+               new DataColumn("Website"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Investors where I.Status.Equals("Invalid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.In_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.OrgName,
+                    EAA.Tin,
+                    EAA.OrgSite,
+                    EAA.OrgLocation);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "new Investors.xlsx");
+                }
+            }
+
+        }
+
+
+
+
+        // Export new Enterpreneur
+        [HttpPost]
+        public FileResult Export_all_New_Enterpreneurs()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[8]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Occupation"),
+               new DataColumn("Gender"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Entrepreneurs where I.Status.Equals("Invalid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.En_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.Occupation,
+                    EAA.Gender,
+                    EAA.Address);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "new Enterpreneur.xlsx");
+                }
+            }
+
+        }
+
+
+
+        // Export valid Enterpreneur
+        [HttpPost]
+        public FileResult Export_all_valid_Enterpreneurs()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[8]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Occupation"),
+               new DataColumn("Gender"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Entrepreneurs where I.Status.Equals("Valid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.En_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.Occupation,
+                    EAA.Gender,
+                    EAA.Address);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Active Enterpreneur.xlsx");
+                }
+            }
+
+        }
+
+
+        // Export valid Employees
+        [HttpPost]
+        public FileResult Export_all_valid_Employees()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[8]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Security key"),
+               new DataColumn("Gender"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Employees where I.Status.Equals("Valid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.Emp_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.Security_key,
+                    EAA.Gender,
+                    EAA.Address);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Active Employees.xlsx");
+                }
+            }
+
+        }
+
+
+        // Export New Employees
+        [HttpPost]
+        public FileResult Export_all_new_Employees()
+        {
+            DataTable DT_A_A = new DataTable("Grid");
+            DT_A_A.Columns.AddRange(new DataColumn[8]
+            {
+               new DataColumn("First Name"),
+               new DataColumn("Last Name"),
+               new DataColumn("Emai"),
+               new DataColumn("Phone"),
+               new DataColumn("NID"),
+               new DataColumn("Security key"),
+               new DataColumn("Gender"),
+               new DataColumn("Address")
+            });
+            var db = new bePartnerCentralDatabaseEntities2();
+            var EAAS = (from I in db.Employees where I.Status.Equals("Invalid") select I).ToList();
+            foreach (var EAA in EAAS)
+            {
+                DT_A_A.Rows.Add(
+                    EAA.FirstName,
+                    EAA.LastName,
+                    EAA.Emp_Email,
+                    EAA.Phone,
+                    EAA.Nid,
+                    EAA.Security_key,
+                    EAA.Gender,
+                    EAA.Address);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(DT_A_A);
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "New Employees.xlsx");
+                }
+            }
 
         }
 
@@ -163,21 +634,65 @@ namespace BePartner_App_Mid.Controllers
             return RedirectToAction("login_S", "S_Admin");
         }
 
-
+        [HttpGet]
         public ActionResult AD_Notification()
         {
             if (Session["Email"] != null)
             {
                 ViewBag.AD_Email = Session["Email"].ToString();
-
                 var db = new bePartnerCentralDatabaseEntities2();
+                List<admin_Notification> admin_nft  = new List<admin_Notification>();
+  
+                var nfts = new admin_Notification();
+
+                var ems = (from I in db.Employees where I.Status.Equals("Invalid") select I).ToList();
+                foreach (var i_em in ems)
+                {
+                    nfts.Emp_FirstName = i_em.FirstName;
+                    nfts.Emp_LastName = i_em.LastName;
+                    nfts.Emp_Email = i_em.Emp_Email;
+                    nfts.Emp_Phone = i_em.Phone;
+                    nfts.Emp_Nid = i_em.Nid;
+                    nfts.Emp_Address = i_em.Address;
+                    nfts.Emp_Security_key=i_em.Security_key;
+                    nfts.Emp_Gender = i_em.Gender;
+
+                }
+
                 var ins = (from I in db.Investors where I.Status.Equals("Invalid") select I).ToList();
-                //var ins = db.Investors.ToList();
-                return View(ins);
+                foreach (var i_in in ins)
+                {
+                    nfts.In_FirstName = i_in.FirstName;
+                    nfts.In_LastName = i_in.LastName;
+                    nfts.In_Email = i_in.In_Email;
+                    nfts.In_Phone = i_in.Phone;
+                    nfts.In_Nid = i_in.Nid;
+                    nfts.In_OrgName = i_in.OrgName;
+                    nfts.In_OrgEmail = i_in.OrgEmail;
+                    nfts.In_OrgLocation = i_in.OrgLocation;
+                    nfts.In_Tin = i_in.Tin;
+                    nfts.In_OrgSite = i_in.OrgSite;
+                    nfts.In_EmailValidation = i_in.EmailValidation;
+
+                }
 
                 var ens = (from I in db.Entrepreneurs where I.Status.Equals("Invalid") select I).ToList();
-                ViewBag.M_ENS=ens;
+                foreach (var i_en in ens)
+                { 
+                    nfts.En_FirstName = i_en.FirstName;
+                    nfts.En_LastName = i_en.LastName;
+                    nfts.En_Email = i_en.En_Email;
+                    nfts.En_Gender = i_en.Gender;
+                    nfts.En_Address = i_en.Address;
+                    nfts.En_Phone = i_en.Phone;
+                    nfts.En_Nid = i_en.Nid; 
+                    nfts.En_Occupation = i_en.Occupation;
+                }
 
+
+                    admin_nft.Add(nfts);
+
+                return View(admin_nft);
 
             }
 
@@ -216,15 +731,65 @@ namespace BePartner_App_Mid.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult AD_Messege()
         {
 
             if (Session["Email"] != null)
             {
-
                 ViewBag.AD_Email = Session["Email"].ToString();
-                return View();
+
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var reps = (from I in db.Reports where I.sender.Equals(email) select I).ToList();
+
+                //var ins = db.Investors.ToList();
+                return View(reps);
+            }
+            return RedirectToAction("login_S", "S_Admin");
+        }
+
+        [HttpPost]
+        public ActionResult AD_Messege(Admin_Report AR)
+        {
+
+
+
+            var db = new bePartnerCentralDatabaseEntities2();
+            var email = Session["Email"].ToString();
+            var AD_report = new Report()
+            {
+                sender=email,
+                Receiver=AR.Receiver,
+                Title = AR.Subject,
+                Description=AR.WMFH,
+                Report_Time= DateTime.Now,
+                Status= "Sent"
+            };
+
+            db.Reports.Add(AD_report);
+            
+            db.SaveChanges();
+
+
+
+            return RedirectToAction("AD_Messege");
+        }
+
+            public ActionResult AD_Messege_R()
+        {
+
+            if (Session["Email"] != null)
+            {
+                ViewBag.AD_Email = Session["Email"].ToString();
+
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+
+                //var ins = db.Investors.ToList();
+                return View(rep);
+                
             }
             return RedirectToAction("login_S", "S_Admin");
         }
@@ -248,12 +813,9 @@ namespace BePartner_App_Mid.Controllers
 
             if (Session["Email"] != null)
             {
-
-                // ViewBag.AD_Email = Session["Email"].ToString();
                 return View();
             }
             return RedirectToAction("login_S", "S_Admin");
-
         }
 
 
@@ -270,6 +832,7 @@ namespace BePartner_App_Mid.Controllers
             try
             {
                 db.SaveChanges();
+                
                 return true;
             }
             catch
