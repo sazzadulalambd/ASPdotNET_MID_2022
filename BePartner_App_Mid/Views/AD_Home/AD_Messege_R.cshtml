@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "AD_Messege_R";
+}
+@{
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex sa_align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Messeges</h1>
+    </div>
+
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-sm-flex sa_align-items-center mb-4 justify-content-between ">
+            <div class="card-body">
+                <a class="btn btn-outline-success ad-reg-button " href='@Url.Action("AD_Messege", "AD_Home")'>
+                    Sent
+                </a>
+                <a class="btn btn-success ad-reg-button " href='@Url.Action("AD_Messege_R", "AD_Home")'>
+                    Received
+                </a>
+            </div>
+
+        </div>
+
+        
+        <div class="card-body">
+            @foreach (var RR in Model)
+            {
+                <div class="card border-bottom-success">
+                    <br />
+                    <h5>&emsp;Subject: @RR.Title</h5>
+                    <h6>&emsp;Report ID: @RR.ReportId</h6>
+                    <h6>&emsp;Sender: @RR.sender</h6>
+                    <label>&emsp;Messege:</label>
+                    <p>&emsp;@RR.Description</p>
+                </div>
+                <br />
+            }
+            </div>
+            
+      
+    </div>
+</div>
+

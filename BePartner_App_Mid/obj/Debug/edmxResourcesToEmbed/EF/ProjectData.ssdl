@@ -132,11 +132,12 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
       <PropertyRef Name="ReportId" />
     </Key>
     <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Reported_By" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="sender" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Receiver" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
-    <Property Name="Report_Time" Type="date" Nullable="false" />
-    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Report_Time" Type="date" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Tasks">
     <Key>

@@ -27,9 +27,11 @@
 
         <h6 class="m-0 font-weight-bold text-primary">Entrepreneur list</h6>
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Download
-        </a>
+        <form action="/AD_Home/Export_all_valid_Enterpreneurs" method="post">
+
+            <input type="submit" value="Download" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+
+        </form>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -44,6 +46,7 @@
                         <th>Occupation</th>
                         <th>Gender</th>
                         <th>Address</th>
+                        <th>Account Status</th>
                     </tr>
                 </thead>
 
@@ -59,6 +62,10 @@
                             <td>@EN.Occupation</td>
                             <td>@EN.Gender</td>
                             <td>@EN.Address</td>
+                            <td>
+                                <a class="btn btn-warning" href="@Url.Action("EntrepreneursInvalid","AD_Home",new {id = @EN.Nid})">Deactive</a>
+
+                            </td>
                         </tr>
                     }
                 </tbody>

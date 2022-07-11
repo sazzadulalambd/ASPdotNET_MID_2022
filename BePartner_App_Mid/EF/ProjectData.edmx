@@ -137,11 +137,12 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
             <PropertyRef Name="ReportId" />
           </Key>
           <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Reported_By" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sender" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Receiver" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="5000" Nullable="false" />
-          <Property Name="Report_Time" Type="date" Nullable="false" />
-          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Report_Time" Type="date" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Tasks">
           <Key>
@@ -404,11 +405,12 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
             <PropertyRef Name="ReportId" />
           </Key>
           <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Reported_By" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Name="Report_Time" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Report_Time" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sender" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Task">
           <Key>
@@ -575,11 +577,12 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <EntitySetMapping Name="Reports">
             <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Report">
               <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Report_Time" ColumnName="Report_Time" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Reported_By" ColumnName="Reported_By" />
                 <ScalarProperty Name="ReportId" ColumnName="ReportId" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+
 namespace BePartner_App_Mid.Models
 {
     public class Admin_PasswordEdit

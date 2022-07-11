@@ -27,9 +27,11 @@
 
         <h6 class="m-0 font-weight-bold text-primary">Investor list</h6>
 
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Download
-        </a>
+        <form action="/AD_Home/Export_all_valid_Investors" method="post">
+
+            <input type="submit" value="Download" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+
+        </form>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -45,6 +47,7 @@
                         <th>TIN</th>
                         <th>Website</th>
                         <th>Address</th>
+                        <th>Account Status</th>
                     </tr>
                 </thead>
 
@@ -61,6 +64,10 @@
                             <td>@IN.Tin</td>
                             <td>@IN.OrgSite</td>
                             <td>@IN.OrgLocation</td>
+                            <td>
+                                <a class="btn btn-warning" href="@Url.Action("InvestorsInvalid","AD_Home",new {id = @IN.Nid})">Deactive</a>
+
+                            </td>
                         </tr>
                     }
                 </tbody>

@@ -1,25 +1,76 @@
 ﻿
-@{
-    ViewBag.Title = "AD_Messege";
-}
-@{
-    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
-}
+@{ ViewBag.Title = "AD_Messege"; }
 
-<center>
-    <div class="chat-popup" id="message">
-        <form action="" class="form-container" method="post">
-            <h1>Task</h1>
-            <input type="text" name="searchdata" placeholder="employee@mail.com" id="searchdata" onkeyup="hello()">
-            <br>
-            <br>
-            <input type="text" name="msgtitel" placeholder="Subject">
-            <br>
-            <br>
-            <textarea placeholder="Type message.." class="textbox" name="msg" required></textarea>
-            <br>
-            <br>
-            <button type="submit" name="Send" class="search_buttons">Send</button>
-        </form>
+@{ Layout = "~/Views/AD_Home/_AD_Layout.cshtml"; }
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex sa_align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Messeges</h1>
     </div>
-</center>
+
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-sm-flex sa_align-items-center mb-4 justify-content-between ">
+            <div class="card-body">
+                <a class="btn btn-success ad-reg-button " href='@Url.Action("AD_Messege", "AD_Home")'>
+                    Sent
+                </a>
+                <a class="btn btn-outline-success ad-reg-button " href='@Url.Action("AD_Messege_R", "AD_Home")'>
+                    Received
+                </a>
+                <div class="table-responsive">
+
+                    <div class="card-body p-md-5 text-black">
+                        <form action="" method="post">
+                            <h3 style="color:black;">Compose Messege</h3>
+                            <div class="form-outline mb-4">
+                                @*<label class="form-label" for="form3Example8">To:</label>*@
+                                @*<span class="text-danger">@Html.ValidationMessage("Receiver")</span>*@
+                                <input type="text" name="Receiver" placeholder="To: example@gmail.com" id="form3Example8" class="form-control" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                @*<label class="form-label" for="form3Example8">Subject:</label> *@
+                                @* <span class="text-danger">@Html.ValidationMessage("Subject")</span>*@
+                                <input type="text" name="Subject" placeholder="Subject:" id="form3Example8" class="form-control" />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                @*<span class="text-danger">@Html.ValidationMessage("WMFH")</span>*@
+                                <textarea type="text" name="WMFH" placeholder="Write messege from here..." id="form3Example8" class="form-control" height="500px"></textarea>
+                            </div>
+
+                            <input type="Submit" value="Send" class="btn btn-success">
+
+                        </form>
+                        <br />
+                        <center><h5 class="text-success">@ViewBag.APM_G</h5></center>
+                        <center><h5 class="text-danger">@ViewBag.APM_R</h5></center>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+            @foreach (var RR in Model)
+            {
+                <div class="card border-bottom-success">
+                    <br />
+                    <h5>&emsp;Subject: @RR.Title</h5>
+                    <h6>&emsp;Report ID: @RR.ReportId</h6>
+                    <h6>&emsp;Sender: @RR.Receiver</h6>
+                    <label>&emsp;Messege:</label>
+                    <p>&emsp;@RR.Description</p>
+                </div>
+                <br />
+            }
+        </div>
+
+    </div>
+</div>
+

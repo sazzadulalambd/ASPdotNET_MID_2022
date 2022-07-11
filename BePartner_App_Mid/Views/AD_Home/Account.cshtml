@@ -1,8 +1,4 @@
-﻿
-@{
-    ViewBag.Title = "Account";
-}
-@{
+﻿@{
     Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
 }
 
@@ -13,15 +9,18 @@
         <h1 class="h3 mb-0 text-gray-800">Account</h1>
     </div>
     <center>
-        <img class="rounded-circle" src="@Url.Content(Model!=null? Model.Img:"")" height="200px" width="200px">
+        
+        <img class="rounded-circle" src="@Url.Content(Model.Img)" height="200px" width="200px">
+        
     </center>
     <div class="card-body p-md-5 text-black">
 
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1m">First name:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("FirstName")</span>*@
                         <input type="text" name="FirstName" value="@(Model!=null? Model.FirstName:"")" placeholder="First name" id="form3Example1m" class="form-control" />
                     </div>
                 </div>
@@ -29,75 +28,84 @@
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="form3Example1n">Last name:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("LastName")</span>*@
                         <input type="text" name="LastName" value="@(Model!=null? Model.LastName:"")" placeholder="Last name" id="form3Example1n" class="form-control" />
                     </div>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">Email:</label>
+                @*<span class="text-danger">@Html.ValidationMessage("Ad_Email")</span>*@
                 <input type="text" name="Email" value="@(Model!=null? Model.Ad_Email:"")" placeholder="example@bepartner.com" id="form3Example8" class="form-control" disabled />
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example8">Phone:</label>
+                @*<span class="text-danger">@Html.ValidationMessage("Phone")</span>*@
                 <input type="text" name="Phone" value="@(Model!=null? Model.Phone:"")" placeholder="01772994093" id="form3Example8" class="form-control" />
             </div>
 
-            <div class="d-md-flex justify-content-start sa_align-items-center mb-4 py-2">
+                    <div class="d-md-flex justify-content-start sa_align-items-center mb-4 py-2">
 
-                <label class="form-check-label">Gender:&ensp; @(Model!=null? Model.Gender: "") &ensp; </label>
+                        <label class="form-check-label">Gender:&ensp; @(Model!=null? Model.Gender: "") &ensp; </label>
 
-                <div class="form-check form-check-inline mb-0 me-4">
-                    <select name="Gender" class="form-control">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example8">NID:</label>
-                <input type="text" name="NID" value="@(Model!=null? Model.Nid:"")" placeholder="3333 111 222" id="form3Example8" class="form-control" />
-            </div>
-
-
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example8">Address:</label>
-                <input type="text" name="Address" value="@(Model!=null? Model.Address:"")" placeholder="Address" id="form3Example8" class="form-control" />
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="form3Example1m">DOB:</label>
-                        <input type="datetime" name="DOB" value="@(Model!=null? Model.Dob:"")" id="form3Example1m" class="form-control" />
+                        <div class="form-check form-check-inline mb-0 me-4">
+                            <select name="Gender" class="form-control">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                        <label class="form-label" for="form3Example1n">Security key:</label>
-                        <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example8">NID:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Nid")</span>*@
+                        <input type="text" name="NID" value="@(Model!=null? Model.Nid:"")" placeholder="3333 111 222" id="form3Example8" class="form-control" />
                     </div>
-                </div>
+
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example8">Address:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Address")</span>*@
+                        <input type="text" name="Address" value="@(Model!=null? Model.Address:"")" placeholder="Address" id="form3Example8" class="form-control" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                @* <label class="form-label" for="form3Example1m">DOB:</label>*@
+                                <input type="datetime" name="DOB" value="@(Model!=null? Model.Dob:"")" id="form3Example1m" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1n">Security key:</label>
+                                @* <span class="text-danger">@Html.ValidationMessage("Security_key")</span>*@
+                                <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                        <label for="formFileMultiple" class="form-label">Profile Picture :</label><br />
+                        <input type="file" name="Img">
+                    </div>
+
+
+                    <input type="Submit" value="save" class="btn btn-success ad-reg-button">
+                </form>
+                <hr />
+                <form action="/AD_Home/Delete_Account" method="post">
+                    <h3 style="color:red;"> Delete Account* </h3>
+                    <p>Once you delete your account, there is no going back. Please be certain.</p>
+                    <input type="Submit" value="Delete" class="btn btn-danger">
+                 </form>
+
             </div>
 
-
-            <div class="form-outline mb-4">
-                <label for="formFileMultiple" class="form-label">Profile Picture :</label><br />
-                <input type="file">
-            </div>
-
-            <input type="Submit" value="save" class="btn btn-success ad-reg-button">
-            <hr />
-            <h3 style="color:red;"> Delete Account* </h3>
-            <p>Once you delete your account, there is no going back. Please be certain.</p>
-            <input type="Submit" value="Delete" class="btn btn-danger">
-        </form>
-
-    </div>
-
-</div>
+        </div>
 

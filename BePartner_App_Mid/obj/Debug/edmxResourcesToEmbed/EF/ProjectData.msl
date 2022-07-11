@@ -136,11 +136,12 @@
     <EntitySetMapping Name="Reports">
       <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Report">
         <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="sender" ColumnName="sender" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Report_Time" ColumnName="Report_Time" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Reported_By" ColumnName="Reported_By" />
           <ScalarProperty Name="ReportId" ColumnName="ReportId" />
         </MappingFragment>
       </EntityTypeMapping>
