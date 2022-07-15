@@ -33,53 +33,43 @@
             <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Logout","J_Employee")">Logout</a>
 
         </center>
-
     </div>
 
     <!--rigth side-->
     <div class="column2">
-        <h2>Enterprenur Information (@ViewBag.x)</h2>
+        <h2>Messege</h2>
         <div class="card shadow mb-4">
-          
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>NID</th>
-                                <th>Occupation</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Account Status</th>
-                            </tr>
-                        </thead>
+                <a class="btn btn-outline-info radious" style="width: 150px; margin-bottom: 10px" href="@Url.Action("Messege_add","J_Employee")">Add messege</a>
 
-                        <tbody>
-                            @foreach (var EN in Model)
-                            {
-                                <tr>
-                                    <td>@EN.FirstName</td>
-                                    <td>@EN.LastName</td>
-                                    <td>@EN.En_Email</td>
-                                    <td>@EN.Phone</td>
-                                    <td>@EN.Nid</td>
-                                    <td>@EN.Occupation</td>
-                                    <td>@EN.Gender</td>
-                                    <td>@EN.Address</td>
-                                    <td>
-                                        <a class="btn btn-warning" href="@Url.Action("EntrepreneursInvalid","J_Employee",new {id = @EN.Nid})">Deactive</a>
+                <a class="btn btn-outline-success radious" style="width: 150px; margin-bottom: 10px" href="@Url.Action("Messege_sent","J_Employee")">Sent</a>
 
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                <a class="btn btn-primary radious" style="width: 150px; margin-bottom: 10px" href="@Url.Action("Messege_received","J_Employee")">Received</a>
+
+
             </div>
+
+            @foreach (var RR in Model)
+            {
+                <div class="card border-bottom-success">
+                    <br />
+                    <h5>&emsp;Subject: @RR.Title</h5>
+                    <h6>&emsp;Report ID: @RR.ReportId</h6>
+                    <h6>&emsp;Sender: @RR.sender</h6>
+                    <label>&emsp;Messege:</label>
+                    <p>&emsp;@RR.Description</p>
+                </div>
+                <br />
+            }
         </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
 

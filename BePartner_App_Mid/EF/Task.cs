@@ -15,12 +15,10 @@ namespace BePartner_App_Mid.EF
     public partial class Task
     {
         public int TaskId { get; set; }
-        public string Emp_Assigned { get; set; }
         public string Task_Description { get; set; }
         public System.DateTime Issue_time { get; set; }
         public System.DateTime Due_time { get; set; }
         public string Status { get; set; }
-    
-        public virtual Employee Employee { get; set; }
+        public string Subject { get; set; }
     }
 }

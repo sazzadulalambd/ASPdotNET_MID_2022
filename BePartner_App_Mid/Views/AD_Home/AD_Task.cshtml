@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "AD_Task";
+}
+
+@{
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex sa_align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Task</h1>
+    </div>
+
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-sm-flex sa_align-items-center mb-4 justify-content-between ">
+            <div class="card-body">
+                <a class="btn btn-info ad-reg-button " href='@Url.Action("AD_Task", "AD_Home")'>
+                    Add Task
+                </a>
+                <a class="btn btn-outline-warning ad-reg-button " href='@Url.Action("AD_Task_panding", "AD_Home")'>
+                    Panding
+                </a>
+                <a class="btn btn-outline-success ad-reg-button " href='@Url.Action("AD_Task_Complete", "AD_Home")'>
+                    Complete
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+            <form action="" method="post">
+                <h3 style="color:black;">New task</h3>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        
+                            <label class="form-label" for="form3Example8">Due date:</label>
+                            <span class="text-danger">@Html.ValidationMessage("datetime")</span>
+                            <input type="date" name="datetime" id="form3Example8" value="@(Model!=null? Model.datetime:"")" class="form-control" />
+                        
+                    </div>
+                </div>
+
+                    <div class="form-outline mb-4">
+                        @*<label class="form-label" for="form3Example8">Subject:</label> *@
+                        <span class="text-danger">@Html.ValidationMessage("Subject")</span>
+                        <input type="text" name="Subject" placeholder="Subject:" value="@(Model!=null? Model.Subject:"")" id="form3Example8" class="form-control" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <span class="text-danger">@Html.ValidationMessage("WMFH")</span>
+                        <textarea type="text" name="WMFH" placeholder="Write messege from here..." value="@(Model!=null? Model.WMFH:"")" id="form3Example8" class="form-control" height="500px"></textarea>
+                    </div>
+
+                    <input type="Submit" value="Post" class="btn btn-success">
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>

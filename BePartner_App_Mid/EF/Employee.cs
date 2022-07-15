@@ -14,12 +14,6 @@ namespace BePartner_App_Mid.EF
     
     public partial class Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
-        {
-            this.Tasks = new HashSet<Task>();
-        }
-    
         public string Emp_Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -32,8 +26,5 @@ namespace BePartner_App_Mid.EF
         public string Password { get; set; }
         public string Img { get; set; }
         public string Status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

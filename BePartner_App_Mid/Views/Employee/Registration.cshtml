@@ -3,59 +3,127 @@
     ViewBag.Title = "Registration";
 }
 
-<h2>SignUp</h2>
-<h2>Welcome back!</h2>
-<form action="" method="post">
 
-    <label>First Name:</label>
-    <input type="text" name="FirstName" placeholder="Enter your frist name.." value="@(Model!=null? Model.FirstName:"")" class="form-control">
-    @Html.ValidationMessage("FirstName")
-    <br />
+<section class="h-100 bg-gradient-success">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center sa_align-items-center h-100">
+            <div class="col">
+                <center>
+                    <img class="img-fluid" src="~/Img/title_logo.png" style="height: 150px; width: 160px; padding: 20px;">
+                    <h2 style="color:white"> Employee SignUp</h2>
+                </center>
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="card-body p-md-5 text-black">
+                            <form action="" method="post">
 
-    <label>Last Name:</label>
-    <input type="text" name="LastName" placeholder="Enter your last name.." value="@(Model!=null? Model.LastName:"")" class="form-control">
-    @Html.ValidationMessage("LastName")
-    <br />
+                                <label>First Name:</label>
+                                <span class="text-danger">@Html.ValidationMessage("FirstName")</span>
+                                <input type="text" name="FirstName" placeholder="Enter your frist name.." value="@(Model!=null? Model.FirstName:"")" class="form-control">
+                                
+                                <br />
 
-    <label>Date of birth:</label>
-    <input type="date" name="Dob" value="@(Model!=null? Model.Dob:"")" class="form-control">
-    @Html.ValidationMessage("Dob")
-    <br />
+                                <label>Last Name:</label>
+                                <span class="text-danger">@Html.ValidationMessage("LastName")</span>
+                                <input type="text" name="LastName" placeholder="Enter your last name.." value="@(Model!=null? Model.LastName:"")" class="form-control">
+                                
+                                <br />
 
-    <label>Phone:</label>
-    <input type="tel" name="Phone" placeholder="Enter your phone number.." value="@(Model!=null? Model.Phone:"")" class="form-control">
-    @Html.ValidationMessage("Phone")
-    <br />
+                                <label>Date of birth:</label>
+                                <span class="text-danger">@Html.ValidationMessage("Dob")</span>
+                                <input type="date" name="Dob" value="@(Model!=null? Model.Dob:"")" class="form-control">
+                                
+                                <br />
 
-    <label>Email:</label>
-    <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Email:"")" class="form-control">
-    @Html.ValidationMessage("Email")
-    <br />
+                                <label>Phone:</label>
+                                <span class="text-danger">@Html.ValidationMessage("Phone")</span>
+                                <input type="tel" name="Phone" placeholder="Enter your phone number.." value="@(Model!=null? Model.Phone:"")" class="form-control">
+                                
+                                <br />
 
-    <label>NID number:</label>
-    <input type="text" name="Nid" placeholder="Enter your nid number.." value="@(Model!=null? Model.Nid:"")" class="form-control">
-    @Html.ValidationMessage("Nid")
-    <br />
+                                <label>Email:</label>
+                                <span class="text-danger"> @Html.ValidationMessage("Email")</span>
+                                <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Email:"")" class="form-control">
+                               
+                                <br />
 
-    <label>Parmanent Address:</label>
-<textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." value="@(Model!=null? Model.Address:"")"></textarea>
-    @Html.ValidationMessage("Address")
-    <br />
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label>NID number:</label>
+                                            <span class="text-danger">@Html.ValidationMessage("Nid")</span>
+                                            <input type="text" name="Nid" placeholder="Enter your nid number.." value="@(Model!=null? Model.Nid:"")" class="form-control">
+                                            
+                                        </div>
+                                    </div>
 
-    <lebel> Password:</lebel>
-    <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
-    @Html.ValidationMessage("Password")
-    <br />
-    <lebel>Confrim Password:</lebel>
-    <input type="password" name="ConfrimPassword" value="@(Model!=null? Model.ConfrimPassword:"")" class="form-control">
-    @Html.ValidationMessage("ConfrimPassword")
-    <br />
-    <input type="Submit" class="btn btn-success">
-    <p class="text-center text-muted mt-5 mb-0">
-        Have already an account? <a href="@Url.Action("SignIn","Employee")"><u>SignIn here</u></a>
-    </p>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form3Example1n">Security key:</label>
+                                            <span class="text-danger">@Html.ValidationMessage("Security_key")</span>
+                                            <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
+                                            
+                                        </div>
+                                    </div>
+                                </div>
 
-</form>
+
+                                <label>Parmanent Address:</label>
+                                <span class="text-danger">@Html.ValidationMessage("Address")</span>
+                                <textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." value="@(Model!=null? Model.Address:"")"></textarea>
+                                
+                                <br />
+
+                                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                                    <label class="form-check-label">Gender:&ensp;  </label>
+
+                                    <div class="form-check form-check-inline mb-0 me-4">
+                                        <input class="form-check-input" type="radio" name="Gender" id="maleGender"
+                                               value="Male" />
+                                        <label class="form-check-label" for="femaleGender">Male</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline mb-0 me-4">
+                                        <input class="form-check-input" type="radio" name="Gender" id="femaleGender"
+                                               value="Female" />
+                                        <label class="form-check-label" for="maleGender">Female</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline mb-0">
+                                        <input class="form-check-input" type="radio" name="Gender" id="otherGender"
+                                               value="Other" />
+                                        <label class="form-check-label" for="otherGender">Other</label>
+                                    </div>
+                                    <span class="text-danger">@Html.ValidationMessage("Gender")</span>
+                                </div>
+
+
+                                <lebel> Password:</lebel>
+                                <span class="text-danger">@Html.ValidationMessage("Password")</span>
+                                <input type="password" name="Password" placeholder="********" class="form-control" value="@(Model!=null? Model.Password:"")">
+                                
+                                <br />
+                                <lebel>Confrim Password:</lebel>
+                                <span class="text-danger">@Html.ValidationMessage("ConfrimPassword")</span>
+                                <input type="password" name="ConfrimPassword" placeholder="********" value="@(Model!=null? Model.ConfrimPassword:"")" class="form-control">
+                                
+                                <br />
+                                <input type="Submit" value="Sign Up" class="btn btn-outline-success btn-block mb-4">
+                                <p class="text-center text-muted mt-5 mb-0">
+                                    Have already an account? <a href="@Url.Action("SignIn","Employee")"><u>Sign In here</u></a>
+                                </p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 

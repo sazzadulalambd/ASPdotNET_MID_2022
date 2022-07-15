@@ -16,7 +16,7 @@
         <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Ideas_in_Investors" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Report" Width="1.5" PointX="3.375" PointY="8.75" />
         <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.Task" Width="1.5" PointX="8" PointY="1.625" />
-        <AssociationConnector Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" />
+        <EntityTypeShape EntityType="bePartnerCentralDatabaseModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

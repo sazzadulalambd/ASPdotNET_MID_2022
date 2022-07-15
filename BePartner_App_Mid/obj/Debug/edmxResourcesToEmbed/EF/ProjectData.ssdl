@@ -139,12 +139,22 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <Property Name="Report_Time" Type="date" />
     <Property Name="Status" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Tasks">
     <Key>
       <PropertyRef Name="TaskId" />
     </Key>
     <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Emp_Assigned" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Task_Description" Type="varchar" MaxLength="5000" Nullable="false" />
     <Property Name="Issue_time" Type="date" Nullable="false" />
     <Property Name="Due_time" Type="date" Nullable="false" />
@@ -174,18 +184,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Tasks_Employees">
-    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
-    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employees">
-        <PropertyRef Name="Emp_Email" />
-      </Principal>
-      <Dependent Role="Tasks">
-        <PropertyRef Name="Emp_Assigned" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="bePartnerCentralDatabaseModel1StoreContainer">
     <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
@@ -194,6 +192,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -208,10 +207,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
     <AssociationSet Name="FK_Ideas_in_Investors" Association="Self.FK_Ideas_in_Investors">
       <End Role="Investors" EntitySet="Investors" />
       <End Role="Ideas" EntitySet="Ideas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Tasks_Employees" Association="Self.FK_Tasks_Employees">
-      <End Role="Employees" EntitySet="Employees" />
-      <End Role="Tasks" EntitySet="Tasks" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

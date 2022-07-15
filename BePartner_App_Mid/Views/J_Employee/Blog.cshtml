@@ -13,6 +13,7 @@
     <!--Left side-->
     <div class="column1">
 
+
         <center>
             <a class="btn btn-success radious" style="width:250px;margin-bottom:10px;margin-top:10px;" href="@Url.Action("Index","J_Employee")">Dashboard</a>
 
@@ -35,51 +36,14 @@
         </center>
 
     </div>
-
-    <!--rigth side-->
     <div class="column2">
-        <h2>Enterprenur Information (@ViewBag.x)</h2>
-        <div class="card shadow mb-4">
-          
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>NID</th>
-                                <th>Occupation</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Account Status</th>
-                            </tr>
-                        </thead>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FProgrammingwithSUAS%2Fposts%2F154527543631919&show_text=true&width=500" width="500" height="350" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
-                        <tbody>
-                            @foreach (var EN in Model)
-                            {
-                                <tr>
-                                    <td>@EN.FirstName</td>
-                                    <td>@EN.LastName</td>
-                                    <td>@EN.En_Email</td>
-                                    <td>@EN.Phone</td>
-                                    <td>@EN.Nid</td>
-                                    <td>@EN.Occupation</td>
-                                    <td>@EN.Gender</td>
-                                    <td>@EN.Address</td>
-                                    <td>
-                                        <a class="btn btn-warning" href="@Url.Action("EntrepreneursInvalid","J_Employee",new {id = @EN.Nid})">Deactive</a>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FProgrammingwithSUAS%2Fposts%2F150719960679344&show_text=true&width=500" width="500" height="350" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FProgrammingwithSUAS%2Fvideos%2F207831298066314%2F&show_text=true&width=500&t=0" width="500" height="350" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+
+        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FProgrammingwithSUAS%2Fvideos%2F330638091915871%2F&show_text=true&width=500&t=0" width="500" height="350" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
         </div>
-</div>
+    </div>
 

@@ -1,37 +1,97 @@
 ﻿<link href="~/Content/em_style.css" rel="stylesheet" />
-<div class="sticky">
-    <table>
-        <tr>
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
 
-            <td><a href="@Url.Action("Index","J_Employee")"><img src="~/Img/page logo (2).png" widtd="200" height="45"></a></td>
-            <td> </td>
-            <td><a href="@Url.Action("Index","J_Employee")"><button class="buttonNav"> Home </button></a></td>
-            <td> </td>
-            <td><a href="about_em.php"><button class="buttonNav"> About </button></a></td>
-            <td> </td>
-            <td><a href="blog_em.php"><button class="buttonNav"> Blog</button> </a></td>
-            <td> </td>
-            <td><a href="contact_em.php"><button class="buttonNav"> Contact </button></a></td>
-            <td> </td>
-            <td><a href="J_Employee_profile.php"><button id="hover" class="buttonNav"> Jannaatul ferdus </button></a></td>
-            <td> </td>
-            <td><a href="../Control/em_logout.php"><button id="hover" class="buttonNav"> Logout </button></a></td>
-            <td> </td>
+<link href="~/admin_s_d/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<script src="~/admin_s_d/js/sb-admin-2.min.js"></script>
+<link href="~/admin_s_d/css/sb-admin-2.min.css" rel="stylesheet" />
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow " style="background-color:black;">
 
-        </tr>
+    <!-- Sidebar Toggle (Topbar) -->
 
-    </table>
-</div>
+    <a class="sidebar-brand d-flex sa_align-items-center justify-content-center " href="@Url.Action("Index","Home")">
+
+        <img src="~/Img/page logo (2).png" asp-append-version="true" width="200" height="45" style="position:relative;">
+    </a>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","J_Employee")">
+                <i class="fas fa-fw fa fa-home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("About","J_Employee")">
+                <i class="fas fa-fw fas fa fa-user"></i>
+                <span>About</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Blog","J_Employee")">
+                <i class="fas fa-fw fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Contact","J_Employee")">
+                <i class="fas fa-fw fas fa-phone"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
+                <i class="fas fa-fw fas fa fa-user-circle"></i>
+                <span> @ViewBag.EM_Email </span>
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+<!-- End of Topbar -->
 @RenderBody()
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; @DateTime.Now.Year BePartner</span>
+<center>
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; @DateTime.Now.Year BePartner</span>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</center>
 <hr>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="~/admin_s_d/jquery/jquery.min.js"></script>
+<script src="~/admin_s_d/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="~/admin_s_d/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="~/admin_s_d/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="~/admin_s_d/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/admin_s_d/js/demo/chart-area-demo.js"></script>
+<script src="~/admin_s_d/js/demo/chart-pie-demo.js"></script>

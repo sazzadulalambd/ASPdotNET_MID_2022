@@ -1,0 +1,114 @@
+﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    Layout = "~/Views/Employee/EM_layout.cshtml";
+}
+
+<div class="row">
+    <!--Left side-->
+    <div class="column1">
+
+        <center>
+            <a class="btn btn-success radious" style="width:250px;margin-bottom:10px;margin-top:10px;" href="@Url.Action("Index","J_Employee")">Dashboard</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AccountInformation","J_Employee")">Account Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AdminInformation","J_Employee")">Admin Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EmployeeInformation","J_Employee")"> Employee Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("InvestorInformation","J_Employee")">Investor Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EnterprenurInformation","J_Employee")">Enterprenrur Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("TaskInformation","J_Employee")">Task Information</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Messege_received","J_Employee")">Messege</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Logout","J_Employee")">Logout</a>
+
+        </center>
+
+    </div>
+    <div class="column2">
+        <table>
+            <tr>
+                <td clospan="4">
+                    <h3> Admin memebers </h3>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <img src="~/Img/SUAS.png" width="210" height="220">
+                </td>
+                <td>
+                    <img src="~/Img/MRH.png" width="210" height="220">
+                </td>
+                <td>
+                    <img src="~/Img/JF.jpg" width="210" height="220">
+                </td>
+                <td>
+                    <img src="~/Img/ALM.jpg" width="210" height="220">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="center0">
+                    <h5> <b>Sazzadul alam shawon</b></h5>
+                </td>
+                <td class="center0">
+                    <h5> <b>Md. Rifat Hossain</b></h5>
+                </td>
+                <td class="center0">
+                    <h5> <b>Jannatul Ferdus</b></h5>
+                </td>
+                <td class="center0">
+                    <h5> <b>Abdullah al Mahmud</b></h5>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="center0">
+                    <a href="https://www.facebook.com/sazzadulalamshawonbd/"><img src="~/Img/Facebook.png" width="25" height="25"></a>
+                    <a href="mailto:sazzad.sua@gmail.com"><img src="~/Img/mail.png" width="25" height="25"></a>
+
+                </td>
+                <td class="center0">
+                    <a href="https://www.facebook.com/rrriiifffaaattt/"><img src="~/Img/Facebook.png" width="25" height="25"></a>
+                    <a href="mailto:sazzad.sua@gmail.com"><img src="~/Img/mail.png" width="25" height="25"></a>
+                </td>
+                <td class="center0">
+                    <a href="https://www.facebook.com/yesmin.kakon.9/"><img src="~/Img/Facebook.png" width="25" height="25"></a>
+                    <a href="mailto:jannatul6246ferdus@gmail.com"><img src="~/Img/mail.png" width="25" height="25"></a>
+                </td>
+                <td class="center0">
+                    <a href="https://www.facebook.com/abdullahal.mahmud.5015/"><img src="~/Img/Facebook.png" width="25" height="25"></a>
+                    <a href="mailto:abdullahalmahmud06337@gmail.com"><img src="~/Img/mail.png" width="25" height="25"></a>
+                </td>
+
+            </tr>
+
+        </table>
+        <hr>
+
+        <h3> Location </h3>
+        <img src="~/Img/location.png" width=50%></a><hr>
+
+        <h3> Contact </h3>
+        <p>
+            <b>Phone Number:</b>+8801772994093 <br>
+            <b>Address:</b> 20/A, Uttora, Dhaka 1230, Bangladesh. <br>
+            <b>Mail:</b>support@bepartner.com <br>
+            <b>Website:</b>www.bepartner.com
+        </p>
+</div>
+    </div>

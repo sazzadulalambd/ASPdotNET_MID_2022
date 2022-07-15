@@ -146,6 +146,7 @@
     <Compile Include="Controllers\InvestorController.cs" />
     <Compile Include="Controllers\J_EmployeeController.cs" />
     <Compile Include="Controllers\S_AdminController.cs" />
+    <Compile Include="CustomValidation\Admin_DD.cs" />
     <Compile Include="CustomValidation\Admin_EV.cs" />
     <Compile Include="CustomValidation\Admin_PE.cs" />
     <Compile Include="CustomValidation\CustomValid.cs" />
@@ -191,13 +192,21 @@
     <Compile Include="EF\Report.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>ProjectData.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Task.cs">
       <DependentUpon>ProjectData.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin_AccountEdit.cs" />
+    <Compile Include="Models\admin_Notification.cs" />
     <Compile Include="Models\Admin_PasswordEdit.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Admin_Task.cs" />
+    <Compile Include="Models\EmployeeAccountEdit.cs" />
     <Compile Include="Models\EmployeeRegistration.cs" />
     <Compile Include="Models\EmployeeSignIn.cs" />
     <Compile Include="Models\InvestorEditPass.cs" />
@@ -2220,7 +2229,6 @@
     <Content Include="Views\InHome\InBusinessDetails.cshtml" />
     <Content Include="Views\AD_Home\AD_Chart.cshtml" />
     <Content Include="Views\AD_Home\AD_Messege.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\SignIn.cshtml" />
     <Content Include="Views\Employee\Registration.cshtml" />
     <Content Include="Views\Employee\EM_layout.cshtml" />
@@ -2230,7 +2238,18 @@
     <Content Include="Views\J_Employee\InvestorInformation.cshtml" />
     <Content Include="Views\J_Employee\EnterprenurInformation.cshtml" />
     <Content Include="Views\J_Employee\TaskInformation.cshtml" />
-    <Content Include="Views\J_Employee\Report.cshtml" />
+    <Content Include="Views\J_Employee\About.cshtml" />
+    <Content Include="Views\J_Employee\Blog.cshtml" />
+    <Content Include="Views\J_Employee\Contact.cshtml" />
+    <Content Include="Views\J_Employee\AdminInformation.cshtml" />
+    <Content Include="Views\AD_Home\AD_Task.cshtml" />
+    <Content Include="Views\AD_Home\AD_Messege_R.cshtml" />
+    <Content Include="Views\AD_Home\AD_Task_Complete.cshtml" />
+    <Content Include="Views\AD_Home\AD_Task_panding.cshtml" />
+    <Content Include="Views\J_Employee\Task_Information_done.cshtml" />
+    <Content Include="Views\J_Employee\Messege_sent.cshtml" />
+    <Content Include="Views\J_Employee\Messege_received.cshtml" />
+    <Content Include="Views\J_Employee\Messege_add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

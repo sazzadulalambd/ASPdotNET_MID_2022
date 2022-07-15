@@ -144,12 +144,22 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <Property Name="Report_Time" Type="date" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Tasks">
           <Key>
             <PropertyRef Name="TaskId" />
           </Key>
           <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Emp_Assigned" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Task_Description" Type="varchar" MaxLength="5000" Nullable="false" />
           <Property Name="Issue_time" Type="date" Nullable="false" />
           <Property Name="Due_time" Type="date" Nullable="false" />
@@ -179,18 +189,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Tasks_Employees">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="Emp_Email" />
-            </Principal>
-            <Dependent Role="Tasks">
-              <PropertyRef Name="Emp_Assigned" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="bePartnerCentralDatabaseModel1StoreContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
@@ -199,6 +197,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <EntitySet Name="Investors" EntityType="Self.Investors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -213,10 +212,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <AssociationSet Name="FK_Ideas_in_Investors" Association="Self.FK_Ideas_in_Investors">
             <End Role="Investors" EntitySet="Investors" />
             <End Role="Ideas" EntitySet="Ideas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tasks_Employees" Association="Self.FK_Tasks_Employees">
-            <End Role="Employees" EntitySet="Employees" />
-            <End Role="Tasks" EntitySet="Tasks" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -267,10 +262,7 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           </AssociationSet>
           <EntitySet Name="Reports" EntityType="bePartnerCentralDatabaseModel1.Report" />
           <EntitySet Name="Tasks" EntityType="bePartnerCentralDatabaseModel1.Task" />
-          <AssociationSet Name="FK_Tasks_Employees" Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Task" EntitySet="Tasks" />
-          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="bePartnerCentralDatabaseModel1.sysdiagram" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -304,7 +296,6 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tasks" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Employee" ToRole="Task" />
         </EntityType>
         <EntityType Name="Entrepreneur">
           <Key>
@@ -417,25 +408,22 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
             <PropertyRef Name="TaskId" />
           </Key>
           <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Emp_Assigned" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Task_Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
           <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Status" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Task" ToRole="Employee" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_Tasks_Employees">
-          <End Type="bePartnerCentralDatabaseModel1.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="bePartnerCentralDatabaseModel1.Task" Role="Task" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Emp_Email" />
-            </Principal>
-            <Dependent Role="Task">
-              <PropertyRef Name="Emp_Assigned" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -590,12 +578,23 @@ warning 6002: The table/view 'bePartnerCentralDatabase.dbo.Login' does not have 
           <EntitySetMapping Name="Tasks">
             <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.Task">
               <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Due_time" ColumnName="Due_time" />
                 <ScalarProperty Name="Issue_time" ColumnName="Issue_time" />
                 <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
-                <ScalarProperty Name="Emp_Assigned" ColumnName="Emp_Assigned" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bePartnerCentralDatabaseModel1.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

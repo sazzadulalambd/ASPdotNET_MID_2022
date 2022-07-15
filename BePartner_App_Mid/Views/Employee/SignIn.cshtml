@@ -3,32 +3,51 @@
     ViewBag.Title = "SignIn";
 }
 
-<h2>SignIn</h2>
-<h2>Welcome Back !</h2>
-<form action="" method="post">
 
-    <label>Email:</label>
-    <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Email:"")" class="form-control">
-    @Html.ValidationMessage("Email")
-    <br />
-    <lebel> Password:</lebel>
-    <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
-    @Html.ValidationMessage("Password")
-    <br />
+<section class="h-100 bg-gradient-success">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center sa_align-items-center h-100">
+            <div class="col">
+                <div class="container ad-continer taransparent">
+
+                    <center>
+                        <img class="img-fluid" src="~/Img/title_logo.png" style="height: 150px; width: 160px; padding: 20px;">
+                        <h2 style="color:white"> Employee Sign In</h2>
+                    </center>
+                    <form action="" method="post">
+
+                        <label style="color:white">Email:</label>
+                        <span class="text-danger">@Html.ValidationMessage("Email")</span>
+                        <input type="email" name="Email" placeholder="employee@bepartner.com" value="@(Model!=null? Model.Email:"")" class="form-control">
+
+                        <br />
+                        <lebel style="color:white"> Password:</lebel>
+                        <span class="text-danger">@Html.ValidationMessage("Password")</span>
+                        <input type="password" name="Password" placeholder="********" class="form-control" value="@(Model!=null? Model.Password:"")">
+
+                        <br />
 
 
-    <input type="submit" value="Login" name="submit" class="btn btn-success in-login-button">
+                        <input type="submit" value="Sign In" name="submit" class="btn btn-outline-success btn-block mb-4">
 
 
 
 
-    <div class="text-center">
-        <p> Not a member? <a href="@Url.Action("Registration","Employee")"> SignUp </a> </p>
+                        <div style="color:white" class="text-center">
+                            <p> Not a member? <a style="color:blue" href="@Url.Action("Registration","Employee")"> Sign Up </a> </p>
 
-    </div>
+                        </div>
 
 
-</form>
+                    </form>
+                    <center> <h5 class="text-danger">@ViewBag.Message</h5></center>
+                   
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 

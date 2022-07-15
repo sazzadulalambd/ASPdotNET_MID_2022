@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "AD_Task_panding";
+}
+
+@{
+    Layout = "~/Views/AD_Home/_AD_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex sa_align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Task</h1>
+    </div>
+
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3 d-sm-flex sa_align-items-center mb-4 justify-content-between ">
+            <div class="card-body">
+                <a class="btn btn-outline-info ad-reg-button " href='@Url.Action("AD_Task", "AD_Home")'>
+                    Add Task
+                </a>
+                <a class="btn btn-warning ad-reg-button " href='@Url.Action("AD_Task_panding", "AD_Home")'>
+                    Panding
+                </a>
+                <a class="btn btn-outline-success ad-reg-button " href='@Url.Action("AD_Task_Complete", "AD_Home")'>
+                    Complete
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            @foreach (var RR in Model)
+            {
+                <div class="card border-bottom-warning">
+                    <br />
+                    <h5>&emsp;Subject: @RR.Subject</h5>
+                    <h6>&emsp;Task ID: @RR.TaskId</h6>
+                    <h6>&emsp;Due_time: @RR.Due_time</h6>
+                    <label>&emsp;Task Description:</label>
+                    <p>&emsp;@RR.Task_Description</p>
+
+                </div>
+                <br />
+            }
+
+        </div>
+
+
+    </div>
+</div>

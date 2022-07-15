@@ -1,4 +1,10 @@
 ﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+
 @{
     Layout = "~/Views/Employee/EM_layout.cshtml";
 }
@@ -7,101 +13,72 @@
     <!--Left side-->
     <div class="column1">
 
+        <center>
+            <a class="btn btn-success radious" style="width:250px;margin-bottom:10px;margin-top:10px;" href="@Url.Action("Index","J_Employee")">Dashboard</a>
 
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AccountInformation","J_Employee")">Account Information</a>
 
-        <a class="nav-link" href="@Url.Action("Index","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Dashboard</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AdminInformation","J_Employee")">Admin Information</a>
 
-        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Account Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EmployeeInformation","J_Employee")"> Employee Information</a>
 
-        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Employee Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("InvestorInformation","J_Employee")">Investor Information</a>
 
-        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Investor Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EnterprenurInformation","J_Employee")">Enterprenrur Information</a>
 
-        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Enterprenrur Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("TaskInformation","J_Employee")">Task Information</a>
 
-        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Task Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Messege_receivedMessege_received","J_Employee")">Messege</a>
 
-        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Report</span>
-        </a>
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Logout","J_Employee")">Logout</a>
 
+        </center>
     </div>
 
     <!--rigth side-->
     <div class="column2">
-        <h2>Investor Information</h2>
-        <form action="" method="POST">
-            <input type="text" name="searchdata">
-            <input type="submit" class="search_buttons" name="search" value="Search">
-            <br />
-            <br />
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="1">
+        <h2>Investor Information (@ViewBag.x)</h2>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>NID</th>
+                                <th>Organization</th>
+                                <th>TIN</th>
+                                <th>Website</th>
+                                <th>Address</th>
+                                <th>Account Status</th>
+                            </tr>
+                        </thead>
 
-                <thead>
-                    <tr>
-                        <th>FristName</th>
-                        <th>LastName</th>
-                        <th>Email</th>
-                        <th>Tin</th>
-                        <th>Gender</th>
-                        <th>Address</th>
-                    </tr>
-                </thead>
+                        <tbody>
+                            @foreach (var IN in Model)
+                            {
+                                <tr>
+                                    <td>@IN.FirstName</td>
+                                    <td>@IN.LastName</td>
+                                    <td>@IN.In_Email</td>
+                                    <td>@IN.Phone</td>
+                                    <td>@IN.Nid</td>
+                                    <td>@IN.OrgName</td>
+                                    <td>@IN.Tin</td>
+                                    <td>@IN.OrgSite</td>
+                                    <td>@IN.OrgLocation</td>
+                                    <td>@IN.Status</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-                <tbody>
-                    <tr>
-                        <th>Kakon</th>
-                        <th>Akter</th>
-                        <th>kakon@gmail.com</th>
-                        <th>9876</th>
-                        <th>Female</th>
-                        <th>Gazipur</th>
-                    </tr>
-                    <tr>
-                        <th>Sbbir</th>
-                        <th>Ahmed</th>
-                        <th>sabbir@gmail.com</th>
-                        <th>8912</th>
-                        <th>Male</th>
-                        <th>Kalikur</th>
-                    </tr>
-                </tbody>
-            </table>
-
-        </form>
     </div>
-</div>
 
 

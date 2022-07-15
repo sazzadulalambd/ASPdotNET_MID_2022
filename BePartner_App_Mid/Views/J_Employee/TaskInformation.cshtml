@@ -1,4 +1,10 @@
 ﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+
 @{
     Layout = "~/Views/Employee/EM_layout.cshtml";
 }
@@ -7,107 +13,53 @@
     <!--Left side-->
     <div class="column1">
 
+        <center>
+            <a class="btn btn-success radious" style="width:250px;margin-bottom:10px;margin-top:10px;" href="@Url.Action("Index","J_Employee")">Dashboard</a>
 
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AccountInformation","J_Employee")">Account Information</a>
 
-        <a class="buttonEM" href="@Url.Action("Index","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span>Dashboard</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AdminInformation","J_Employee")">Admin Information</a>
 
-        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Account Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EmployeeInformation","J_Employee")"> Employee Information</a>
 
-        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Employee Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("InvestorInformation","J_Employee")">Investor Information</a>
 
-        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Investor Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EnterprenurInformation","J_Employee")">Enterprenrur Information</a>
 
-        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Enterprenrur Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("TaskInformation","J_Employee")">Task Information</a>
 
-        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Task Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Messege_received","J_Employee")">Messege</a>
 
-        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Report</span>
-        </a>
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Logout","J_Employee")">Logout</a>
 
+        </center>
     </div>
 
     <!--rigth side-->
     <div class="column2">
-        <h2>TaskInformation</h2>
-        <form action="" method="POST">
-            <input type="text" name="searchdata">
-            <input type="submit" class="search_buttons" name="search" value="Search">
-            <br />
-            <br />
-            <table>
-                <tbody>
-                    <tr>
-                        <th>
+        <h2>Panding Task</h2>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a class="btn btn-warning radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("TaskInformation","J_Employee")">Panding Task</a>
+                <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Task_Information_done","J_Employee")">Completed Task</a>
+                
+                @foreach (var RR in Model)
+                {
+                    <div class="card border-warning">
+                        <br />
+                        <h5>&emsp;Subject: @RR.Subject</h5>
+                        <h6>&emsp;Task ID: @RR.TaskId</h6>
+                        <h6>&emsp;Due_time: @RR.Due_time</h6>
+                        <label>&emsp;Task Description:</label>
+                        <p>&emsp;@RR.Task_Description</p>
 
-                            subject:Very Improtantz
-                            <br />
-                            From:Sazzad.sua@gamil.com
-                            <br />
+                        <a class="btn btn-success" href="@Url.Action("Task_Complete","J_Employee",new {id = RR.TaskId})">Done</a>
 
-                            Message:Add Enterprenenur rakirul@gmail.com
-                            <br />
-
-                            <input type="submit" class="search_buttons" name="search" value="Done">
-                        </th>
-
-                    </tr>
-
-
-                </tbody>
-
-                <tbody>
-                    <tr>
-                        <th>
-                            subject:Remove the Enterprenenur
-                            <br />
-                            From:rifat@gamil.com
-                            <br />
-                            Message:"hasib.com"deactive him website.
-                            <br />
-                            <input type="submit" class="search_buttons" name="search" value="Done">
-                        </th>
-
-                    </tr>
-
-
-                </tbody>
-
-
-            </table>
-        </form>
+                    </div>
+                    <br />
+                }
+            </div>
+        </div>
     </div>
 </div>
 

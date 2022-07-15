@@ -20,6 +20,24 @@ namespace BePartner_App_Mid.Controllers
             if (Session["Email"] != null)
             {
 
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+
+               // var db = new bePartnerCentralDatabaseEntities2();
+                var ads = db.Admins.ToList();
+                ViewBag.Alladmin = ads.Count();
+                var ins = (from I in db.Investors where I.Status.Equals("Valid") select I).ToList();
+                ViewBag.allInvaestors=ins.Count();
+                var ens = (from I in db.Entrepreneurs where I.Status.Equals("Valid") select I).ToList();
+                ViewBag.allEntrepreneurs=ens.Count();
+                var ems = (from I in db.Employees where I.Status.Equals("Valid") select I).ToList();
+                ViewBag.allEmployees=ems.Count();
+
                 ViewBag.AD_Email = Session["Email"].ToString();
                 return View();
             }
@@ -172,8 +190,15 @@ namespace BePartner_App_Mid.Controllers
         {
             if (Session["Email"] != null)
             {
+                
+                //new_messege
                 var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var AD = (from I in db.Admins where I.Ad_Email.Equals(email) select I).FirstOrDefault();
                 
                 //ViewBag.AD_Img = Session["Admin_img"].ToString();
@@ -260,7 +285,14 @@ namespace BePartner_App_Mid.Controllers
         {
             if (Session["Email"] != null)
             {
+                //new_messege
+                var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var ads = db.Admins.ToList();
 
                 ViewBag.AD_Email = Session["Email"].ToString();
@@ -594,8 +626,14 @@ namespace BePartner_App_Mid.Controllers
             if (Session["Email"] != null)
             {
                 ViewBag.AD_Email = Session["Email"].ToString();
-
+                //new_messege
+                var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var ems = (from I in db.Employees where I.Status.Equals("Valid") select I).ToList();
                 //var ems = db.Employees.ToList();
                 return View(ems);
@@ -609,7 +647,14 @@ namespace BePartner_App_Mid.Controllers
             {
                 ViewBag.AD_Email = Session["Email"].ToString();
 
+                //new_messege
+                var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var ins = (from I in db.Investors where I.Status.Equals("Valid") select I).ToList();
 
                 //var ins = db.Investors.ToList();
@@ -625,7 +670,14 @@ namespace BePartner_App_Mid.Controllers
             {
                 ViewBag.AD_Email = Session["Email"].ToString();
 
+                //new_messege
+                var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var EN = (from I in db.Entrepreneurs where I.Status.Equals("Valid") select I).ToList();
 
                 // var ens = db.Entrepreneurs.ToList();
@@ -640,12 +692,22 @@ namespace BePartner_App_Mid.Controllers
             if (Session["Email"] != null)
             {
                 ViewBag.AD_Email = Session["Email"].ToString();
+                //new_messege
+                var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //ViewBag.AD_Email = Session["Email"].ToString();
+               // var db = new bePartnerCentralDatabaseEntities2();
                 List<admin_Notification> admin_nft  = new List<admin_Notification>();
   
                 var nfts = new admin_Notification();
 
                 var ems = (from I in db.Employees where I.Status.Equals("Invalid") select I).ToList();
+                ViewBag.emss = ems.Count();
                 foreach (var i_em in ems)
                 {
                     nfts.Emp_FirstName = i_em.FirstName;
@@ -660,6 +722,7 @@ namespace BePartner_App_Mid.Controllers
                 }
 
                 var ins = (from I in db.Investors where I.Status.Equals("Invalid") select I).ToList();
+                ViewBag.inss = ins.Count();
                 foreach (var i_in in ins)
                 {
                     nfts.In_FirstName = i_in.FirstName;
@@ -677,6 +740,7 @@ namespace BePartner_App_Mid.Controllers
                 }
 
                 var ens = (from I in db.Entrepreneurs where I.Status.Equals("Invalid") select I).ToList();
+                ViewBag.enss = ens.Count();
                 foreach (var i_en in ens)
                 { 
                     nfts.En_FirstName = i_en.FirstName;
@@ -708,6 +772,13 @@ namespace BePartner_App_Mid.Controllers
             {
 
                 ViewBag.AD_Email = Session["Email"].ToString();
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
                 return View();
             }
             return RedirectToAction("login_S", "S_Admin");
@@ -737,10 +808,17 @@ namespace BePartner_App_Mid.Controllers
 
             if (Session["Email"] != null)
             {
+                
                 ViewBag.AD_Email = Session["Email"].ToString();
-
+                //new_messege
                 var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                //var email = Session["Email"].ToString();
+                //var db = new bePartnerCentralDatabaseEntities2();
                 var reps = (from I in db.Reports where I.sender.Equals(email) select I).ToList();
 
                 //var ins = db.Investors.ToList();
@@ -750,30 +828,30 @@ namespace BePartner_App_Mid.Controllers
         }
 
         [HttpPost]
-        public ActionResult AD_Messege(Admin_Report AR)
+        public ActionResult AD_Messege(Models.Report AR)
         {
-
-
-
-            var db = new bePartnerCentralDatabaseEntities2();
-            var email = Session["Email"].ToString();
-            var AD_report = new Report()
+            if (ModelState.IsValid)
             {
-                sender=email,
-                Receiver=AR.Receiver,
-                Title = AR.Subject,
-                Description=AR.WMFH,
-                Report_Time= DateTime.Now,
-                Status= "Sent"
-            };
+                var db = new bePartnerCentralDatabaseEntities2();
+                var email = Session["Email"].ToString();
+                var AD_report = new EF.Report()
+                {
+                    sender = email,
+                    Receiver = AR.Receiver,
+                    Title = AR.Subject,
+                    Description = AR.WMFH,
+                    Report_Time = DateTime.Now,
+                    Status = "Sent"
+                };
 
-            db.Reports.Add(AD_report);
+                db.Reports.Add(AD_report);
+
+                db.SaveChanges();
+
+                
+            }
+                return RedirectToAction("AD_Messege");
             
-            db.SaveChanges();
-
-
-
-            return RedirectToAction("AD_Messege");
         }
 
             public ActionResult AD_Messege_R()
@@ -785,7 +863,10 @@ namespace BePartner_App_Mid.Controllers
 
                 var email = Session["Email"].ToString();
                 var db = new bePartnerCentralDatabaseEntities2();
+                //new_messege
                 var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
 
                 //var ins = db.Investors.ToList();
                 return View(rep);
@@ -802,7 +883,102 @@ namespace BePartner_App_Mid.Controllers
             {
 
                 ViewBag.AD_Email = Session["Email"].ToString();
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
                 return View();
+            }
+            return RedirectToAction("login_S", "S_Admin");
+        }
+        [HttpGet]
+        public ActionResult AD_Task()
+        {
+
+            if (Session["Email"] != null)
+            {
+
+                ViewBag.AD_Email = Session["Email"].ToString();
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                return View();
+            }
+            return RedirectToAction("login_S", "S_Admin");
+        }
+
+        [HttpPost]
+        public ActionResult AD_Task(Admin_Task AT)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new bePartnerCentralDatabaseEntities2();
+                var email = Session["Email"].ToString();
+                var AD_Task_ad = new Task()
+                {
+                    Subject = AT.Subject,
+                    Task_Description = AT.WMFH,
+                    Due_time = AT.datetime.Date,
+                    Issue_time = DateTime.Now,
+                    Status = "sent"
+                };
+
+                db.Tasks.Add(AD_Task_ad);
+
+                db.SaveChanges();
+
+            }
+
+            return View();
+        }
+
+            public ActionResult AD_Task_panding()
+        {
+
+
+            if (Session["Email"] != null)
+            {
+                ViewBag.AD_Email = Session["Email"].ToString();
+
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                //new_messege
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                var PT = (from I in db.Tasks where I.Status.Equals("sent") orderby I.TaskId select I).ToList();
+                return View(PT);
+
+            }
+            return RedirectToAction("login_S", "S_Admin");
+        }
+
+       
+
+        public ActionResult AD_Task_Complete()
+        {
+
+            if (Session["Email"] != null)
+            {
+
+                ViewBag.AD_Email = Session["Email"].ToString();
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
+                var PT = (from I in db.Tasks where I.Status.Equals("Done") orderby I.TaskId select I).ToList();
+                return View(PT);
             }
             return RedirectToAction("login_S", "S_Admin");
         }
@@ -813,6 +989,13 @@ namespace BePartner_App_Mid.Controllers
 
             if (Session["Email"] != null)
             {
+                //new_messege
+                var email = Session["Email"].ToString();
+                var db = new bePartnerCentralDatabaseEntities2();
+                var rep = (from I in db.Reports where I.Receiver.Equals(email) select I).ToList();
+                Session["Totalmsg"] = rep.Count();
+                ViewBag.Totalmsg = Session["Totalmsg"].ToString();
+
                 return View();
             }
             return RedirectToAction("login_S", "S_Admin");

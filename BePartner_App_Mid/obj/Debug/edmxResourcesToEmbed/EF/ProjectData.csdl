@@ -44,10 +44,7 @@
     </AssociationSet>
     <EntitySet Name="Reports" EntityType="bePartnerCentralDatabaseModel1.Report" />
     <EntitySet Name="Tasks" EntityType="bePartnerCentralDatabaseModel1.Task" />
-    <AssociationSet Name="FK_Tasks_Employees" Association="bePartnerCentralDatabaseModel1.FK_Tasks_Employees">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="Task" EntitySet="Tasks" />
-    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="bePartnerCentralDatabaseModel1.sysdiagram" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -81,7 +78,6 @@
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Tasks" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Employee" ToRole="Task" />
   </EntityType>
   <EntityType Name="Entrepreneur">
     <Key>
@@ -194,23 +190,20 @@
       <PropertyRef Name="TaskId" />
     </Key>
     <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Emp_Assigned" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Task_Description" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
     <Property Name="Issue_time" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Due_time" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Status" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Employee" Relationship="bePartnerCentralDatabaseModel1.FK_Tasks_Employees" FromRole="Task" ToRole="Employee" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="FK_Tasks_Employees">
-    <End Type="bePartnerCentralDatabaseModel1.Employee" Role="Employee" Multiplicity="1" />
-    <End Type="bePartnerCentralDatabaseModel1.Task" Role="Task" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="Emp_Email" />
-      </Principal>
-      <Dependent Role="Task">
-        <PropertyRef Name="Emp_Assigned" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

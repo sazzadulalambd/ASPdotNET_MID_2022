@@ -1,4 +1,10 @@
 ﻿<link href="~/Content/em_style.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+
 @{
     Layout = "~/Views/Employee/EM_layout.cshtml";
 }
@@ -8,126 +14,134 @@
     <div class="column1">
 
 
+        <center>
+            <a class="btn btn-success radious" style="width:250px;margin-bottom:10px;margin-top:10px;" href="@Url.Action("Index","J_Employee")">Dashboard</a>
 
-        <a class="nav-link" href="@Url.Action("Index","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Dashboard</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AccountInformation","J_Employee")">Account Information</a>
 
-        <a class="nav-link" href="@Url.Action("AccountInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Account Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("AdminInformation","J_Employee")">Admin Information</a>
 
-        <a class="nav-link" href="@Url.Action("EmployeeInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Employee Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EmployeeInformation","J_Employee")"> Employee Information</a>
 
-        <a class="nav-link" href="@Url.Action("InvestorInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Investor Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("InvestorInformation","J_Employee")">Investor Information</a>
 
-        <a class="nav-link" href="@Url.Action("EnterprenurInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Enterprenrur Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("EnterprenurInformation","J_Employee")">Enterprenrur Information</a>
 
-        <a class="nav-link" href="@Url.Action("TaskInformation","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Task Information</span>
-        </a>
-        <br />
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("TaskInformation","J_Employee")">Task Information</a>
 
-        <a class="nav-link" href="@Url.Action("Report","J_Employee")">
-            <!--<i class="fas fa-fw fa-tachometer-alt"></i>-->
-            <span class="buttonAD">Report</span>
-        </a>
-        <br />
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Messege_received","J_Employee")">Messege</a>
+
+            <a class="btn btn-success radious" style="width: 250px; margin-bottom: 10px" href="@Url.Action("Logout","J_Employee")">Logout</a>
+
+        </center>
 
     </div>
 
     <!--rigth side-->
     <div class="column2">
         <h2>Account Information</h2>
-        <form action="" method="POST">
-            <input type="text" name="searchdata">
-            <input type="submit" class="search_buttons" name="search" value="Search">
+        <form action="/J_Employee/AccountInformation" method="POST">
+
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">First name:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("FirstName")</span>*@
+                        <input type="text" name="FirstName" value="@(Model!=null? Model.FirstName:"")" placeholder="First name" id="form3Example1m" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1n">Last name:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("LastName")</span>*@
+                        <input type="text" name="LastName" placeholder="Enter your last name.." value="@(Model!=null? Model.LastName:"")" class="form-control">
+                    </div>
+                </div>
+            </div>
             <br />
 
-            <Center>
-                <label>First Name:</label>
-                <input type="text" name="FirstName" placeholder="Enter your frist name.." value="@(Model!=null? Model.FirstName:"")" class="form-control">
-                @Html.ValidationMessage("FirstName")
-                <br />
-                <br />
-                <label>Last Name:</label>
-                <input type="text" name="LastName" placeholder="Enter your last name.." value="@(Model!=null? Model.LastName:"")" class="form-control">
-                @Html.ValidationMessage("LastName")
-                <br />
-                <br />
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">Date of birth:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Dob")</span>*@
+                        <input type="date" name="Dob" value="@(Model!=null? Model.Dob:"")" class="form-control">
+                    </div>
+                </div>
 
-                <label>Date of birth:</label>
-                <input type="date" name="Dob" value="@(Model!=null? Model.Dob:"")" class="form-control">
-                @Html.ValidationMessage("Dob")
-                <br />
-                <br />
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1n">NID:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Nid")</span>*@
+                        <input type="text" name="Nid" placeholder="Enter your nid number.." value="@(Model!=null? Model.Nid:"")" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label>Email:</label>
+                    <span class="text-danger"> @Html.ValidationMessage("Email")</span>
+                    <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Emp_Email:"")" class="form-control" disabled>
 
-                <label>Phone:</label>
-                <input type="tel" name="Phone" placeholder="Enter your phone number.." value="@(Model!=null? Model.Phone:"")" class="form-control">
-                @Html.ValidationMessage("Phone")
-                <br />
-                <br />
 
-                <label>Email:</label>
-                <input type="email" name="Email" placeholder="Enter your full email address.." value="@(Model!=null? Model.Email:"")" class="form-control">
-                @Html.ValidationMessage("Email")
-                <br />
-                <br />
+                </div>
 
-                <label>NID number:</label>
-                <input type="text" name="Nid" placeholder="Enter your nid number.." value="@(Model!=null? Model.Nid:"")" class="form-control">
-                @Html.ValidationMessage("Nid")
-                <br />
-                <br />
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1n">Phone:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Phone")</span>*@
+                        <input type="text" name="Phone" placeholder="Enter your phone number.." value="@(Model!=null? Model.Phone:"")" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <br />
 
-                <label>Parmanent Address:</label>
-<textarea class="form-control" rows="5" name="Address" placeholder="Enter your full address.." value="@(Model!=null? Model.Address:"")"></textarea>
-                @Html.ValidationMessage("Address")
-                <br />
-                <br />
-                <lebel> Password:</lebel>
-                <input type="password" name="Password" class="form-control" value="@(Model!=null? Model.Password:"")">
-                @Html.ValidationMessage("Password")
-                <br />
-                <br />
-                <lebel>Confrim Password:</lebel>
-                <input type="password" name="ConfrimPassword" value="@(Model!=null? Model.ConfrimPassword:"")" class="form-control">
-                @Html.ValidationMessage("ConfrimPassword")
-                <br />
-                <br />
-                <Center>
-                    <input type="Submit" class="btn btn-success">
-                    <input type="Reset" class="btn btn-success">
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1n">Security key:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Security_key")</span>*@
+                        <input type="text" name="Security_key" value="@(Model!=null? Model.Security_key:"")" placeholder="Security key" id="form3Example1n" class="form-control " />
+
+                    </div>
                     <br />
-                    <h2>Delete Account*</h2>
-                    <h4>Onec you delete your account,there is no going back.Please be certain</h4>
-                    <input type="submit" class="btn btn-success" name="search" value="Delete">
-                </Center>
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">Password:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Password")</span>*@
+                        <input type="password" name="Password" placeholder="********" class="form-control" value="@(Model!=null? Model.Password:"")">
+                    </div>
 
+                    <br />
+                    <input type="Submit" value="Save" class="btn btn-success">
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">Parmanent Address:</label>
+                        @*<span class="text-danger">@Html.ValidationMessage("Address")</span>*@
+                       <input type="text" name="Address" placeholder="Address" class="form-control" value="@(Model!=null? Model.Address:"")">
+                    </div>
+                </div>
+
+
+            </div>
+ 
+            <br />
         </form>
+            <hr />
+            <form action="/J_Employee/Delete_Account" method="post">
+                <h3 style="color:red;"> Delete Account* </h3>
+                <p>Once you delete your account, there is no going back. Please be certain.</p>
+                <input type="Submit" value="Delete" class="btn btn-danger">
+            </form>
+
+
+        
     </div>
 </div>
 
