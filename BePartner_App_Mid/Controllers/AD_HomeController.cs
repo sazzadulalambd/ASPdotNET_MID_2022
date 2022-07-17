@@ -751,10 +751,11 @@ namespace BePartner_App_Mid.Controllers
                     nfts.En_Phone = i_en.Phone;
                     nfts.En_Nid = i_en.Nid; 
                     nfts.En_Occupation = i_en.Occupation;
+                    admin_nft.Add(nfts);
                 }
 
 
-                    admin_nft.Add(nfts);
+                    
 
                 return View(admin_nft);
 
